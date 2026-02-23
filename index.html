@@ -1,3 +1,1178 @@
-dh-synodia.github.io
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>국제교류부 - Global Exchange Club</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
 
-hi~~
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #6c5ce7;
+      --primary-light: #a29bfe;
+      --accent: #fd79a8;
+      --accent-gold: #ffeaa7;
+      --bg-light: #f8f5ff;
+      --text-dark: #2d3436;
+      --text-light: #636e72;
+      --white: #ffffff;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      color: var(--text-dark);
+      line-height: 1.7;
+    }
+
+    /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(108, 92, 231, 0.92);
+      backdrop-filter: blur(10px);
+      padding: 0 2rem;
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+    }
+
+    .nav-logo {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-logo span {
+      font-size: 1.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 400;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 30%, #fd79a8 70%, #fab1a0 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 2rem;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 50px;
+      padding: 0.5rem 1.5rem;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+      letter-spacing: 1px;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 900;
+      margin-bottom: 0.5rem;
+      letter-spacing: -1px;
+    }
+
+    .hero h1 .eng {
+      display: block;
+      font-size: 1.3rem;
+      font-weight: 300;
+      letter-spacing: 4px;
+      margin-top: 0.5rem;
+      opacity: 0.8;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      font-weight: 300;
+      margin-top: 1.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0.9;
+      line-height: 1.8;
+    }
+
+    .hero-cta {
+      margin-top: 2.5rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: all 0.3s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--white);
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .btn-primary:hover {
+      background: #f0ecff;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(108, 92, 231, 0.3);
+    }
+
+    .btn-outline {
+      border: 2px solid rgba(255,255,255,0.5);
+      color: var(--white);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: bounce 2s infinite;
+      color: rgba(255,255,255,0.6);
+      font-size: 1.5rem;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+      40% { transform: translateX(-50%) translateY(-10px); }
+      60% { transform: translateX(-50%) translateY(-5px); }
+    }
+
+    /* Sections */
+    section {
+      padding: 5rem 2rem;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-header h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-header .subtitle {
+      font-size: 1rem;
+      color: var(--text-light);
+      font-weight: 300;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .section-header .divider {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary-light), var(--accent));
+      margin: 1rem auto 0;
+      border-radius: 2px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* About Section */
+    #about {
+      background: var(--white);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about-text h3 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    .about-text p {
+      color: var(--text-light);
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .about-highlights {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin-top: 1.5rem;
+    }
+
+    .highlight-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+    }
+
+    .highlight-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #dfe6e9, #f8f5ff);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .highlight-item .label {
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+    }
+
+    .highlight-item .desc {
+      font-size: 0.8rem;
+      color: var(--text-light);
+    }
+
+    .about-visual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .stat-card {
+      background: linear-gradient(135deg, #a29bfe, #6c5ce7);
+      color: var(--white);
+      padding: 1.5rem;
+      border-radius: 16px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .stat-card:nth-child(2) {
+      background: linear-gradient(135deg, #fd79a8, #e84393);
+      transform: translateY(1rem);
+    }
+
+    .stat-card:nth-child(3) {
+      background: linear-gradient(135deg, #55efc4, #00b894);
+      transform: translateY(-1rem);
+    }
+
+    .stat-card:nth-child(2):hover {
+      transform: translateY(0.5rem);
+    }
+
+    .stat-card:nth-child(3):hover {
+      transform: translateY(-1.5rem);
+    }
+
+    .stat-card:nth-child(4) {
+      background: linear-gradient(135deg, #fdcb6e, #f39c12);
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 900;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      opacity: 0.9;
+      margin-top: 0.3rem;
+    }
+
+    /* Goals Section */
+    #goals {
+      background: var(--bg-light);
+    }
+
+    .goals-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .goal-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .goal-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary-light), var(--accent));
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+
+    .goal-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .goal-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .goal-icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #f8f5ff, #e8e4ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.2rem;
+      font-size: 2rem;
+    }
+
+    .goal-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      color: var(--primary);
+    }
+
+    .goal-card p {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    /* Activities Section */
+    #activities {
+      background: var(--white);
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 3rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--primary-light), var(--accent), #55efc4);
+      border-radius: 2px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2.5rem;
+      padding-left: 1.5rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2.35rem;
+      top: 0.5rem;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 3px solid var(--white);
+      box-shadow: 0 0 0 3px var(--primary-light);
+    }
+
+    .timeline-date {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary-light), var(--accent));
+      color: var(--white);
+      padding: 0.3rem 1rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-bottom: 0.7rem;
+    }
+
+    .timeline-content {
+      background: var(--bg-light);
+      border-radius: 12px;
+      padding: 1.5rem;
+      border-left: 3px solid var(--accent);
+    }
+
+    .timeline-content h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--text-dark);
+    }
+
+    .timeline-content p {
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    .timeline-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.8rem;
+    }
+
+    .tag {
+      background: rgba(162,155,254,0.15);
+      color: var(--primary);
+      padding: 0.2rem 0.7rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    /* Gallery Section */
+    #gallery {
+      background: var(--bg-light);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .gallery-item {
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+      transition: all 0.3s;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    }
+
+    .gallery-img {
+      width: 100%;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+
+    .gallery-img.img1 { background: linear-gradient(135deg, #a29bfe, #6c5ce7); }
+    .gallery-img.img2 { background: linear-gradient(135deg, #fd79a8, #e84393); }
+    .gallery-img.img3 { background: linear-gradient(135deg, #55efc4, #00b894); }
+    .gallery-img.img4 { background: linear-gradient(135deg, #fdcb6e, #f39c12); }
+    .gallery-img.img5 { background: linear-gradient(135deg, #74b9ff, #0984e3); }
+    .gallery-img.img6 { background: linear-gradient(135deg, #fab1a0, #e17055); }
+
+    .gallery-caption {
+      padding: 1.2rem;
+    }
+
+    .gallery-caption h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 0.3rem;
+    }
+
+    .gallery-caption p {
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
+
+    /* Members Section */
+    #members {
+      background: var(--white);
+    }
+
+    .members-info {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .member-category {
+      background: var(--bg-light);
+      border-radius: 16px;
+      padding: 2rem;
+    }
+
+    .member-category h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .member-list {
+      list-style: none;
+    }
+
+    .member-list li {
+      padding: 0.7rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.95rem;
+    }
+
+    .member-list li:last-child {
+      border-bottom: none;
+    }
+
+    .role-badge {
+      background: var(--primary);
+      color: var(--white);
+      padding: 0.2rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    .role-badge.advisor { background: #fdcb6e; color: #333; }
+    .role-badge.president { background: var(--accent); color: var(--white); }
+    .role-badge.vice { background: #a29bfe; }
+
+    /* Contact Section */
+    #contact {
+      background: linear-gradient(135deg, #a29bfe, #6c5ce7, #fd79a8);
+      color: var(--white);
+    }
+
+    #contact .section-header h2 {
+      color: var(--white);
+    }
+
+    #contact .section-header .subtitle {
+      color: rgba(255,255,255,0.7);
+    }
+
+    #contact .section-header .divider {
+      background: rgba(255,255,255,0.6);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .contact-card {
+      text-align: center;
+      padding: 2rem;
+      background: rgba(255,255,255,0.1);
+      border-radius: 16px;
+      backdrop-filter: blur(5px);
+      transition: all 0.3s;
+    }
+
+    .contact-card:hover {
+      background: rgba(255,255,255,0.15);
+      transform: translateY(-3px);
+    }
+
+    .contact-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-size: 1.5rem;
+    }
+
+    .contact-card h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-card p {
+      font-size: 0.9rem;
+      opacity: 0.85;
+    }
+
+    /* Footer */
+    .footer {
+      background: #2d3436;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+    }
+
+    .footer a {
+      color: var(--primary-light);
+      text-decoration: none;
+    }
+
+    /* Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: rgba(108, 92, 231, 0.95);
+        padding: 1.5rem 2rem;
+        gap: 1rem;
+      }
+      .mobile-toggle { display: block; }
+
+      .hero h1 { font-size: 2.2rem; }
+      .hero h1 .eng { font-size: 1rem; }
+
+      .about-grid,
+      .members-info {
+        grid-template-columns: 1fr;
+      }
+
+      .goals-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-visual {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .stat-card:nth-child(2),
+      .stat-card:nth-child(3) {
+        transform: none;
+      }
+
+      .stat-card:nth-child(2):hover,
+      .stat-card:nth-child(3):hover {
+        transform: translateY(-5px);
+      }
+
+      section {
+        padding: 3rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <span>&#127758;</span> 국제교류부
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">소개</a></li>
+        <li><a href="#goals">목표</a></li>
+        <li><a href="#activities">활동내역</a></li>
+        <li><a href="#gallery">갤러리</a></li>
+        <li><a href="#members">부원소개</a></li>
+        <li><a href="#contact">연락처</a></li>
+      </ul>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="메뉴 열기">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-badge">Since 2020 &middot; High School Club</div>
+      <h1>
+        국제교류부
+        <span class="eng">GLOBAL EXCHANGE CLUB</span>
+      </h1>
+      <p>세계와 소통하고, 다양한 문화를 이해하며,<br>
+         글로벌 리더로 성장하는 우리들의 이야기</p>
+      <div class="hero-cta">
+        <a href="#about" class="btn btn-primary">동아리 알아보기</a>
+        <a href="#activities" class="btn btn-outline">활동내역 보기</a>
+      </div>
+    </div>
+    <div class="scroll-indicator">&#9660;</div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="subtitle">About Us</div>
+        <h2>동아리 소개</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-text fade-in">
+          <h3>세계를 향한 첫걸음,<br>국제교류부입니다</h3>
+          <p>
+            국제교류부는 다양한 국가의 문화를 탐구하고, 국제적인 시각을 기르기 위해
+            설립된 동아리입니다. 해외 학교와의 교류 활동, 다문화 체험, 외국어 학습,
+            국제 이슈 토론 등 다채로운 프로그램을 운영하고 있습니다.
+          </p>
+          <p>
+            단순한 언어 학습을 넘어, 세계 시민으로서의 역량을 기르고
+            서로 다른 문화에 대한 존중과 이해를 실천하는 것이 우리의 목표입니다.
+          </p>
+          <div class="about-highlights">
+            <div class="highlight-item">
+              <div class="highlight-icon">&#127891;</div>
+              <div>
+                <div class="label">문화 교류</div>
+                <div class="desc">해외 학교 교류 프로그램</div>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-icon">&#128172;</div>
+              <div>
+                <div class="label">외국어 학습</div>
+                <div class="desc">영어, 일본어, 중국어</div>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-icon">&#127760;</div>
+              <div>
+                <div class="label">국제 토론</div>
+                <div class="desc">글로벌 이슈 탐구</div>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-icon">&#129309;</div>
+              <div>
+                <div class="label">봉사 활동</div>
+                <div class="desc">다문화 가정 멘토링</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about-visual fade-in">
+          <div class="stat-card">
+            <div class="stat-number">30+</div>
+            <div class="stat-label">현재 부원 수</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">5</div>
+            <div class="stat-label">교류 국가</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">50+</div>
+            <div class="stat-label">누적 활동 횟수</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">6년</div>
+            <div class="stat-label">동아리 역사</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Goals -->
+  <section id="goals">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="subtitle">Our Goals</div>
+        <h2>활동 목표</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="goals-grid">
+        <div class="goal-card fade-in">
+          <div class="goal-icon">&#127758;</div>
+          <h3>글로벌 역량 강화</h3>
+          <p>다양한 국제 활동과 교류를 통해 글로벌 무대에서 활약할 수 있는 역량을 기릅니다.</p>
+        </div>
+        <div class="goal-card fade-in">
+          <div class="goal-icon">&#128214;</div>
+          <h3>다문화 이해</h3>
+          <p>서로 다른 문화와 가치관을 존중하고 이해하는 세계 시민 의식을 함양합니다.</p>
+        </div>
+        <div class="goal-card fade-in">
+          <div class="goal-icon">&#128101;</div>
+          <h3>리더십 개발</h3>
+          <p>프로젝트 기획과 운영을 통해 소통과 협업 능력, 리더십을 키웁니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Activities -->
+  <section id="activities">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="subtitle">Activities</div>
+        <h2>활동 내역</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="timeline fade-in">
+        <div class="timeline-item">
+          <div class="timeline-date">2025년 12월</div>
+          <div class="timeline-content">
+            <h3>&#127876; 연초 국제 문화 축제</h3>
+            <p>교내에서 다양한 국가의 문화 체험할 수 있는 부스를 운영하고, 세계 음식 만들기 체험과 전통 의상 패션쇼를 진행했습니다.</p>
+            <div class="timeline-tags">
+              <span class="tag">문화체험</span>
+              <span class="tag">교내행사</span>
+              <span class="tag">부스운영</span>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2025년 9월</div>
+          <div class="timeline-content">
+            <h3>&#128187; 일본 자매학교 온라인 교류</h3>
+            <p>일본 오사카 소재 고등학교와 화상회의를 통한 문화 교류 활동을 진행했습니다. 각국의 학교생활, 유행 문화에 대해 발표하고 토론했습니다.</p>
+            <div class="timeline-tags">
+              <span class="tag">국제교류</span>
+              <span class="tag">일본</span>
+              <span class="tag">온라인</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="subtitle">Gallery</div>
+        <h2>활동 갤러리</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="gallery-grid fade-in">
+        <div class="gallery-item">
+          <div class="gallery-img img1">&#127758;</div>
+          <div class="gallery-caption">
+            <h4>국제 문화 축제</h4>
+            <p>다양한 국가의 문화를 체험하는 교내 축제</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-img img2">&#127891;</div>
+          <div class="gallery-caption">
+            <h4>해외 학교 방문</h4>
+            <p>싱가포르 현지 학교 합동 프로젝트</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-img img3">&#128172;</div>
+          <div class="gallery-caption">
+            <h4>온라인 교류</h4>
+            <p>일본 자매학교와의 화상 교류 활동</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-img img4">&#128227;</div>
+          <div class="gallery-caption">
+            <h4>영어 스피치 대회</h4>
+            <p>교내 영어 스피치 대회 기획 및 운영</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-img img5">&#129309;</div>
+          <div class="gallery-caption">
+            <h4>봉사 활동</h4>
+            <p>다문화 가정 학습 멘토링</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-img img6">&#128200;</div>
+          <div class="gallery-caption">
+            <h4>모의 유엔 대회</h4>
+            <p>전국 MUN 대회 참가 및 수상</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Members -->
+  <section id="members">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="subtitle">Members</div>
+        <h2>부원 소개</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="members-info fade-in">
+        <div class="member-category">
+          <h3>&#11088; 임원진</h3>
+          <ul class="member-list">
+            <li>
+              <span>김OO 선생님</span>
+              <span class="role-badge advisor">지도교사</span>
+            </li>
+            <li>
+              <span>이OO (3학년)</span>
+              <span class="role-badge president">부장</span>
+            </li>
+            <li>
+              <span>박OO (2학년)</span>
+              <span class="role-badge vice">차장</span>
+            </li>
+            <li>
+              <span>최OO (2학년)</span>
+              <span class="role-badge">총무</span>
+            </li>
+            <li>
+              <span>정OO (2학년)</span>
+              <span class="role-badge">기획</span>
+            </li>
+          </ul>
+        </div>
+        <div class="member-category">
+          <h3>&#128221; 부서 구성</h3>
+          <ul class="member-list">
+            <li>
+              <span>교류팀 (8명)</span>
+              <span class="role-badge">해외 학교 교류 담당</span>
+            </li>
+            <li>
+              <span>기획팀 (7명)</span>
+              <span class="role-badge">행사 기획 및 운영</span>
+            </li>
+            <li>
+              <span>홍보팀 (6명)</span>
+              <span class="role-badge">SNS·홍보물 제작</span>
+            </li>
+            <li>
+              <span>학술팀 (5명)</span>
+              <span class="role-badge">토론·연구 활동</span>
+            </li>
+            <li>
+              <span>봉사팀 (4명)</span>
+              <span class="role-badge">봉사 활동 기획</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="subtitle">Contact</div>
+        <h2>문의 안내</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="contact-grid fade-in">
+        <div class="contact-card">
+          <div class="contact-icon">&#128205;</div>
+          <h4>동아리실 위치</h4>
+          <p>본관 3층 302호</p>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">&#128231;</div>
+          <h4>이메일</h4>
+          <p>global_exchange@school.kr</p>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">&#128247;</div>
+          <h4>인스타그램</h4>
+          <p>@global_exchange_club</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 국제교류부 Global Exchange Club. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Navbar scroll effect
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Mobile menu toggle
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navLinks = document.getElementById('navLinks');
+    mobileToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Close mobile menu on link click
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+
+    // Scroll fade-in animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Smooth scroll for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const offset = 70;
+          const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
