@@ -4,9 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>synodia</title>
+  <meta name="description" content="SYNODIA 국제교류부 - 세계와 소통하고 다양한 문화를 이해하며 글로벌 리더로 성장합니다.">
+  <meta property="og:title" content="SYNODIA 국제교류부">
+  <meta property="og:description" content="세계와 소통하고, 다양한 문화를 이해하며, 글로벌 리더로 성장하는 우리들의 이야기">
+  <meta property="og:image" content="images/logo.png">
+  <link rel="icon" type="image/png" href="images/logo.png">
   <style>
     @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css');
-    @import url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff2');
     @font-face {
       font-family: 'GmarketSans';
       src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff2') format('woff2');
@@ -50,7 +54,7 @@
       letter-spacing: -0.02em;
     }
 
-    h1, h2, h3, .hero-badge, .nav-logo {
+    h1, h2, h3, .nav-logo {
       font-family: 'GmarketSans', 'Pretendard Variable', sans-serif;
       font-weight: 700;
     }
@@ -143,7 +147,7 @@
     /* Hero Section */
     .hero {
       min-height: 100vh;
-      background: linear-gradient(135deg, #7bc88a 0%, #3a9e4a 30%, #d4b84b 70%, #f5e6a3 100%);
+      background: linear-gradient(135deg, #7bc88a 0%, #3a9e4a 30%, #d4b84b 70%, #b8992e 100%);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -169,15 +173,16 @@
       padding: 2rem;
     }
 
-    .hero-badge {
-      display: inline-block;
-      background: rgba(255,255,255,0.15);
-      border: 1px solid rgba(255,255,255,0.3);
-      border-radius: 50px;
-      padding: 0.5rem 1.5rem;
-      font-size: 0.9rem;
+    .hero-logo {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
       margin-bottom: 1.5rem;
-      letter-spacing: 1px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      object-fit: cover;
     }
 
     .hero h1 {
@@ -508,7 +513,7 @@
       top: 0;
       bottom: 0;
       width: 3px;
-      background: linear-gradient(to bottom, var(--primary-light), var(--accent), #55efc4);
+      background: linear-gradient(to bottom, var(--primary-light), var(--accent), #8dd99b);
       border-radius: 2px;
     }
 
@@ -612,10 +617,10 @@
 
     .gallery-img.img1 { background: linear-gradient(135deg, #7bc88a, #3a9e4a); }
     .gallery-img.img2 { background: linear-gradient(135deg, #d4b84b, #b8992e); }
-    .gallery-img.img3 { background: linear-gradient(135deg, #8dd99b, #5cb86c); }
-    .gallery-img.img4 { background: linear-gradient(135deg, #f5e6a3, #d4b84b); }
+    .gallery-img.img3 { background: linear-gradient(135deg, #74b9ff, #0984e3); }
+    .gallery-img.img4 { background: linear-gradient(135deg, #fab1a0, #e17055); }
     .gallery-img.img5 { background: linear-gradient(135deg, #a8e6cf, #3a9e4a); }
-    .gallery-img.img6 { background: linear-gradient(135deg, #e8d88c, #b8992e); }
+    .gallery-img.img6 { background: linear-gradient(135deg, #dfe6e9, #636e72); }
 
     .gallery-caption {
       padding: 1.2rem;
@@ -632,63 +637,6 @@
       font-size: 0.85rem;
       color: var(--text-light);
     }
-
-    /* Members Section */
-    #members {
-      background: var(--white);
-    }
-
-    .members-info {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-    }
-
-    .member-category {
-      background: var(--bg-light);
-      border-radius: 16px;
-      padding: 2rem;
-    }
-
-    .member-category h3 {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 1.2rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .member-list {
-      list-style: none;
-    }
-
-    .member-list li {
-      padding: 0.7rem 0;
-      border-bottom: 1px solid rgba(0,0,0,0.06);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.95rem;
-    }
-
-    .member-list li:last-child {
-      border-bottom: none;
-    }
-
-    .role-badge {
-      background: var(--primary);
-      color: var(--white);
-      padding: 0.2rem 0.8rem;
-      border-radius: 20px;
-      font-size: 0.75rem;
-      font-weight: 500;
-    }
-
-    .role-badge.advisor { background: #d4b84b; color: #333; }
-    .role-badge.president { background: var(--accent); color: var(--white); }
-    .role-badge.vice { background: #7bc88a; }
 
     /* Contact Section */
     #contact {
@@ -710,7 +658,7 @@
 
     .contact-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 2rem;
     }
 
@@ -746,9 +694,16 @@
       margin-bottom: 0.5rem;
     }
 
-    .contact-card p {
+    .contact-card p,
+    .contact-card a {
       font-size: 0.9rem;
       opacity: 0.85;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .contact-card a:hover {
+      opacity: 1;
     }
 
     /* Footer */
@@ -796,8 +751,7 @@
       .hero h1 { font-size: 2.3rem; }
       .hero h1 .eng { font-size: 0.85rem; letter-spacing: 3px; }
 
-      .about-grid,
-      .members-info {
+      .about-grid {
         grid-template-columns: 1fr;
       }
 
@@ -835,15 +789,14 @@
   <nav class="navbar">
     <div class="nav-inner">
       <a href="#" class="nav-logo">
-        <img src="images/logo.png" alt="SYNODIA 로고"> 국제교류부
+        <img src="images/logo.png" alt="SYNODIA 로고"> SYNODIA 국제교류부
       </a>
       <ul class="nav-links" id="navLinks">
         <li><a href="#about">소개</a></li>
         <li><a href="#goals">목표</a></li>
         <li><a href="#activities">활동내역</a></li>
         <li><a href="#gallery">갤러리</a></li>
-        <li><a href="#members">부원소개</a></li>
-        <li><a href="#contact">연락처</a></li>
+<li><a href="#contact">연락처</a></li>
       </ul>
       <button class="mobile-toggle" id="mobileToggle" aria-label="메뉴 열기">&#9776;</button>
     </div>
@@ -852,10 +805,10 @@
   <!-- Hero -->
   <section class="hero" id="home">
     <div class="hero-content">
-      <div class="hero-badge">Since 2020 &middot; High School Club</div>
+      <img src="images/logo.png" alt="SYNODIA 로고" class="hero-logo">
       <h1>
         국제교류부
-        <span class="eng">GLOBAL EXCHANGE CLUB</span>
+        <span class="eng">SYNODIA &middot; Since 2020</span>
       </h1>
       <p>세계와 소통하고, 다양한 문화를 이해하며,<br>
          글로벌 리더로 성장하는 우리들의 이야기</p>
@@ -1060,69 +1013,6 @@
     </div>
   </section>
 
-  <!-- Members -->
-  <section id="members">
-    <div class="container">
-      <div class="section-header fade-in">
-        <div class="subtitle">Members</div>
-        <h2>부원 소개</h2>
-        <div class="divider"></div>
-      </div>
-      <div class="members-info fade-in">
-        <div class="member-category">
-          <h3>&#11088; 임원진</h3>
-          <ul class="member-list">
-            <li>
-              <span>홍길동 선생님</span>
-              <span class="role-badge advisor">지도교사</span>
-            </li>
-            <li>
-              <span>이OO (3학년)</span>
-              <span class="role-badge president">부장</span>
-            </li>
-            <li>
-              <span>박OO (2학년)</span>
-              <span class="role-badge vice">차장</span>
-            </li>
-            <li>
-              <span>최OO (2학년)</span>
-              <span class="role-badge">총무</span>
-            </li>
-            <li>
-              <span>정OO (2학년)</span>
-              <span class="role-badge">기획</span>
-            </li>
-          </ul>
-        </div>
-        <div class="member-category">
-          <h3>&#128221; 부서 구성</h3>
-          <ul class="member-list">
-            <li>
-              <span>교류팀 (8명)</span>
-              <span class="role-badge">해외 학교 교류 담당</span>
-            </li>
-            <li>
-              <span>기획팀 (7명)</span>
-              <span class="role-badge">행사 기획 및 운영</span>
-            </li>
-            <li>
-              <span>홍보팀 (6명)</span>
-              <span class="role-badge">SNS·홍보물 제작</span>
-            </li>
-            <li>
-              <span>학술팀 (5명)</span>
-              <span class="role-badge">토론·연구 활동</span>
-            </li>
-            <li>
-              <span>봉사팀 (4명)</span>
-              <span class="role-badge">봉사 활동 기획</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Contact -->
   <section id="contact">
     <div class="container">
@@ -1134,18 +1024,13 @@
       <div class="contact-grid fade-in">
         <div class="contact-card">
           <div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-          <h4>동아리실 위치</h4>
-          <p>별관 5층 501호</p>
-        </div>
-        <div class="contact-card">
-          <div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg></div>
-          <h4>이메일</h4>
-          <p>abc@test.com</p>
+          <h4>동아리 장소</h4>
+          <p>두나미스관 2학년 4반</p>
         </div>
         <div class="contact-card">
           <div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></div>
           <h4>인스타그램</h4>
-          <p>@global.club</p>
+          <a href="https://www.instagram.com/global.club" target="_blank" rel="noopener noreferrer">@global.club</a>
         </div>
       </div>
     </div>
@@ -1153,7 +1038,10 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <p>&copy; 2026 국제교류부 Global Exchange Club. All Rights Reserved.</p>
+    <p>&copy; 2026 SYNODIA 국제교류부. All Rights Reserved.</p>
+    <p style="margin-top: 0.5rem;">
+      <a href="https://www.instagram.com/global.club" target="_blank" rel="noopener noreferrer">Instagram</a>
+    </p>
   </footer>
 
   <script>
