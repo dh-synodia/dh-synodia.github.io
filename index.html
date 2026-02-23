@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>국제교류부 - Global Exchange Club</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css');
+    @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
 
     * {
       margin: 0;
@@ -29,9 +30,15 @@
     }
 
     body {
-      font-family: 'Noto Sans KR', sans-serif;
+      font-family: 'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
       color: var(--text-dark);
       line-height: 1.7;
+      letter-spacing: -0.02em;
+    }
+
+    h1, h2, h3, .hero-badge, .nav-logo {
+      font-family: 'Black Han Sans', sans-serif;
+      letter-spacing: 1px;
     }
 
     /* Navigation */
@@ -160,30 +167,32 @@
     }
 
     .hero h1 {
-      font-size: 3.5rem;
-      font-weight: 900;
+      font-size: 4rem;
+      font-weight: 400;
       margin-bottom: 0.5rem;
-      letter-spacing: -1px;
+      letter-spacing: 4px;
     }
 
     .hero h1 .eng {
       display: block;
-      font-size: 1.3rem;
+      font-family: 'Pretendard Variable', sans-serif;
+      font-size: 1.15rem;
       font-weight: 300;
-      letter-spacing: 4px;
-      margin-top: 0.5rem;
+      letter-spacing: 6px;
+      margin-top: 0.8rem;
       opacity: 0.8;
     }
 
     .hero p {
-      font-size: 1.15rem;
+      font-family: 'Pretendard Variable', sans-serif;
+      font-size: 1.1rem;
       font-weight: 300;
       margin-top: 1.5rem;
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
       opacity: 0.9;
-      line-height: 1.8;
+      line-height: 2;
     }
 
     .hero-cta {
@@ -257,17 +266,19 @@
     }
 
     .section-header h2 {
-      font-size: 2.2rem;
-      font-weight: 700;
+      font-size: 2.4rem;
+      font-weight: 400;
       color: var(--primary);
       margin-bottom: 0.5rem;
+      letter-spacing: 3px;
     }
 
     .section-header .subtitle {
-      font-size: 1rem;
+      font-family: 'Pretendard Variable', sans-serif;
+      font-size: 0.85rem;
       color: var(--text-light);
-      font-weight: 300;
-      letter-spacing: 2px;
+      font-weight: 400;
+      letter-spacing: 3px;
       text-transform: uppercase;
     }
 
@@ -768,8 +779,8 @@
       }
       .mobile-toggle { display: block; }
 
-      .hero h1 { font-size: 2.2rem; }
-      .hero h1 .eng { font-size: 1rem; }
+      .hero h1 { font-size: 2.5rem; }
+      .hero h1 .eng { font-size: 0.85rem; letter-spacing: 3px; }
 
       .about-grid,
       .members-info {
