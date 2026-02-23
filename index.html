@@ -282,11 +282,9 @@
       background: var(--white);
     }
 
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
+    .about-text {
+      max-width: 700px;
+      margin: 0 auto;
     }
 
     .about-text h3 {
@@ -300,95 +298,6 @@
       color: var(--text-light);
       margin-bottom: 1rem;
       font-size: 0.95rem;
-    }
-
-    .about-highlights {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.2rem;
-      margin-top: 1.5rem;
-    }
-
-    .highlight-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.7rem;
-    }
-
-    .highlight-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, #e0eed8, #f0f8e8);
-      color: var(--primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      flex-shrink: 0;
-    }
-
-    .highlight-item .label {
-      font-weight: 500;
-      font-size: 0.9rem;
-      color: var(--text-dark);
-    }
-
-    .highlight-item .desc {
-      font-size: 0.8rem;
-      color: var(--text-light);
-    }
-
-    .about-visual {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    .stat-card {
-      background: linear-gradient(135deg, #7bc88a, #3a9e4a);
-      color: var(--white);
-      padding: 1.5rem;
-      border-radius: 16px;
-      text-align: center;
-      transition: transform 0.3s;
-    }
-
-    .stat-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .stat-card:nth-child(2) {
-      background: linear-gradient(135deg, #d4b84b, #b8992e);
-      transform: translateY(1rem);
-    }
-
-    .stat-card:nth-child(3) {
-      background: linear-gradient(135deg, #8dd99b, #5cb86c);
-      transform: translateY(-1rem);
-    }
-
-    .stat-card:nth-child(2):hover {
-      transform: translateY(0.5rem);
-    }
-
-    .stat-card:nth-child(3):hover {
-      transform: translateY(-1.5rem);
-    }
-
-    .stat-card:nth-child(4) {
-      background: linear-gradient(135deg, #f5e6a3, #d4b84b);
-    }
-
-    .stat-number {
-      font-size: 2.5rem;
-      font-weight: 900;
-    }
-
-    .stat-label {
-      font-size: 0.85rem;
-      opacity: 0.9;
-      margin-top: 0.3rem;
     }
 
     /* Goals Section */
@@ -714,30 +623,12 @@
       .hero h1 { font-size: 2.3rem; }
       .hero h1 .eng { font-size: 0.85rem; letter-spacing: 1.5px; }
 
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
-
       .goals-grid {
         grid-template-columns: 1fr;
       }
 
       .contact-grid {
         grid-template-columns: 1fr;
-      }
-
-      .about-visual {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .stat-card:nth-child(2),
-      .stat-card:nth-child(3) {
-        transform: none;
-      }
-
-      .stat-card:nth-child(2):hover,
-      .stat-card:nth-child(3):hover {
-        transform: translateY(-5px);
       }
 
       section {
@@ -787,67 +678,16 @@
         <h2>동아리 소개</h2>
         <div class="divider"></div>
       </div>
-      <div class="about-grid">
-        <div class="about-text fade-in">
-          <h3>화합과 소통, SYNODIA<br>동화고등학교 국제교류부입니다</h3>
-          <p>
-            국제교류부는 다양한 국가의 문화를 탐구하고, 국제적인 시각을 기르기 위해
-            설립된 동아리입니다. 국제 이슈 토론을 비롯한 다채로운 프로그램을
-            운영하고 있습니다.
-          </p>
-          <p>
-            세계 시민으로서의 역량을 기르고,
-            서로 다른 문화에 대한 존중과 이해를 실천하는 것이 우리의 목표입니다.
-          </p>
-          <div class="about-highlights">
-            <div class="highlight-item">
-              <div class="highlight-icon">&#127891;</div>
-              <div>
-                <div class="label">문화 교류</div>
-                <div class="desc">해외 학교 교류 프로그램</div>
-              </div>
-            </div>
-            <div class="highlight-item">
-              <div class="highlight-icon">&#128172;</div>
-              <div>
-                <div class="label">외국어 학습</div>
-                <div class="desc">영어, 일본어, 중국어</div>
-              </div>
-            </div>
-            <div class="highlight-item">
-              <div class="highlight-icon">&#127760;</div>
-              <div>
-                <div class="label">국제 토론</div>
-                <div class="desc">글로벌 이슈 탐구</div>
-              </div>
-            </div>
-            <div class="highlight-item">
-              <div class="highlight-icon">&#129309;</div>
-              <div>
-                <div class="label">봉사 활동</div>
-                <div class="desc">다문화 가정 멘토링</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="about-visual fade-in">
-          <div class="stat-card">
-            <div class="stat-number">30+</div>
-            <div class="stat-label">현재 부원 수</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">5</div>
-            <div class="stat-label">교류 국가</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">50+</div>
-            <div class="stat-label">누적 활동 횟수</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">6년</div>
-            <div class="stat-label">동아리 역사</div>
-          </div>
-        </div>
+      <div class="about-text fade-in">
+        <h3>화합과 소통, SYNODIA<br>동화고등학교 국제교류부입니다</h3>
+        <p>
+          국제교류부는 '국제'라는 타이틀을 중심으로 다양한 국가의 문화를 탐구하고,
+          국제 이슈 토론 등 여러 분야에서 탐구활동을 하는 동아리입니다.
+        </p>
+        <p>
+          국제적인 시각을 바탕으로 세계 시민으로서의 역량을 기르고,
+          서로 다른 문화에 대한 존중과 이해를 실천하는 것이 우리의 목표입니다.
+        </p>
       </div>
     </div>
   </section>
