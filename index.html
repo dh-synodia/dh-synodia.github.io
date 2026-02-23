@@ -66,7 +66,7 @@
       left: 0;
       right: 0;
       z-index: 1000;
-      background: rgba(58, 158, 74, 0.92);
+      background: rgba(108, 200, 106, 0.92);
       backdrop-filter: blur(10px);
       padding: 0 2rem;
       transition: all 0.3s ease;
@@ -476,7 +476,7 @@
 
     .strengths-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
     }
 
@@ -511,6 +511,105 @@
       line-height: 1.7;
     }
 
+    /* Recruitment Section */
+    #recruitment {
+      background: var(--white);
+    }
+
+    .recruit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .recruit-card {
+      background: var(--bg-light);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: all 0.3s;
+    }
+
+    .recruit-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .recruit-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .recruit-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .recruit-number {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--primary);
+      margin-bottom: 0.3rem;
+    }
+
+    .recruit-desc {
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
+
+    .recruit-schedule {
+      list-style: none;
+      text-align: left;
+    }
+
+    .recruit-schedule li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    .recruit-schedule li:last-child {
+      border-bottom: none;
+    }
+
+    .recruit-schedule strong {
+      color: var(--text-dark);
+      display: block;
+      font-size: 0.8rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .recruit-steps {
+      text-align: left;
+    }
+
+    .step {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.6rem 0;
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    .step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
     /* Contact Section */
     #contact {
       background: linear-gradient(135deg, #7bc88a, #3a9e4a, #d4b84b);
@@ -532,7 +631,7 @@
     .contact-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
+      gap: 1.5rem;
     }
 
     .contact-card {
@@ -542,6 +641,66 @@
       border-radius: 16px;
       backdrop-filter: blur(5px);
       transition: all 0.3s;
+    }
+
+    .contact-card:hover {
+      background: rgba(255,255,255,0.15);
+      transform: translateY(-3px);
+    }
+
+    .contact-card.full {
+      grid-column: span 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .contact-card.full .contact-icon {
+      width: 72px;
+      height: 72px;
+      min-width: 72px;
+      margin: 0;
+    }
+
+    .contact-card.full .contact-icon svg {
+      width: 36px;
+      height: 36px;
+    }
+
+    .contact-card.full .contact-text h4 {
+      font-size: 1.3rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-card.full .contact-text a {
+      font-size: 1.15rem;
+    }
+
+    .contact-card.person {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .contact-card.person .person-role {
+      font-size: 1.05rem;
+      font-weight: 600;
+      opacity: 0.7;
+      white-space: nowrap;
+    }
+
+    .contact-card.person .person-name {
+      font-size: 1.25rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .contact-card.person a {
+      font-size: 1.1rem;
+      opacity: 0.85;
+      white-space: nowrap;
     }
 
     .contact-card:hover {
@@ -637,8 +796,16 @@
         grid-template-columns: 1fr;
       }
 
+      .recruit-grid {
+        grid-template-columns: 1fr;
+      }
+
       .contact-grid {
         grid-template-columns: 1fr;
+      }
+
+      .contact-card.full {
+        grid-column: span 1;
       }
 
       section {
@@ -653,14 +820,15 @@
   <nav class="navbar">
     <div class="nav-inner">
       <a href="#" class="nav-logo">
-        <img src="images/logo.png" alt="SYNODIA 로고"> SYNODIA 국제교류부
+        <img src="images/logo.png" alt="SYNODIA 로고">
       </a>
       <ul class="nav-links" id="navLinks">
         <li><a href="#about">소개</a></li>
         <li><a href="#goals">목표</a></li>
         <li><a href="#activities">활동내역</a></li>
         <li><a href="#strengths">특장점</a></li>
-<li><a href="#contact">연락처</a></li>
+        <li><a href="#recruitment">부원선발</a></li>
+<li><a href="#contact">문의</a></li>
       </ul>
       <button class="mobile-toggle" id="mobileToggle" aria-label="메뉴 열기">&#9776;</button>
     </div>
@@ -841,10 +1009,43 @@
           <h3>활동부터 학술까지 다양한 연계</h3>
           <p>자신의 진로와 동아리 토론 주제를 연결하고 심화 탐구하여 나만의 활동으로 만들어갈 수 있습니다.</p>
         </div>
-        <div class="strength-card">
-          <div class="strength-icon">&#127759;</div>
-          <h3>글로벌 네트워크</h3>
-          <p>펜팔 활동을 통해 전세계 친구들과 직접 교류하며 살아있는 국제 감각을 체험합니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recruitment -->
+  <section id="recruitment">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="subtitle">Recruitment</div>
+        <h2>6기 부원(2026) 선발</h2>
+        <div class="divider"></div>
+        <p class="section-hint">선발 인원은 내부 협의를 통해, 선발 일정과 선발 절차는 2026년 학사일정 및 지침에 따라 반영할 예정입니다.</p>
+      </div>
+      <div class="recruit-grid fade-in">
+        <div class="recruit-card">
+          <div class="recruit-icon">&#128101;</div>
+          <h3>모집 인원</h3>
+          <p class="recruit-number">&bigcirc;</p>
+          <p class="recruit-desc">&bigcirc;</p>
+        </div>
+        <div class="recruit-card">
+          <div class="recruit-icon">&#128197;</div>
+          <h3>선발 일정</h3>
+          <ul class="recruit-schedule">
+            <li><strong>지원서 접수</strong> &bigcirc;</li>
+            <li><strong>면접 진행</strong> &bigcirc;</li>
+            <li><strong>결과 발표</strong> &bigcirc;</li>
+          </ul>
+        </div>
+        <div class="recruit-card">
+          <div class="recruit-icon">&#128203;</div>
+          <h3>선발 절차</h3>
+          <div class="recruit-steps">
+            <div class="step"><span class="step-num">1</span> &bigcirc;</div>
+            <div class="step"><span class="step-num">2</span> &bigcirc;</div>
+            <div class="step"><span class="step-num">3</span> &bigcirc;</div>
+          </div>
         </div>
       </div>
     </div>
@@ -859,15 +1060,22 @@
         <div class="divider"></div>
       </div>
       <div class="contact-grid fade-in">
-        <div class="contact-card">
-          <div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-          <h4>동아리 장소</h4>
-          <p>두나미스관 2학년 4반</p>
-        </div>
-        <div class="contact-card">
+        <div class="contact-card full">
           <div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></div>
-          <h4>인스타그램</h4>
-          <a href="https://www.instagram.com/global.club" target="_blank" rel="noopener noreferrer">@global.club</a>
+          <div class="contact-text">
+            <h4>시노디아 공식 인스타그램</h4>
+            <a href="https://www.instagram.com/dh.synodia" target="_blank" rel="noopener noreferrer">@dh.synodia</a>
+          </div>
+        </div>
+        <div class="contact-card person">
+          <span class="person-role">기장</span>
+          <span class="person-name">김규민</span>
+          <a href="https://www.instagram.com/k.min31" target="_blank" rel="noopener noreferrer">@k.min31</a>
+        </div>
+        <div class="contact-card person">
+          <span class="person-role">부기장</span>
+          <span class="person-name">김다현</span>
+          <a href="https://www.instagram.com/d_hy.81" target="_blank" rel="noopener noreferrer">@d_hy.81</a>
         </div>
       </div>
     </div>
@@ -876,9 +1084,6 @@
   <!-- Footer -->
   <footer class="footer">
     <p>&copy; 2026 SYNODIA 국제교류부. All Rights Reserved.</p>
-    <p style="margin-top: 0.5rem;">
-      <a href="https://www.instagram.com/global.club" target="_blank" rel="noopener noreferrer">Instagram</a>
-    </p>
   </footer>
 
   <script>
