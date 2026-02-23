@@ -282,9 +282,17 @@
       background: var(--white);
     }
 
-    .about-text {
-      max-width: 700px;
-      margin: 0 auto;
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about-img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
     }
 
     .about-text h3 {
@@ -623,6 +631,11 @@
       .hero h1 { font-size: 2.3rem; }
       .hero h1 .eng { font-size: 0.85rem; letter-spacing: 1.5px; }
 
+      .about-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
       .goals-grid {
         grid-template-columns: 1fr;
       }
@@ -678,16 +691,19 @@
         <h2>동아리 소개</h2>
         <div class="divider"></div>
       </div>
-      <div class="about-text fade-in">
-        <h3>화합과 소통, SYNODIA<br>동화고등학교 국제교류부입니다</h3>
-        <p>
-          국제교류부는 '국제'라는 타이틀을 중심으로 다양한 국가의 문화를 탐구하고,
-          국제 이슈 토론 등 여러 분야에서 탐구활동을 하는 동아리입니다.
-        </p>
-        <p>
-          국제적인 시각을 바탕으로 세계 시민으로서의 역량을 기르고,
-          서로 다른 문화에 대한 존중과 이해를 실천하는 것이 우리의 목표입니다.
-        </p>
+      <div class="about-content fade-in">
+        <img src="images/about.jpg" alt="글로벌 교류를 상징하는 이미지" class="about-img">
+        <div class="about-text">
+          <h3>화합과 소통, SYNODIA<br>동화고등학교 국제교류부입니다</h3>
+          <p>
+            국제교류부는 '국제'라는 타이틀을 중심으로 다양한 국가의 문화를 탐구하고,
+            국제 이슈 토론 등 여러 분야에서 탐구활동을 하는 동아리입니다.
+          </p>
+          <p>
+            국제적인 시각을 바탕으로 세계 시민으로서의 역량을 기르고,
+            서로 다른 문화에 대한 존중과 이해를 실천하는 것이 우리의 목표입니다.
+          </p>
+        </div>
       </div>
     </div>
   </section>
@@ -704,17 +720,17 @@
         <div class="goal-card fade-in">
           <div class="goal-icon">&#127758;</div>
           <h3>글로벌 역량 강화</h3>
-          <p>다양한 국제 활동과 교류를 통해 글로벌 무대에서 활약할 수 있는 역량을 기릅니다.</p>
+          <p>국제 이슈를 다양한 관점에서 분석하고, 자신의 생각을 표현할 수 있는 소통 능력을 기릅니다.</p>
         </div>
         <div class="goal-card fade-in">
           <div class="goal-icon">&#128214;</div>
           <h3>다문화 이해</h3>
-          <p>서로 다른 문화와 가치관을 존중하고 이해하는 세계 시민 의식을 함양합니다.</p>
+          <p>다른 나라의 문화와 가치관의 차이를 인지하고 존중하는 문화적 감수성을 키웁니다.</p>
         </div>
         <div class="goal-card fade-in">
-          <div class="goal-icon">&#128101;</div>
-          <h3>리더십 개발</h3>
-          <p>프로젝트 기획과 운영을 통해 소통과 협업 능력, 리더십을 키웁니다.</p>
+          <div class="goal-icon">&#128240;</div>
+          <h3>국제 이슈 이해력</h3>
+          <p>세계 정세와 글로벌 문제를 다양한 관점에서 분석하고 토론하는 비판적 사고력을 기릅니다.</p>
         </div>
       </div>
     </div>
