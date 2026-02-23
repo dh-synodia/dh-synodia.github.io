@@ -272,6 +272,13 @@
       border-radius: 2px;
     }
 
+    .section-hint {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      margin-top: 0.8rem;
+      opacity: 0.7;
+    }
+
     .container {
       max-width: 1100px;
       margin: 0 auto;
@@ -381,61 +388,72 @@
       background: var(--white);
     }
 
-    .timeline {
-      position: relative;
-      padding-left: 3rem;
+    .accordion {
+      max-width: 800px;
+      margin: 0 auto;
     }
 
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 15px;
-      top: 0;
-      bottom: 0;
-      width: 3px;
-      background: linear-gradient(to bottom, var(--primary-light), var(--accent), #8dd99b);
-      border-radius: 2px;
-    }
-
-    .timeline-item {
-      position: relative;
-      margin-bottom: 2.5rem;
-      padding-left: 1.5rem;
-    }
-
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -2.35rem;
-      top: 0.5rem;
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: var(--accent);
-      border: 3px solid var(--white);
-      box-shadow: 0 0 0 3px var(--primary-light);
-    }
-
-    .timeline-content {
-      background: var(--bg-light);
+    .accordion-item {
+      margin-bottom: 0.8rem;
       border-radius: 12px;
-      padding: 1.5rem;
-      border-left: 3px solid var(--accent);
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
     }
 
-    .timeline-content h3 {
-      font-size: 1.1rem;
+    .accordion-header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 1.5rem;
+      background: var(--bg-light);
+      border: none;
+      cursor: pointer;
+      font-family: 'GmarketSans', 'Pretendard Variable', sans-serif;
+      font-size: 1.05rem;
       font-weight: 700;
-      margin-bottom: 0.5rem;
       color: var(--text-dark);
+      transition: background 0.3s;
     }
 
-    .timeline-content p {
+    .accordion-header:hover {
+      background: #eee9d6;
+    }
+
+    .accordion-item.active .accordion-header {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .accordion-arrow {
+      font-size: 1.2rem;
+      transition: transform 0.3s;
+    }
+
+    .accordion-item.active .accordion-arrow {
+      transform: rotate(180deg);
+    }
+
+    .accordion-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      padding: 0 1.5rem;
+      background: var(--white);
+    }
+
+    .accordion-item.active .accordion-body {
+      max-height: 300px;
+      padding: 1.2rem 1.5rem;
+    }
+
+    .accordion-body p {
       font-size: 0.9rem;
       color: var(--text-light);
+      line-height: 1.7;
     }
 
-    .timeline-tags {
+    .accordion-tags {
       display: flex;
       gap: 0.5rem;
       flex-wrap: wrap;
@@ -451,60 +469,46 @@
       font-weight: 500;
     }
 
-    /* Gallery Section */
-    #gallery {
+    /* Strengths Section */
+    #strengths {
       background: var(--bg-light);
     }
 
-    .gallery-grid {
+    .strengths-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
     }
 
-    .gallery-item {
-      border-radius: 16px;
-      overflow: hidden;
+    .strength-card {
       background: var(--white);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
       transition: all 0.3s;
     }
 
-    .gallery-item:hover {
+    .strength-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
 
-    .gallery-img {
-      width: 100%;
-      height: 200px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
+    .strength-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
     }
 
-    .gallery-img.img1 { background: linear-gradient(135deg, #7bc88a, #3a9e4a); }
-    .gallery-img.img2 { background: linear-gradient(135deg, #d4b84b, #b8992e); }
-    .gallery-img.img3 { background: linear-gradient(135deg, #74b9ff, #0984e3); }
-    .gallery-img.img4 { background: linear-gradient(135deg, #fab1a0, #e17055); }
-    .gallery-img.img5 { background: linear-gradient(135deg, #a8e6cf, #3a9e4a); }
-    .gallery-img.img6 { background: linear-gradient(135deg, #dfe6e9, #636e72); }
-
-    .gallery-caption {
-      padding: 1.2rem;
+    .strength-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      color: var(--primary);
     }
 
-    .gallery-caption h4 {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--text-dark);
-      margin-bottom: 0.3rem;
-    }
-
-    .gallery-caption p {
-      font-size: 0.85rem;
+    .strength-card p {
+      font-size: 0.9rem;
       color: var(--text-light);
+      line-height: 1.7;
     }
 
     /* Contact Section */
@@ -629,6 +633,10 @@
         grid-template-columns: 1fr;
       }
 
+      .strengths-grid {
+        grid-template-columns: 1fr;
+      }
+
       .contact-grid {
         grid-template-columns: 1fr;
       }
@@ -651,7 +659,7 @@
         <li><a href="#about">소개</a></li>
         <li><a href="#goals">목표</a></li>
         <li><a href="#activities">활동내역</a></li>
-        <li><a href="#gallery">갤러리</a></li>
+        <li><a href="#strengths">특장점</a></li>
 <li><a href="#contact">연락처</a></li>
       </ul>
       <button class="mobile-toggle" id="mobileToggle" aria-label="메뉴 열기">&#9776;</button>
@@ -732,27 +740,76 @@
         <div class="subtitle">Activities</div>
         <h2>활동 내역</h2>
         <div class="divider"></div>
+        <p class="section-hint">항목을 클릭하여 상세 내용을 확인하세요</p>
       </div>
-      <div class="timeline fade-in">
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <h3>&#127876; 연초 국제 문화 축제</h3>
-            <p>교내에서 다양한 국가의 문화 체험할 수 있는 부스를 운영하고, 세계 음식 만들기 체험과 전통 의상 패션쇼를 진행했습니다.</p>
-            <div class="timeline-tags">
-              <span class="tag">문화체험</span>
-              <span class="tag">교내행사</span>
-              <span class="tag">부스운영</span>
+      <div class="accordion fade-in">
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span>&#128214; 독서 활동 후 자유토론</span>
+            <span class="accordion-arrow">&#9662;</span>
+          </button>
+          <div class="accordion-body">
+            <p>문과 팀(수도권 과밀화와 도시 기능 분배)과 이과 팀(생화학 무기 개발의 정당성)으로 나누어 주제에 맞는 책을 읽고 의견을 공유했습니다.</p>
+            <div class="accordion-tags">
+              <span class="tag">독서</span>
+              <span class="tag">토론</span>
+              <span class="tag">문이과</span>
             </div>
           </div>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <h3>&#128187; 일본 자매학교 온라인 교류</h3>
-            <p>일본 오사카 소재 고등학교와 화상회의를 통한 문화 교류 활동을 진행했습니다. 각국의 학교생활, 유행 문화에 대해 발표하고 토론했습니다.</p>
-            <div class="timeline-tags">
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span>&#127760; 국제 정세를 파악하는 영어 토론</span>
+            <span class="accordion-arrow">&#9662;</span>
+          </button>
+          <div class="accordion-body">
+            <p>"러시아-우크라이나 전쟁: 영토를 양보해야 하는가?"를 주제로 의견 발표, 질의응답, 결론 도출까지 영어로 진행했습니다.</p>
+            <div class="accordion-tags">
+              <span class="tag">영어토론</span>
+              <span class="tag">국제정세</span>
+              <span class="tag">발표</span>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span>&#128232; 국제교류 펜팔 활동</span>
+            <span class="accordion-arrow">&#9662;</span>
+          </button>
+          <div class="accordion-body">
+            <p>전세계 외국인 친구들과 교류하며 서로의 나라를 알아가고, 문화와 특색의 차이를 인지하고 존중하는 경험을 쌓았습니다.</p>
+            <div class="accordion-tags">
+              <span class="tag">펜팔</span>
               <span class="tag">국제교류</span>
-              <span class="tag">일본</span>
-              <span class="tag">온라인</span>
+              <span class="tag">문화이해</span>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span>&#128202; 국제 인포그래픽 제작 활동</span>
+            <span class="accordion-arrow">&#9662;</span>
+          </button>
+          <div class="accordion-body">
+            <p>타국 시점에서 한국의 긍정적·부정적 측면을 주제로 조별로 국가를 선정하여 조사·발표하며 국제 정세 이해와 세계 시민적 역량을 길렀습니다.</p>
+            <div class="accordion-tags">
+              <span class="tag">인포그래픽</span>
+              <span class="tag">조별활동</span>
+              <span class="tag">발표</span>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span>&#127891; 심화 탐구 학술제 참여</span>
+            <span class="accordion-arrow">&#9662;</span>
+          </button>
+          <div class="accordion-body">
+            <p>국제기구의 역할에 대한 토론을 심화하여 "국제기구의 비실질적 역할에 대응하는 민간과 NGO의 영향력 확대"를 주제로 학술제에 참여하고, 두 주체를 다각적으로 분석했습니다.</p>
+            <div class="accordion-tags">
+              <span class="tag">학술제</span>
+              <span class="tag">심화탐구</span>
+              <span class="tag">국제기구</span>
             </div>
           </div>
         </div>
@@ -760,56 +817,34 @@
     </div>
   </section>
 
-  <!-- Gallery -->
-  <section id="gallery">
+  <!-- Strengths -->
+  <section id="strengths">
     <div class="container">
       <div class="section-header fade-in">
-        <div class="subtitle">Gallery</div>
-        <h2>활동 갤러리</h2>
+        <div class="subtitle">Our Strengths</div>
+        <h2>시노디아의 특장점</h2>
         <div class="divider"></div>
       </div>
-      <div class="gallery-grid fade-in">
-        <div class="gallery-item">
-          <div class="gallery-img img1">&#127758;</div>
-          <div class="gallery-caption">
-            <h4>국제 문화 축제</h4>
-            <p>다양한 국가의 문화를 체험하는 교내 축제</p>
-          </div>
+      <div class="strengths-grid fade-in">
+        <div class="strength-card">
+          <div class="strength-icon">&#128300;</div>
+          <h3>문·이과 융합 탐구</h3>
+          <p>문과와 이과 팀으로 나누어 각 분야의 시각에서 국제 이슈를 탐구하며, 융합적 사고력을 기릅니다.</p>
         </div>
-        <div class="gallery-item">
-          <div class="gallery-img img2">&#127891;</div>
-          <div class="gallery-caption">
-            <h4>해외 학교 방문</h4>
-            <p>싱가포르 현지 학교 합동 프로젝트</p>
-          </div>
+        <div class="strength-card">
+          <div class="strength-icon">&#127468;&#127463;</div>
+          <h3>영어 실전 활용</h3>
+          <p>단순한 학습을 넘어 영어로 토론하고 발표하며, 국제적 소통 능력을 실전에서 키웁니다.</p>
         </div>
-        <div class="gallery-item">
-          <div class="gallery-img img3">&#128172;</div>
-          <div class="gallery-caption">
-            <h4>온라인 교류</h4>
-            <p>일본 자매학교와의 화상 교류 활동</p>
-          </div>
+        <div class="strength-card">
+          <div class="strength-icon">&#128208;</div>
+          <h3>활동에서 학술로 연계</h3>
+          <p>동아리 토론 주제를 심화 탐구하여 학술제까지 이어가는 체계적인 활동 구조를 갖추고 있습니다.</p>
         </div>
-        <div class="gallery-item">
-          <div class="gallery-img img4">&#128227;</div>
-          <div class="gallery-caption">
-            <h4>영어 스피치 대회</h4>
-            <p>교내 영어 스피치 대회 기획 및 운영</p>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <div class="gallery-img img5">&#129309;</div>
-          <div class="gallery-caption">
-            <h4>봉사 활동</h4>
-            <p>다문화 가정 학습 멘토링</p>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <div class="gallery-img img6">&#128200;</div>
-          <div class="gallery-caption">
-            <h4>모의 유엔 대회</h4>
-            <p>전국 MUN 대회 참가 및 수상</p>
-          </div>
+        <div class="strength-card">
+          <div class="strength-icon">&#127759;</div>
+          <h3>글로벌 네트워크</h3>
+          <p>펜팔 활동을 통해 전세계 친구들과 직접 교류하며 살아있는 국제 감각을 체험합니다.</p>
         </div>
       </div>
     </div>
@@ -877,6 +912,16 @@
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Accordion toggle
+    document.querySelectorAll('.accordion-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const item = header.parentElement;
+        const isActive = item.classList.contains('active');
+        document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
+        if (!isActive) item.classList.add('active');
+      });
+    });
 
     // Smooth scroll for navigation
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
