@@ -460,7 +460,7 @@
     }
 
     .accordion-item.active .accordion-body {
-      max-height: 300px;
+      max-height: 600px;
       padding: 1.2rem 1.5rem;
     }
 
@@ -486,43 +486,123 @@
       font-weight: 500;
     }
 
+    /* Slide viewer */
+    .slide-viewer {
+      margin-top: 1rem;
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--bg-light);
+    }
+
+    .slide-track {
+      display: flex;
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .slide-track img {
+      width: 100%;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .slide-controls {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      transform: translateY(-50%);
+      display: flex;
+      justify-content: space-between;
+      padding: 0 0.5rem;
+      pointer-events: none;
+    }
+
+    .slide-btn {
+      pointer-events: auto;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(0,0,0,0.4);
+      color: var(--white);
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+
+    .slide-btn:hover {
+      background: rgba(0,0,0,0.65);
+    }
+
+    .slide-counter {
+      text-align: center;
+      margin-top: 0.5rem;
+      font-size: 0.8rem;
+      color: var(--text-light);
+    }
+
     /* Strengths Section */
     #strengths {
       background: var(--bg-light);
     }
 
-    .strengths-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
+    .checklist {
+      max-width: 700px;
+      margin: 0 auto;
+      list-style: none;
     }
 
-    .strength-card {
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+      padding: 1.5rem 1.8rem;
       background: var(--white);
-      border-radius: 16px;
-      padding: 2rem;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      border-radius: 14px;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
       transition: all 0.3s;
     }
 
-    .strength-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    .checklist-item:hover {
+      transform: translateX(6px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
     }
 
-    .strength-icon {
-      font-size: 2rem;
-      margin-bottom: 1rem;
+    .checklist-check {
+      width: 28px;
+      height: 28px;
+      min-width: 28px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary-light), var(--primary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
     }
 
-    .strength-card h3 {
-      font-size: 1.15rem;
+    .checklist-check svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--white);
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .checklist-text h3 {
+      font-size: 1.1rem;
       font-weight: 700;
-      margin-bottom: 0.8rem;
       color: var(--primary);
+      margin-bottom: 0.3rem;
     }
 
-    .strength-card p {
+    .checklist-text p {
       font-size: 0.9rem;
       color: var(--text-light);
       line-height: 1.7;
@@ -639,6 +719,13 @@
 
     #contact .section-header .subtitle {
       color: rgba(255,255,255,0.7);
+    }
+
+    .contact-welcome {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.8);
+      margin-top: 1rem;
+      line-height: 1.8;
     }
 
     #contact .section-header .divider {
@@ -883,10 +970,6 @@
         grid-template-columns: 1fr;
       }
 
-      .strengths-grid {
-        grid-template-columns: 1fr;
-      }
-
       .recruit-grid {
         grid-template-columns: 1fr;
       }
@@ -1075,6 +1158,23 @@
           </button>
           <div class="accordion-body">
             <p>국제기구의 역할에 대한 토론을 심화하여 "국제기구의 비실질적 역할에 대응하는 민간과 NGO의 영향력 확대"를 주제로 학술제에 참여하고, 두 주체를 다각적으로 분석했습니다.</p>
+            <div class="slide-viewer" id="slideViewer">
+              <div class="slide-track" id="slideTrack">
+                <img src="images/photo/activities5_1.png" alt="발표자료 1">
+                <img src="images/photo/activities5_2.png" alt="발표자료 2">
+                <img src="images/photo/activities5_3.png" alt="발표자료 3">
+                <img src="images/photo/activities5_4.png" alt="발표자료 4">
+                <img src="images/photo/activities5_5.png" alt="발표자료 5">
+                <img src="images/photo/activities5_6.png" alt="발표자료 6">
+                <img src="images/photo/activities5_7.png" alt="발표자료 7">
+                <img src="images/photo/activities5_8.png" alt="발표자료 8">
+              </div>
+              <div class="slide-controls">
+                <button class="slide-btn" id="slidePrev">&#9664;</button>
+                <button class="slide-btn" id="slideNext">&#9654;</button>
+              </div>
+            </div>
+            <div class="slide-counter"><span id="slideCurrent">1</span> / 8</div>
             <div class="accordion-tags">
               <span class="tag">학술제</span>
               <span class="tag">심화탐구</span>
@@ -1094,23 +1194,29 @@
         <h2>시노디아의 특장점</h2>
         <div class="divider"></div>
       </div>
-      <div class="strengths-grid stagger-children">
-        <div class="strength-card fade-in">
-          <div class="strength-icon">&#128300;</div>
-          <h3>문·이과 융합 탐구</h3>
-          <p>문과와 이과 팀으로 나누어 국제적인 안목을 바탕으로 관심 주제를 다양한 분야에서 탐구하며, 융합적 사고력을 기릅니다.</p>
-        </div>
-        <div class="strength-card fade-in">
-          <div class="strength-icon">&#127468;&#127463;</div>
-          <h3>영어 실전 활용</h3>
-          <p>단순한 학습을 넘어 영어로 토론하고 발표하며, 국제적 소통 능력을 실전에서 키웁니다.</p>
-        </div>
-        <div class="strength-card fade-in">
-          <div class="strength-icon">&#128208;</div>
-          <h3>활동부터 학술까지 다양한 연계</h3>
-          <p>자신의 진로와 동아리 토론 주제를 연결하고 심화 탐구하여 나만의 활동으로 만들어갈 수 있습니다.</p>
-        </div>
-      </div>
+      <ul class="checklist stagger-children">
+        <li class="checklist-item fade-in">
+          <div class="checklist-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="checklist-text">
+            <h3>문·이과 융합 탐구</h3>
+            <p>문과와 이과 팀으로 나누어 국제적인 안목을 바탕으로 관심 주제를 다양한 분야에서 탐구하며, 융합적 사고력을 기릅니다.</p>
+          </div>
+        </li>
+        <li class="checklist-item fade-in">
+          <div class="checklist-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="checklist-text">
+            <h3>영어 실전 활용</h3>
+            <p>단순한 학습을 넘어 영어로 토론하고 발표하며, 국제적 소통 능력을 실전에서 키웁니다.</p>
+          </div>
+        </li>
+        <li class="checklist-item fade-in">
+          <div class="checklist-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="checklist-text">
+            <h3>활동부터 학술까지 다양한 연계</h3>
+            <p>자신의 진로와 동아리 토론 주제를 연결하고 심화 탐구하여 나만의 활동으로 만들어갈 수 있습니다.</p>
+          </div>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -1159,6 +1265,7 @@
         <div class="subtitle">Contact</div>
         <h2>문의 안내</h2>
         <div class="divider"></div>
+        <p class="contact-welcome">&ldquo;활동이 궁금해요&rdquo;, &ldquo;영어를 잘 못해도 괜찮을까요?&rdquo;, &ldquo;분위기가 어떤가요?&rdquo;<br>어떤 질문이든 편하게 연락 주세요. 언제나 환영합니다.</p>
       </div>
       <div class="contact-grid stagger-children">
         <div class="contact-card full fade-in">
@@ -1240,6 +1347,26 @@
         if (!isActive) item.classList.add('active');
       });
     });
+
+    // Slide viewer
+    (() => {
+      const track = document.getElementById('slideTrack');
+      const counter = document.getElementById('slideCurrent');
+      const total = track.children.length;
+      let current = 0;
+      const update = () => {
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        counter.textContent = current + 1;
+      };
+      document.getElementById('slidePrev').addEventListener('click', () => {
+        current = (current - 1 + total) % total;
+        update();
+      });
+      document.getElementById('slideNext').addEventListener('click', () => {
+        current = (current + 1) % total;
+        update();
+      });
+    })();
 
     // Smooth scroll for navigation
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
