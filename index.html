@@ -621,20 +621,8 @@
       transition: background 0.2s;
     }
 
-    .discussion-table tbody tr:hover td {
-      background: #f0f8e8;
-    }
-
     .discussion-table tr:last-child td {
       border-bottom: none;
-    }
-
-    .discussion-table tbody tr:nth-child(even) td {
-      background: var(--bg-light);
-    }
-
-    .discussion-table tbody tr:nth-child(even):hover td {
-      background: #eae5d0;
     }
 
     .discussion-table .label-team {
@@ -658,6 +646,9 @@
       font-weight: 600;
       text-align: center;
     }
+
+    .discussion-table .label-stance.pro { color: #2980b9; }
+    .discussion-table .label-stance.con { color: #c0392b; }
 
     /* Strengths Section */
     #strengths {
@@ -1222,14 +1213,14 @@
                 <tr><th>팀</th><th>입장</th><th>주장</th></tr>
               </thead>
               <tbody>
-                <tr><td class="label-team team-munka" rowspan="2">문과</td><td class="label-stance">찬성</td><td>수도권 과밀화 해소를 위해 도시 기능 분배가 필요하며, 이는 청년 세대의 균형 있는 기회 보장에도 의미가 있다</td></tr>
-                <tr><td class="label-stance">반대</td><td>지방 중소도시 재생 정책의 실효성이 불투명하므로, 인프라가 갖춰진 도시에 투자를 집중하여 인구 유출을 막는 것이 현실적이다</td></tr>
-                <tr><td class="label-team team-igwa" rowspan="6">이과</td><td class="label-stance">허용</td><td>북한 견제와 백신·치료제 개발 등을 위해, 투명한 국제 감시 아래 제한적 연구가 허용되어야 한다</td></tr>
-                <tr><td class="label-stance">허용</td><td>방어 연구 등 평화적 목적에 한해 제한적으로 허용하되, 무조건적 금지는 오히려 비밀 개발을 부추길 수 있다</td></tr>
-                <tr><td class="label-stance">금지</td><td>생화학무기는 인간성과 국제안보에 심각한 위협이 되며, 협약만으로는 규제가 어려우므로 사용을 금지해야 한다</td></tr>
-                <tr><td class="label-stance">금지</td><td>생화학 무기의 개발과 보유는 국제 안보를 위협하므로, 국제사회 차원의 제한과 감시 체계가 반드시 필요하다</td></tr>
-                <tr><td class="label-stance">금지</td><td>무차별적 대량 살상과 도덕적·윤리적 문제를 근거로 전면 금지되어야 한다</td></tr>
-                <tr><td class="label-stance">금지</td><td>인간 존엄성 침해와 국가 간 군비 경쟁 촉진을 근거로 인도주의적 관점에서 금지해야 한다</td></tr>
+                <tr><td class="label-team team-munka" rowspan="2">문과</td><td class="label-stance pro">찬성</td><td>수도권 과밀화 해소를 위해 도시 기능 분배가 필요하며, 이는 청년 세대의 균형 있는 기회 보장에도 의미가 있다</td></tr>
+                <tr><td class="label-stance con">반대</td><td>지방 중소도시 재생 정책의 실효성이 불투명하므로, 인프라가 갖춰진 도시에 투자를 집중하여 인구 유출을 막는 것이 현실적이다</td></tr>
+                <tr><td class="label-team team-igwa" rowspan="6">이과</td><td class="label-stance pro">허용</td><td>북한 견제와 백신·치료제 개발 등을 위해, 투명한 국제 감시 아래 제한적 연구가 허용되어야 한다</td></tr>
+                <tr><td class="label-stance pro">허용</td><td>방어 연구 등 평화적 목적에 한해 제한적으로 허용하되, 무조건적 금지는 오히려 비밀 개발을 부추길 수 있다</td></tr>
+                <tr><td class="label-stance con">금지</td><td>생화학무기는 인간성과 국제안보에 심각한 위협이 되며, 협약만으로는 규제가 어려우므로 사용을 금지해야 한다</td></tr>
+                <tr><td class="label-stance con">금지</td><td>생화학 무기의 개발과 보유는 국제 안보를 위협하므로, 국제사회 차원의 제한과 감시 체계가 반드시 필요하다</td></tr>
+                <tr><td class="label-stance con">금지</td><td>무차별적 대량 살상과 도덕적·윤리적 문제를 근거로 전면 금지되어야 한다</td></tr>
+                <tr><td class="label-stance con">금지</td><td>인간 존엄성 침해와 국가 간 군비 경쟁 촉진을 근거로 인도주의적 관점에서 금지해야 한다</td></tr>
               </tbody>
             </table>
             <div class="accordion-tags">
