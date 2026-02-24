@@ -650,6 +650,33 @@
     .discussion-table .label-stance.pro { color: #2980b9; }
     .discussion-table .label-stance.con { color: #c0392b; }
 
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .image-grid img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .image-grid-caption {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-light);
+      opacity: 0.7;
+      margin-top: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .image-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     /* Strengths Section */
     #strengths {
       background: var(--bg-light);
@@ -1265,6 +1292,12 @@
           </button>
           <div class="accordion-body">
             <p>외국의 관점에서 한국의 긍정적·부정적 측면을 주제로 조별로 국가를 선정하여 조사·발표하며 국제 정세 이해와 세계 시민적 역량을 길렀습니다.</p>
+            <div class="image-grid">
+              <img src="images/photo/actitivities4-1.png" alt="SYNODIA 인포그래픽 자료 1" loading="lazy">
+              <img src="images/photo/activities4-2.png" alt="SYNODIA 인포그래픽 자료 2" loading="lazy">
+              <img src="images/photo/activities4-3.png" alt="SYNODIA 인포그래픽 자료 3" loading="lazy">
+            </div>
+            <p class="image-grid-caption">조별로 제작한 국제 인포그래픽 발표자료입니다.</p>
             <div class="accordion-tags">
               <span class="tag">인포그래픽</span>
               <span class="tag">조별활동</span>
