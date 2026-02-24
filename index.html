@@ -170,8 +170,13 @@
       transition: width 0.3s;
     }
 
-    .nav-links a:hover::after {
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
       width: 100%;
+    }
+
+    .nav-links a.active {
+      color: var(--white);
     }
 
     .mobile-toggle {
@@ -275,15 +280,14 @@
       bottom: 2rem;
       left: 50%;
       transform: translateX(-50%);
-      animation: bounce 2s infinite;
+      animation: bounce 1.5s ease-in-out infinite;
       color: rgba(255,255,255,0.6);
       font-size: 1.5rem;
     }
 
     @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-      40% { transform: translateX(-50%) translateY(-10px); }
-      60% { transform: translateX(-50%) translateY(-5px); }
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(-10px); }
     }
 
     /* Sections */
@@ -499,7 +503,6 @@
     }
 
     .accordion-item.active .accordion-body {
-      max-height: 1000px;
       padding: 1.2rem 1.5rem;
     }
 
@@ -1075,6 +1078,26 @@
 
     .mobile-br { display: none; }
 
+    /* Skip Link (Accessibility) */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      background: var(--primary);
+      color: var(--white);
+      padding: 0.6rem 1.2rem;
+      border-radius: 0 0 8px 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      z-index: 2000;
+      text-decoration: none;
+      transition: top 0.2s;
+    }
+
+    .skip-link:focus {
+      top: 0;
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
       .nav-links { display: none; }
@@ -1127,10 +1150,20 @@
       }
 
       .mobile-br { display: inline; }
+
+      .table-scroll-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .table-scroll-wrapper .discussion-table {
+        min-width: 500px;
+      }
     }
   </style>
 </head>
 <body>
+  <a href="#about" class="skip-link">본문 바로가기</a>
 
   <!-- Navigation -->
   <nav class="navbar" aria-label="메인 내비게이션">
@@ -1236,7 +1269,9 @@
           </button>
           <div class="accordion-body">
             <p>문과 팀(수도권 과밀화와 도시 기능 분배)과 이과 팀(생화학 무기 개발의 정당성)으로 나누어 주제에 맞는 책을 읽고 의견을 공유했습니다.</p>
+            <div class="table-scroll-wrapper">
             <table class="discussion-table">
+              <caption>독서 토론 찬반 요약</caption>
               <thead>
                 <tr><th>팀</th><th>입장</th><th>주장</th></tr>
               </thead>
@@ -1251,6 +1286,7 @@
                 <tr><td class="label-stance con">금지</td><td>인간 존엄성 침해와 국가 간 군비 경쟁 촉진을 근거로 인도주의적 관점에서 금지해야 한다</td></tr>
               </tbody>
             </table>
+            </div>
             <div class="accordion-tags">
               <span class="tag">독서</span>
               <span class="tag">토론</span>
@@ -1265,7 +1301,9 @@
           </button>
           <div class="accordion-body">
             <p>"러시아-우크라이나 전쟁: 영토를 양보해야 하는가?"를 주제로 의견 발표, 질의응답, 결론 도출까지 영어로 진행했습니다.</p>
+            <div class="table-scroll-wrapper">
             <table class="discussion-table">
+              <caption>영어 토론 찬반 요약</caption>
               <thead>
                 <tr><th>입장</th><th>주장</th></tr>
               </thead>
@@ -1280,6 +1318,7 @@
                 <tr><td>러시아 측 협상 조건이 불평등하고, 대다수 국민이 영토 양보에 반대하므로 민주적 정당성이 없다</td></tr>
               </tbody>
             </table>
+            </div>
             <div class="accordion-tags">
               <span class="tag">영어토론</span>
               <span class="tag">국제정세</span>
@@ -1404,25 +1443,25 @@
         <div class="recruit-card fade-in">
           <div class="recruit-icon">&#128101;</div>
           <h3>모집 인원</h3>
-          <p class="recruit-number">&bigcirc;</p>
-          <p class="recruit-desc">&bigcirc;</p>
+          <p class="recruit-number">-</p>
+          <p class="recruit-desc">추후 공지 예정</p>
         </div>
         <div class="recruit-card fade-in">
           <div class="recruit-icon">&#128197;</div>
           <h3>선발 일정</h3>
           <ul class="recruit-schedule">
-            <li><strong>지원서 접수</strong> &bigcirc;</li>
-            <li><strong>면접 진행</strong> &bigcirc;</li>
-            <li><strong>결과 발표</strong> &bigcirc;</li>
+            <li><strong>지원서 접수</strong> 추후 공지 예정</li>
+            <li><strong>면접 진행</strong> 추후 공지 예정</li>
+            <li><strong>결과 발표</strong> 추후 공지 예정</li>
           </ul>
         </div>
         <div class="recruit-card fade-in">
           <div class="recruit-icon">&#128203;</div>
           <h3>선발 절차</h3>
           <div class="recruit-steps">
-            <div class="step"><span class="step-num">1</span> &bigcirc;</div>
-            <div class="step"><span class="step-num">2</span> &bigcirc;</div>
-            <div class="step"><span class="step-num">3</span> &bigcirc;</div>
+            <div class="step"><span class="step-num">1</span> 추후 공지 예정</div>
+            <div class="step"><span class="step-num">2</span> 추후 공지 예정</div>
+            <div class="step"><span class="step-num">3</span> 추후 공지 예정</div>
           </div>
         </div>
       </div>
@@ -1510,15 +1549,39 @@
       }
     }, { passive: true });
 
-    // Accordion toggle
+    // Accordion toggle with dynamic max-height
     document.querySelectorAll('.accordion-header').forEach(header => {
       header.addEventListener('click', () => {
         const item = header.parentElement;
+        const body = item.querySelector('.accordion-body');
         const isActive = item.classList.contains('active');
-        document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
-        if (!isActive) item.classList.add('active');
+        document.querySelectorAll('.accordion-item').forEach(i => {
+          i.classList.remove('active');
+          i.querySelector('.accordion-body').style.maxHeight = null;
+        });
+        if (!isActive) {
+          item.classList.add('active');
+          body.style.maxHeight = (body.scrollHeight + 48) + 'px';
+        }
       });
     });
+
+    // Navigation active section highlight
+    (() => {
+      const sections = document.querySelectorAll('section[id]');
+      const navLinksAll = document.querySelectorAll('.nav-links a[href^="#"]');
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            navLinksAll.forEach(link => {
+              link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+            });
+          }
+        });
+      }, { threshold: 0.3, rootMargin: '-70px 0px -30% 0px' });
+      sections.forEach(section => sectionObserver.observe(section));
+    })();
 
     // Slide viewer
     (() => {
