@@ -754,9 +754,93 @@
       letter-spacing: -0.01em;
     }
 
+    /* Plan Section */
+    #plan {
+      background: var(--white);
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 1rem 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 28px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--primary-light), var(--primary));
+      border-radius: 2px;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 72px;
+      margin-bottom: 2rem;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-marker {
+      position: absolute;
+      left: 16px;
+      top: 1.5rem;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary-light), var(--primary));
+      border: 3px solid var(--white);
+      box-shadow: 0 2px 8px rgba(58, 158, 74, 0.3);
+      z-index: 1;
+    }
+
+    .timeline-card {
+      background: var(--bg-light);
+      border-radius: 14px;
+      padding: 1.5rem 1.8rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      transition: all 0.3s;
+    }
+
+    .timeline-card:hover {
+      transform: translateX(6px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    .timeline-period {
+      display: inline-block;
+      font-family: 'GmarketSans', 'Pretendard Variable', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      padding: 0.2rem 0.8rem;
+      border-radius: 20px;
+      margin-bottom: 0.6rem;
+    }
+
+    .timeline-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.3rem;
+    }
+
+    .timeline-card p {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
     /* Recruitment Section */
     #recruitment {
-      background: var(--white);
+      background: var(--bg-light);
     }
 
     .recruit-grid {
@@ -1080,6 +1164,7 @@
     #goals::before,
     #activities::before,
     #strengths::before,
+    #plan::before,
     #recruitment::before,
     #contact::before {
       content: '';
@@ -1107,12 +1192,16 @@
       background: linear-gradient(to bottom, var(--white), var(--bg-light));
     }
 
-    #recruitment::before {
+    #plan::before {
       background: linear-gradient(to bottom, var(--bg-light), var(--white));
     }
 
+    #recruitment::before {
+      background: linear-gradient(to bottom, var(--white), var(--bg-light));
+    }
+
     #contact::before {
-      background: linear-gradient(to bottom, var(--white), rgba(123,200,138,0.3));
+      background: linear-gradient(to bottom, var(--bg-light), rgba(123,200,138,0.3));
     }
 
 
@@ -1200,6 +1289,24 @@
       .table-scroll-wrapper .discussion-table {
         min-width: 500px;
       }
+
+      .timeline::before {
+        left: 18px;
+      }
+
+      .timeline-marker {
+        left: 6px;
+        width: 24px;
+        height: 24px;
+      }
+
+      .timeline-item {
+        padding-left: 52px;
+      }
+
+      .timeline-card {
+        padding: 1.2rem 1.4rem;
+      }
     }
   </style>
 </head>
@@ -1217,6 +1324,7 @@
         <li><a href="#goals">목표</a></li>
         <li><a href="#activities">활동내역</a></li>
         <li><a href="#strengths">특장점</a></li>
+        <li><a href="#plan">계획</a></li>
         <li><a href="#recruitment">부원선발</a></li>
 <li><a href="#contact">문의</a></li>
       </ul>
@@ -1468,6 +1576,59 @@
           </div>
         </li>
       </ul>
+    </div>
+  </section>
+
+  <!-- Plan -->
+  <section id="plan">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="subtitle">2026 Plan</p>
+        <h2>2026 동아리 계획</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="timeline stagger-children">
+        <div class="timeline-item fade-in">
+          <div class="timeline-marker"></div>
+          <div class="timeline-card">
+            <span class="timeline-period">3~4월</span>
+            <h3>신입부원 모집 및 OT</h3>
+            <p>6기 부원 선발, 동아리 소개 및 팀 빌딩</p>
+          </div>
+        </div>
+        <div class="timeline-item fade-in">
+          <div class="timeline-marker"></div>
+          <div class="timeline-card">
+            <span class="timeline-period">5~6월</span>
+            <h3>독서 토론 &amp; 영어 토론</h3>
+            <p>문·이과 팀별 독서 토론, 국제 이슈 영어 토론</p>
+          </div>
+        </div>
+        <div class="timeline-item fade-in">
+          <div class="timeline-marker"></div>
+          <div class="timeline-card">
+            <span class="timeline-period">7~8월</span>
+            <h3>국제교류 &amp; 문화 탐구</h3>
+            <p>펜팔 활동, 다문화 체험 및 조별 문화 리서치</p>
+          </div>
+        </div>
+        <div class="timeline-item fade-in">
+          <div class="timeline-marker"></div>
+          <div class="timeline-card">
+            <span class="timeline-period">9~10월</span>
+            <h3>인포그래픽 &amp; 학술제</h3>
+            <p>국제 인포그래픽 제작, 심화 탐구 학술제 참여</p>
+          </div>
+        </div>
+        <div class="timeline-item fade-in">
+          <div class="timeline-marker"></div>
+          <div class="timeline-card">
+            <span class="timeline-period">11~12월</span>
+            <h3>활동 정리 &amp; 성과 공유</h3>
+            <p>연간 활동 보고서, 차기 운영진 준비</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
