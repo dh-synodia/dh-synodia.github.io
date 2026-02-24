@@ -147,14 +147,24 @@
     /* Hero Section */
     .hero {
       min-height: 100vh;
+      height: 100vh;
       background: linear-gradient(135deg, #7bc88a 0%, #3a9e4a 30%, #d4b84b 70%, #b8992e 100%);
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       color: var(--white);
-      position: relative;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
       overflow: hidden;
+      z-index: 0;
+    }
+
+    .hero-spacer {
+      height: 100vh;
+      position: relative;
     }
 
     .hero::before {
@@ -240,6 +250,13 @@
     /* Sections */
     section {
       padding: 5rem 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    #about {
+      border-radius: 24px 24px 0 0;
+      box-shadow: 0 -10px 40px rgba(0,0,0,0.08);
     }
 
     .section-header {
@@ -740,6 +757,8 @@
 
     /* Footer */
     .footer {
+      position: relative;
+      z-index: 1;
       background: #2d3436;
       color: rgba(255,255,255,0.6);
       text-align: center;
@@ -755,14 +774,86 @@
     /* Animations */
     .fade-in {
       opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s ease;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
     .fade-in.visible {
       opacity: 1;
       transform: translateY(0);
     }
+
+    .fade-in-left {
+      opacity: 0;
+      transform: translateX(-60px);
+      transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .fade-in-right {
+      opacity: 0;
+      transform: translateX(60px);
+      transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .fade-in-left.visible,
+    .fade-in-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Staggered children */
+    .stagger-children > .fade-in:nth-child(1) { transition-delay: 0s; }
+    .stagger-children > .fade-in:nth-child(2) { transition-delay: 0.15s; }
+    .stagger-children > .fade-in:nth-child(3) { transition-delay: 0.3s; }
+    .stagger-children > .fade-in:nth-child(4) { transition-delay: 0.45s; }
+    .stagger-children > .fade-in:nth-child(5) { transition-delay: 0.6s; }
+    .stagger-children > .fade-in:nth-child(6) { transition-delay: 0.75s; }
+
+    /* Section blend overlays */
+    #about::before,
+    #goals::before,
+    #activities::before,
+    #strengths::before,
+    #recruitment::before,
+    #contact::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      left: 0;
+      right: 0;
+      height: 60px;
+      pointer-events: none;
+    }
+
+    #about::before {
+      display: none;
+    }
+
+    #goals::before {
+      background: linear-gradient(to bottom, var(--white), var(--bg-light));
+    }
+
+    #activities::before {
+      background: linear-gradient(to bottom, var(--bg-light), var(--white));
+    }
+
+    #strengths::before {
+      background: linear-gradient(to bottom, var(--white), var(--bg-light));
+    }
+
+    #recruitment::before {
+      background: linear-gradient(to bottom, var(--bg-light), var(--white));
+    }
+
+    #contact::before {
+      background: linear-gradient(to bottom, var(--white), rgba(123,200,138,0.3));
+    }
+
+
+    .mobile-br { display: none; }
 
     /* Responsive */
     @media (max-width: 768px) {
@@ -811,6 +902,15 @@
       section {
         padding: 3rem 1.5rem;
       }
+
+      .fade-in-left {
+        transform: translateX(-30px);
+      }
+      .fade-in-right {
+        transform: translateX(30px);
+      }
+
+      .mobile-br { display: inline; }
     }
   </style>
 </head>
@@ -843,10 +943,11 @@
         <span class="eng">동화고등학교 &middot; SYNODIA</span>
       </h1>
       <p>&ldquo;세상과 교류하는 하나의 다리&rdquo;<br>
-         <span class="hero-motto">The Bridge that communicates with the World</span></p>
+         <span class="hero-motto">The Bridge that communicates<br class="mobile-br"> with the World</span></p>
     </div>
     <div class="scroll-indicator">&#9660;</div>
   </section>
+  <div class="hero-spacer"></div>
 
   <!-- About -->
   <section id="about">
@@ -856,9 +957,9 @@
         <h2>동아리 소개</h2>
         <div class="divider"></div>
       </div>
-      <div class="about-content fade-in">
-        <img src="images/about.jpg" alt="글로벌 교류를 상징하는 이미지" class="about-img">
-        <div class="about-text">
+      <div class="about-content">
+        <img src="images/about.jpg" alt="글로벌 교류를 상징하는 이미지" class="about-img fade-in-left">
+        <div class="about-text fade-in-right">
           <h3>화합과 소통, SYNODIA<br>동화고등학교 국제교류부입니다</h3>
           <p>
             국제교류부는 '국제'라는 타이틀을 중심으로 다양한 국가의 문화를 탐구하고,
@@ -881,7 +982,7 @@
         <h2>활동 목표</h2>
         <div class="divider"></div>
       </div>
-      <div class="goals-grid">
+      <div class="goals-grid stagger-children">
         <div class="goal-card fade-in">
           <div class="goal-icon">&#127758;</div>
           <h3>글로벌 역량 강화</h3>
@@ -993,18 +1094,18 @@
         <h2>시노디아의 특장점</h2>
         <div class="divider"></div>
       </div>
-      <div class="strengths-grid fade-in">
-        <div class="strength-card">
+      <div class="strengths-grid stagger-children">
+        <div class="strength-card fade-in">
           <div class="strength-icon">&#128300;</div>
           <h3>문·이과 융합 탐구</h3>
           <p>문과와 이과 팀으로 나누어 국제적인 안목을 바탕으로 관심 주제를 다양한 분야에서 탐구하며, 융합적 사고력을 기릅니다.</p>
         </div>
-        <div class="strength-card">
+        <div class="strength-card fade-in">
           <div class="strength-icon">&#127468;&#127463;</div>
           <h3>영어 실전 활용</h3>
           <p>단순한 학습을 넘어 영어로 토론하고 발표하며, 국제적 소통 능력을 실전에서 키웁니다.</p>
         </div>
-        <div class="strength-card">
+        <div class="strength-card fade-in">
           <div class="strength-icon">&#128208;</div>
           <h3>활동부터 학술까지 다양한 연계</h3>
           <p>자신의 진로와 동아리 토론 주제를 연결하고 심화 탐구하여 나만의 활동으로 만들어갈 수 있습니다.</p>
@@ -1022,14 +1123,14 @@
         <div class="divider"></div>
         <p class="section-hint">선발 인원은 내부 협의를 통해, 선발 일정과 선발 절차는 2026년 학사일정 및 지침에 따라 반영할 예정입니다.</p>
       </div>
-      <div class="recruit-grid fade-in">
-        <div class="recruit-card">
+      <div class="recruit-grid stagger-children">
+        <div class="recruit-card fade-in">
           <div class="recruit-icon">&#128101;</div>
           <h3>모집 인원</h3>
           <p class="recruit-number">&bigcirc;</p>
           <p class="recruit-desc">&bigcirc;</p>
         </div>
-        <div class="recruit-card">
+        <div class="recruit-card fade-in">
           <div class="recruit-icon">&#128197;</div>
           <h3>선발 일정</h3>
           <ul class="recruit-schedule">
@@ -1038,7 +1139,7 @@
             <li><strong>결과 발표</strong> &bigcirc;</li>
           </ul>
         </div>
-        <div class="recruit-card">
+        <div class="recruit-card fade-in">
           <div class="recruit-icon">&#128203;</div>
           <h3>선발 절차</h3>
           <div class="recruit-steps">
@@ -1059,20 +1160,20 @@
         <h2>문의 안내</h2>
         <div class="divider"></div>
       </div>
-      <div class="contact-grid fade-in">
-        <div class="contact-card full">
-          <div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></div>
+      <div class="contact-grid stagger-children">
+        <div class="contact-card full fade-in">
+          <div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="white" stroke="none"/></svg></div>
           <div class="contact-text">
-            <h4>시노디아 공식 인스타그램</h4>
+            <h4>시노디아<br class="mobile-br"> 공식 인스타그램</h4>
             <a href="https://www.instagram.com/dh.synodia" target="_blank" rel="noopener noreferrer">@dh.synodia</a>
           </div>
         </div>
-        <div class="contact-card person">
+        <div class="contact-card person fade-in">
           <span class="person-role">기장</span>
           <span class="person-name">김규민</span>
           <a href="https://www.instagram.com/k.min31" target="_blank" rel="noopener noreferrer">@k.min31</a>
         </div>
-        <div class="contact-card person">
+        <div class="contact-card person fade-in">
           <span class="person-role">부기장</span>
           <span class="person-name">김다현</span>
           <a href="https://www.instagram.com/d_hy.81" target="_blank" rel="noopener noreferrer">@d_hy.81</a>
@@ -1114,9 +1215,21 @@
           entry.target.classList.add('visible');
         }
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right').forEach(el => observer.observe(el));
+
+    // Hero content fade + blur on scroll
+    const heroContent = document.querySelector('.hero-content');
+    const heroHeight = window.innerHeight;
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      if (scrollY < heroHeight) {
+        const progress = Math.max(0, (scrollY - heroHeight * 0.3) / (heroHeight * 0.7));
+        heroContent.style.opacity = 1 - progress;
+        heroContent.style.filter = 'blur(' + progress * 10 + 'px)';
+      }
+    }, { passive: true });
 
     // Accordion toggle
     document.querySelectorAll('.accordion-header').forEach(header => {
