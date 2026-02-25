@@ -294,27 +294,26 @@
 
     /* Contact Section */
     #contact {
-      background: linear-gradient(135deg, #7bc88a, #3a9e4a, #d4b84b);
-      color: var(--white);
+      background: var(--white);
     }
 
     #contact .section-header h2 {
-      color: var(--white);
+      color: var(--primary);
     }
 
     #contact .section-header .subtitle {
-      color: rgba(255,255,255,0.7);
+      color: var(--text-light);
     }
 
     .contact-welcome {
       font-size: 1.1rem;
-      color: rgba(255,255,255,0.8);
+      color: var(--text-light);
       margin-top: 1rem;
       line-height: 1.8;
     }
 
     #contact .section-header .divider {
-      background: rgba(255,255,255,0.6);
+      background: linear-gradient(90deg, var(--primary-light), var(--accent));
     }
 
     .contact-grid {
@@ -326,15 +325,45 @@
     .contact-card {
       text-align: center;
       padding: 2rem;
-      background: rgba(255,255,255,0.1);
+      color: var(--white);
       border-radius: 16px;
-      backdrop-filter: blur(5px);
       transition: all 0.3s;
     }
 
+    .contact-card.card-instagram {
+      background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF, #515BD4);
+    }
+
+    .contact-card.card-kakao {
+      background: #FFE812;
+      color: #191600;
+    }
+
+    .contact-card.card-kakao h4,
+    .contact-card.card-kakao p {
+      color: #191600;
+    }
+
+    .contact-card.card-kakao a {
+      color: #191600;
+      border-bottom-color: rgba(25, 22, 0, 0.4);
+    }
+
+    .contact-card.card-kakao a:hover {
+      border-color: #191600;
+    }
+
+    .contact-card.card-kakao .contact-icon {
+      background: rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-card.card-kakao .contact-icon svg {
+      fill: #191600;
+    }
+
     .contact-card:hover {
-      background: rgba(255,255,255,0.15);
       transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
     }
 
     .contact-icon {
@@ -380,7 +409,7 @@
       margin-top: 2rem;
       text-align: center;
       font-size: 1.05rem;
-      color: rgba(255,255,255,0.6);
+      color: var(--text-light);
     }
 
     .contact-sub-people {
@@ -391,24 +420,27 @@
     }
 
     .contact-sub-people .person-item {
-      color: rgba(255,255,255,0.7);
+      color: var(--text-light);
       font-size: 1.05rem;
     }
 
     .contact-sub-people a {
-      color: var(--white);
       text-decoration: none;
       font-weight: 700;
+      background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF, #515BD4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
       transition: opacity 0.3s;
     }
 
     .contact-sub-people a:hover {
-      opacity: 0.8;
+      opacity: 0.7;
     }
 
     .contact-sub-people .person-role {
       font-weight: 600;
-      opacity: 0.6;
+      color: var(--text-dark);
       margin-right: 0.3rem;
     }
 
@@ -543,16 +575,16 @@
         <h2>문의 안내</h2>
         <div class="divider"></div>
         <p class="contact-welcome">활동 시간 및 빈도, 학업 병행, 영어 실력, 동아리 분위기, 생기부 기재, 타 활동 병행 등<br>어떤 질문이든 편하게 연락 주세요. 언제나 환영합니다.</p>
-        <p style="color: var(--accent-gold); font-size: 1rem; margin-top: 0.6rem; font-weight: 500;">오픈채팅방에서는 익명으로 편하게 문의할 수 있습니다</p>
+        <p style="color: var(--accent); font-size: 1rem; margin-top: 0.6rem; font-weight: 500;">오픈채팅방에서는 익명으로 편하게 문의할 수 있습니다</p>
       </div>
       <div class="contact-grid stagger-children">
-        <div class="contact-card fade-in">
+        <div class="contact-card card-instagram fade-in">
           <div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="white" stroke="none"/></svg></div>
           <h4>공식 인스타그램</h4>
           <a href="https://www.instagram.com/dh.synodia" target="_blank" rel="noopener noreferrer">@dh.synodia</a>
         </div>
-        <div class="contact-card fade-in">
-          <div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white" stroke="none"><path d="M12 3C6.48 3 2 6.58 2 10.94c0 2.8 1.86 5.27 4.66 6.67-.15.56-.96 3.58-.99 3.77 0 0-.02.17.09.23.11.07.24.03.24.03.32-.04 3.7-2.44 4.28-2.85.56.08 1.14.13 1.72.13 5.52 0 10-3.58 10-7.98S17.52 3 12 3z"/></svg></div>
+        <div class="contact-card card-kakao fade-in">
+          <div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="#191600" stroke="none"><path d="M12 3C6.48 3 2 6.58 2 10.94c0 2.8 1.86 5.27 4.66 6.67-.15.56-.96 3.58-.99 3.77 0 0-.02.17.09.23.11.07.24.03.24.03.32-.04 3.7-2.44 4.28-2.85.56.08 1.14.13 1.72.13 5.52 0 10-3.58 10-7.98S17.52 3 12 3z"/></svg></div>
           <h4>Q&amp;A 오픈채팅방</h4>
           <a href="https://open.kakao.com/o/sYPrZaii" target="_blank" rel="noopener noreferrer">카카오톡으로 문의하기</a>
         </div>
