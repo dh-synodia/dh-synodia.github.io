@@ -453,19 +453,18 @@
 
     /* Responsive */
     @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .nav-links.active {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background: rgba(58, 158, 74, 0.95);
-        padding: 1.5rem 2rem;
-        gap: 1rem;
+      .nav-inner {
+        height: auto;
+        padding: 0.5rem 0;
       }
-      .mobile-toggle { display: block; }
+      .nav-links {
+        gap: 0.6rem;
+        flex-wrap: wrap;
+      }
+      .nav-links a {
+        font-size: 0.78rem;
+      }
+      .mobile-toggle { display: none; }
 
       .hero h1 { font-size: 2.3rem; }
       .hero h1 .eng { font-size: 0.85rem; letter-spacing: 1.5px; }
@@ -483,16 +482,10 @@
       }
 
       .welcome-link:last-child {
-        grid-column: span 2;
+        grid-column: 1 / -1;
       }
 
       .mobile-br { display: inline; }
-    }
-
-    @media (max-width: 480px) {
-      .welcome-links {
-        grid-template-columns: 1fr;
-      }
     }
   </style>
 </head>
@@ -508,7 +501,7 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="about.html">소개</a></li>
         <li><a href="activities.html">2025년 활동</a></li>
-        <li><a href="plan.html">2026년 활동 계획</a></li>
+        <li><a href="plan.html">2026년 계획</a></li>
         <li><a href="recruitment.html">6기 부원 선발</a></li>
         <li><a href="contact.html">문의</a></li>
       </ul>
@@ -522,8 +515,8 @@
     <div class="hero-content">
       <img src="images/logo.png" alt="SYNODIA 로고" class="hero-logo">
       <h1>
-        국제교류부
-        <span class="eng">동화고등학교 &middot; SYNODIA</span>
+        SYNODIA
+        <span class="eng">동화고등학교 &middot; 국제교류부</span>
       </h1>
       <p>&ldquo;세상과 교류하는 하나의 다리&rdquo;<br>
          <span class="hero-motto">The Bridge that communicates<br class="mobile-br"> with the World</span></p>
@@ -542,7 +535,6 @@
         이곳에서 시노디아의 활동과 계획, 부원 모집 안내 등 다양한 정보를 확인하실 수 있습니다.
       </p>
       <div class="welcome-nav-guide fade-in">
-        <span class="guide-arrow">&#9650;</span>
         상단 목차를 클릭하면 각 페이지로 이동할 수 있습니다
       </div>
       <div class="welcome-links stagger-children">

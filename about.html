@@ -190,25 +190,15 @@
 
     /* Hero Section */
     .hero {
-      min-height: 100vh;
-      height: 100vh;
+      height: 40vh;
       background: linear-gradient(135deg, #7bc88a 0%, #3a9e4a 30%, #d4b84b 70%, #b8992e 100%);
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       color: var(--white);
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      overflow: hidden;
-      z-index: 0;
-    }
-
-    .hero-spacer {
-      height: 100vh;
       position: relative;
+      overflow: hidden;
     }
 
     .hero::before {
@@ -520,20 +510,20 @@
 
     /* Responsive */
     @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .nav-links.active {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background: rgba(58, 158, 74, 0.95);
-        padding: 1.5rem 2rem;
-        gap: 1rem;
+      .nav-inner {
+        height: auto;
+        padding: 0.5rem 0;
       }
-      .mobile-toggle { display: block; }
+      .nav-links {
+        gap: 0.6rem;
+        flex-wrap: wrap;
+      }
+      .nav-links a {
+        font-size: 0.78rem;
+      }
+      .mobile-toggle { display: none; }
 
+      .hero { height: auto; min-height: 40vh; padding-top: 5rem; padding-bottom: 2rem; }
       .hero h1 { font-size: 2.3rem; }
       .hero h1 .eng { font-size: 0.85rem; letter-spacing: 1.5px; }
 
@@ -573,7 +563,7 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="about.html" class="active">소개</a></li>
         <li><a href="activities.html">2025년 활동</a></li>
-        <li><a href="plan.html">2026년 활동 계획</a></li>
+        <li><a href="plan.html">2026년 계획</a></li>
         <li><a href="recruitment.html">6기 부원 선발</a></li>
         <li><a href="contact.html">문의</a></li>
       </ul>
@@ -587,15 +577,13 @@
     <div class="hero-content">
       <img src="images/logo.png" alt="SYNODIA 로고" class="hero-logo">
       <h1>
-        국제교류부
-        <span class="eng">동화고등학교 &middot; SYNODIA</span>
+        SYNODIA
+        <span class="eng">동화고등학교 &middot; 국제교류부</span>
       </h1>
       <p>&ldquo;세상과 교류하는 하나의 다리&rdquo;<br>
          <span class="hero-motto">The Bridge that communicates<br class="mobile-br"> with the World</span></p>
     </div>
-    <div class="scroll-indicator">&#9660;</div>
   </section>
-  <div class="hero-spacer"></div>
 
   <!-- About -->
   <section id="about">
@@ -698,17 +686,6 @@
 
     document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right').forEach(el => observer.observe(el));
 
-    // Hero content fade + blur on scroll
-    const heroContent = document.querySelector('.hero-content');
-    const heroHeight = window.innerHeight;
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      if (scrollY < heroHeight) {
-        const progress = Math.max(0, (scrollY - heroHeight * 0.3) / (heroHeight * 0.7));
-        heroContent.style.opacity = 1 - progress;
-        heroContent.style.filter = 'blur(' + progress * 10 + 'px)';
-      }
-    }, { passive: true });
   </script>
 </body>
 </html>

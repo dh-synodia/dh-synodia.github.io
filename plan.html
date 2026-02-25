@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2026년 활동 계획 | SYNODIA 동화고등학교 국제교류부</title>
+  <title>2026년 계획 | SYNODIA 동화고등학교 국제교류부</title>
   <meta name="description" content="SYNODIA 국제교류부의 2026년 동아리 활동 계획. 독서 토론, 영어 토론, 국제교류, 인포그래픽, 학술제 참여 등.">
   <meta name="keywords" content="시노디아, SYNODIA, 동화고등학교, 국제교류부, 2026, 계획">
   <link rel="canonical" href="https://dh-synodia.github.io/plan.html">
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://dh-synodia.github.io/plan.html">
-  <meta property="og:title" content="2026년 활동 계획 | SYNODIA 동화고등학교 국제교류부">
+  <meta property="og:title" content="2026년 계획 | SYNODIA 동화고등학교 국제교류부">
   <meta property="og:description" content="SYNODIA 국제교류부의 2026년 동아리 활동 계획을 소개합니다.">
   <meta property="og:image" content="https://dh-synodia.github.io/images/logo.png">
   <meta property="og:locale" content="ko_KR">
@@ -160,7 +160,7 @@
 
     /* Hero Section */
     .hero {
-      height: 50vh;
+      height: 40vh;
       background: linear-gradient(135deg, #7bc88a 0%, #3a9e4a 30%, #d4b84b 70%, #b8992e 100%);
       display: flex;
       align-items: center;
@@ -422,20 +422,20 @@
 
     /* Responsive */
     @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .nav-links.active {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background: rgba(58, 158, 74, 0.95);
-        padding: 1.5rem 2rem;
-        gap: 1rem;
+      .nav-inner {
+        height: auto;
+        padding: 0.5rem 0;
       }
-      .mobile-toggle { display: block; }
+      .nav-links {
+        gap: 0.6rem;
+        flex-wrap: wrap;
+      }
+      .nav-links a {
+        font-size: 0.78rem;
+      }
+      .mobile-toggle { display: none; }
 
+      .hero { height: auto; min-height: 40vh; padding-top: 5rem; padding-bottom: 2rem; }
       .hero h1 { font-size: 1.8rem; }
       .hero h1 .eng { font-size: 0.75rem; letter-spacing: 1.5px; }
       .mobile-br { display: inline; }
@@ -462,7 +462,7 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="about.html">소개</a></li>
         <li><a href="activities.html">2025년 활동</a></li>
-        <li><a href="plan.html" class="active">2026년 활동 계획</a></li>
+        <li><a href="plan.html" class="active">2026년 계획</a></li>
         <li><a href="recruitment.html">6기 부원 선발</a></li>
         <li><a href="contact.html">문의</a></li>
       </ul>
@@ -476,13 +476,12 @@
     <div class="hero-content">
       <img src="images/logo.png" alt="SYNODIA 로고" class="hero-logo">
       <h1>
-        국제교류부
-        <span class="eng">동화고등학교 &middot; SYNODIA</span>
+        SYNODIA
+        <span class="eng">동화고등학교 &middot; 국제교류부</span>
       </h1>
       <p>&ldquo;세상과 교류하는 하나의 다리&rdquo;<br>
          <span class="hero-motto">The Bridge that communicates<br class="mobile-br"> with the World</span></p>
     </div>
-    <div class="scroll-indicator">&#9660;</div>
   </section>
 
   <!-- Plan -->
