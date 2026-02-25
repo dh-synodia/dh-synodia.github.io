@@ -381,12 +381,15 @@
     }
 
     .goals-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 2rem;
     }
 
     .goal-card {
+      flex: 0 1 calc(33.333% - 1.34rem);
+      min-width: 240px;
       background: var(--white);
       border-radius: 16px;
       padding: 2rem;
@@ -798,69 +801,6 @@
         top: 0.5rem;
         right: 0.7rem;
       }
-    }
-
-    /* Strengths Section */
-    #strengths {
-      background: var(--bg-light);
-    }
-
-    .checklist {
-      max-width: 700px;
-      margin: 0 auto;
-      list-style: none;
-    }
-
-    .checklist-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 1.2rem;
-      padding: 1.5rem 1.8rem;
-      background: var(--white);
-      border-radius: 14px;
-      margin-bottom: 1rem;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-      transition: all 0.3s;
-    }
-
-    .checklist-item:hover {
-      transform: translateX(6px);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    }
-
-    .checklist-check {
-      width: 28px;
-      height: 28px;
-      min-width: 28px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--primary-light), var(--primary));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 2px;
-    }
-
-    .checklist-check svg {
-      width: 16px;
-      height: 16px;
-      stroke: var(--white);
-      fill: none;
-      stroke-width: 2.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .checklist-text h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 0.3rem;
-    }
-
-    .checklist-text p {
-      font-size: 0.9rem;
-      color: var(--text-light);
-      line-height: 1.7;
     }
 
     .recruit-intro {
@@ -1289,7 +1229,6 @@
     #about::before,
     #goals::before,
     #activities::before,
-    #strengths::before,
     #plan::before,
     #recruitment::before,
     #contact::before {
@@ -1314,12 +1253,8 @@
       background: linear-gradient(to bottom, var(--bg-light), var(--white));
     }
 
-    #strengths::before {
-      background: linear-gradient(to bottom, var(--white), var(--bg-light));
-    }
-
     #plan::before {
-      background: linear-gradient(to bottom, var(--bg-light), var(--white));
+      background: linear-gradient(to bottom, var(--white), var(--white));
     }
 
     #recruitment::before {
@@ -1377,8 +1312,8 @@
         text-align: center;
       }
 
-      .goals-grid {
-        grid-template-columns: 1fr;
+      .goal-card {
+        flex: 0 1 100%;
       }
 
       .recruit-grid {
@@ -1453,7 +1388,6 @@
         <li><a href="#about">소개</a></li>
         <li><a href="#goals">목표</a></li>
         <li><a href="#activities">활동내역</a></li>
-        <li><a href="#strengths">특장점</a></li>
         <li><a href="#plan">계획</a></li>
         <li><a href="#recruitment">부원선발</a></li>
 <li><a href="#contact">문의</a></li>
@@ -1507,15 +1441,15 @@
   <section id="goals">
     <div class="container">
       <div class="section-header fade-in">
-        <p class="subtitle">Our Goals</p>
-        <h2>활동 목표</h2>
+        <p class="subtitle">Goals &amp; Strengths</p>
+        <h2>목표 및 특장점</h2>
         <div class="divider"></div>
       </div>
       <div class="goals-grid stagger-children">
         <div class="goal-card fade-in">
           <div class="goal-icon">&#127758;</div>
           <h3>글로벌 역량 강화</h3>
-          <p>국제 이슈를 다양한 관점에서 분석하고, 자신의 생각을 표현할 수 있는 소통 능력을 기릅니다.</p>
+          <p>국제 이슈를 다양한 관점에서 분석하고 토론하며, 세계 시민으로서의 소통 능력과 비판적 사고력을 기릅니다.</p>
         </div>
         <div class="goal-card fade-in">
           <div class="goal-icon">&#128214;</div>
@@ -1523,9 +1457,19 @@
           <p>다른 나라의 문화와 가치관의 차이를 인지하고 존중하는 문화적 감수성을 키웁니다.</p>
         </div>
         <div class="goal-card fade-in">
-          <div class="goal-icon">&#128240;</div>
-          <h3>국제 이슈 이해력</h3>
-          <p>세계 정세와 글로벌 문제를 다양한 관점에서 분석하고 토론하는 비판적 사고력을 기릅니다.</p>
+          <div class="goal-icon">&#128483;</div>
+          <h3>영어 실전 활용</h3>
+          <p>단순한 학습을 넘어 영어로 토론하고 발표하며, 국제적 소통 능력을 실전에서 키웁니다.</p>
+        </div>
+        <div class="goal-card fade-in">
+          <div class="goal-icon">&#128300;</div>
+          <h3>문·이과 융합 탐구</h3>
+          <p>문과와 이과 팀으로 나누어 국제적인 안목을 바탕으로 관심 주제를 다양한 분야에서 탐구하며, 융합적 사고력을 기릅니다.</p>
+        </div>
+        <div class="goal-card fade-in">
+          <div class="goal-icon">&#127891;</div>
+          <h3>진로 연계 심화 탐구</h3>
+          <p>자신의 진로와 동아리 토론 주제를 연결하고 심화 탐구하여 나만의 활동으로 만들어갈 수 있습니다.</p>
         </div>
       </div>
     </div>
@@ -1672,40 +1616,6 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Strengths -->
-  <section id="strengths">
-    <div class="container">
-      <div class="section-header fade-in">
-        <p class="subtitle">Our Strengths</p>
-        <h2>시노디아의 특장점</h2>
-        <div class="divider"></div>
-      </div>
-      <ul class="checklist stagger-children">
-        <li class="checklist-item fade-in">
-          <div class="checklist-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="checklist-text">
-            <h3>문·이과 융합 탐구</h3>
-            <p>문과와 이과 팀으로 나누어 국제적인 안목을 바탕으로 관심 주제를 다양한 분야에서 탐구하며, 융합적 사고력을 기릅니다.</p>
-          </div>
-        </li>
-        <li class="checklist-item fade-in">
-          <div class="checklist-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="checklist-text">
-            <h3>영어 실전 활용</h3>
-            <p>단순한 학습을 넘어 영어로 토론하고 발표하며, 국제적 소통 능력을 실전에서 키웁니다.</p>
-          </div>
-        </li>
-        <li class="checklist-item fade-in">
-          <div class="checklist-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="checklist-text">
-            <h3>활동부터 학술까지 다양한 연계</h3>
-            <p>자신의 진로와 동아리 토론 주제를 연결하고 심화 탐구하여 나만의 활동으로 만들어갈 수 있습니다.</p>
-          </div>
-        </li>
-      </ul>
     </div>
   </section>
 
