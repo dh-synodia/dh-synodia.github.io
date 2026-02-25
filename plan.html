@@ -2,7 +2,10 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <title>SYNODIA - 동화고등학교 국제교류부</title>
   <meta name="description" content="SYNODIA 국제교류부의 2026년 동아리 활동 계획. 독서 토론, 영어 토론, 국제교류, 인포그래픽, 학술제 참여 등.">
   <meta name="keywords" content="시노디아, SYNODIA, 동화고등학교, 국제교류부, 2026, 계획">
@@ -54,6 +57,9 @@
 
     html {
       scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      scrollbar-gutter: stable;
     }
 
     body {
@@ -512,6 +518,9 @@
   </footer>
 
   <script>
+    // Force zoom 100%
+    document.body.style.zoom = '100%';
+
     // Navbar scroll effect
     const navbar = document.querySelector('.navbar');
     window.addEventListener('scroll', () => {

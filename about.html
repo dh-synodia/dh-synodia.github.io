@@ -2,7 +2,10 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <title>SYNODIA - 동화고등학교 국제교류부</title>
   <meta name="description" content="동화고등학교 국제교류부 SYNODIA(시노디아) 소개. 동아리 소개와 목표 및 특장점을 안내합니다.">
   <meta name="keywords" content="시노디아, SYNODIA, 동화고등학교, 국제교류부, 동아리, 소개, 목표">
@@ -84,6 +87,9 @@
 
     html {
       scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      scrollbar-gutter: stable;
     }
 
     body {
@@ -210,10 +216,10 @@
     }
 
     .hero-logo {
-      width: 100px;
-      height: 100px;
+      width: 72px;
+      height: 72px;
       border-radius: 50%;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
       box-shadow: 0 4px 20px rgba(0,0,0,0.15);
       display: block;
       margin-left: auto;
@@ -222,37 +228,37 @@
     }
 
     .hero h1 {
-      font-size: 3.8rem;
+      font-size: 2.6rem;
       font-weight: 700;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.3rem;
       letter-spacing: 2px;
     }
 
     .hero h1 .eng {
       display: block;
       font-family: 'Pretendard Variable', sans-serif;
-      font-size: 1.15rem;
+      font-size: 1rem;
       font-weight: 300;
       letter-spacing: 2.5px;
-      margin-top: 0.8rem;
+      margin-top: 0.5rem;
       opacity: 0.8;
     }
 
     .hero p {
       font-family: 'Pretendard Variable', sans-serif;
-      font-size: 1.1rem;
+      font-size: 0.95rem;
       font-weight: 300;
-      margin-top: 1.5rem;
+      margin-top: 1rem;
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
       opacity: 0.9;
-      line-height: 2;
+      line-height: 1.8;
     }
 
     .hero-motto {
       font-style: italic;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       opacity: 0.7;
       letter-spacing: 1.5px;
     }
@@ -516,8 +522,8 @@
       .navbar { padding: 0 1rem; }
 
       .hero { height: auto; min-height: 40vh; padding-top: 5rem; padding-bottom: 2rem; }
-      .hero h1 { font-size: 2.3rem; }
-      .hero h1 .eng { font-size: 0.85rem; letter-spacing: 1.5px; }
+      .hero h1 { font-size: 1.8rem; }
+      .hero h1 .eng { font-size: 0.75rem; letter-spacing: 1.5px; }
 
       .about-content {
         grid-template-columns: 1fr;
@@ -647,6 +653,9 @@
   </footer>
 
   <script>
+    // Force zoom 100%
+    document.body.style.zoom = '100%';
+
     // Navbar scroll effect
     const navbar = document.querySelector('.navbar');
     window.addEventListener('scroll', () => {
