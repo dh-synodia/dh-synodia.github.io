@@ -466,7 +466,6 @@
         <li><a href="recruitment.html">6기 부원 선발</a></li>
         <li><a href="contact.html">문의</a></li>
       </ul>
-      <button class="mobile-toggle" id="mobileToggle" aria-label="메뉴 열기">&#9776;</button>
     </div>
   </nav>
 
@@ -516,6 +515,7 @@
   <!-- Footer -->
   <footer class="footer">
     <p>&copy; 2026 SYNODIA 국제교류부. All Rights Reserved.</p>
+    <p style="margin-top: 0.5rem; font-size: 0.8rem;">본 홈페이지에 게시된 발표 자료 및 콘텐츠의 저작권은 SYNODIA 국제교류부에 있으며, <br class="mobile-br">무단 복제·배포를 금합니다.</p>
   </footer>
 
   <script>
@@ -525,19 +525,6 @@
       navbar.classList.toggle('scrolled', window.scrollY > 50);
     });
 
-    // Mobile menu toggle
-    const mobileToggle = document.getElementById('mobileToggle');
-    const navLinks = document.getElementById('navLinks');
-    mobileToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
-
-    // Close mobile menu on link click
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-      });
-    });
 
     // Scroll fade-in animation
     const observer = new IntersectionObserver((entries) => {
