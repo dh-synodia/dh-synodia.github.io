@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SYNODIA | 동화고등학교 국제교류부</title>
-  <meta name="description" content="동화고등학교 국제교류부 SYNODIA(시노디아). 다문화 이해, 국제 이슈 토론, 영어 토론 등 글로벌 역량을 키우는 동아리입니다. 부원 모집 및 활동 안내.">
-  <meta name="keywords" content="시노디아, SYNODIA, 동화고등학교, 국제교류부, 동아리, 글로벌, 다문화, 영어토론, 부원모집">
-  <link rel="canonical" href="https://dh-synodia.github.io/">
+  <title>소개 | SYNODIA 동화고등학교 국제교류부</title>
+  <meta name="description" content="동화고등학교 국제교류부 SYNODIA(시노디아) 소개. 동아리 소개와 목표 및 특장점을 안내합니다.">
+  <meta name="keywords" content="시노디아, SYNODIA, 동화고등학교, 국제교류부, 동아리, 소개, 목표">
+  <link rel="canonical" href="https://dh-synodia.github.io/about.html">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://dh-synodia.github.io/">
-  <meta property="og:title" content="SYNODIA | 동화고등학교 국제교류부">
-  <meta property="og:description" content="세계와 소통하고, 다양한 문화를 이해하며, 글로벌 리더로 성장하는 동화고 국제교류부 시노디아입니다.">
+  <meta property="og:url" content="https://dh-synodia.github.io/about.html">
+  <meta property="og:title" content="소개 | SYNODIA 동화고등학교 국제교류부">
+  <meta property="og:description" content="동화고등학교 국제교류부 SYNODIA 소개 및 목표를 안내합니다.">
   <meta property="og:image" content="https://dh-synodia.github.io/images/logo.png">
   <meta property="og:locale" content="ko_KR">
   <meta property="og:site_name" content="SYNODIA 국제교류부">
@@ -290,112 +290,158 @@
       50% { transform: translateX(-50%) translateY(-10px); }
     }
 
-    /* Welcome Section */
-    .welcome {
+    /* Sections */
+    section {
+      padding: 5rem 2rem;
       position: relative;
       z-index: 1;
-      background: var(--white);
+    }
+
+    #about {
       border-radius: 24px 24px 0 0;
       box-shadow: 0 -10px 40px rgba(0,0,0,0.08);
-      padding: 5rem 2rem;
     }
 
-    .welcome .container {
-      max-width: 800px;
-      margin: 0 auto;
+    .section-header {
       text-align: center;
+      margin-bottom: 3.5rem;
     }
 
-    .welcome-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .welcome h2 {
-      font-size: 2rem;
+    .section-header h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
       color: var(--primary);
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
       letter-spacing: 1px;
     }
 
-    .welcome-message {
-      font-size: 1.05rem;
+    .section-header .subtitle {
+      font-family: 'Pretendard Variable', sans-serif;
+      font-size: 0.85rem;
       color: var(--text-light);
-      line-height: 2;
-      margin-bottom: 2.5rem;
+      font-weight: 400;
+      letter-spacing: 3px;
+      text-transform: uppercase;
     }
 
-    .welcome-nav-guide {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: var(--bg-light);
-      border: 1.5px solid var(--primary-light);
-      border-radius: 12px;
-      padding: 1rem 1.8rem;
-      font-size: 0.95rem;
-      color: var(--text-dark);
-      margin-bottom: 3rem;
+    .section-header .divider {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary-light), var(--accent));
+      margin: 1rem auto 0;
+      border-radius: 2px;
     }
 
-    .welcome-nav-guide .guide-arrow {
-      color: var(--primary);
-      font-size: 1.2rem;
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
     }
 
-    .welcome-links {
+    /* About Section */
+    #about {
+      background: var(--white);
+    }
+
+    .about-content {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 1rem;
-    }
-
-    .welcome-link {
-      display: flex;
-      flex-direction: column;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
       align-items: center;
-      gap: 0.6rem;
-      padding: 1.5rem 1rem;
-      background: var(--bg-light);
+    }
+
+    .about-img {
+      width: 100%;
       border-radius: 16px;
-      text-decoration: none;
-      color: var(--text-dark);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    .about-text h3 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    .about-text p {
+      color: var(--text-light);
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    /* Goals Section */
+    #goals {
+      background: var(--bg-light);
+    }
+
+    .goals-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .goal-card {
+      flex: 0 1 calc(33.333% - 1.34rem);
+      min-width: 240px;
+      background: var(--white);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
       transition: all 0.3s;
-      border: 1.5px solid transparent;
+      position: relative;
+      overflow: hidden;
     }
 
-    .welcome-link:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-      border-color: var(--primary-light);
+    .goal-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary-light), var(--accent));
+      transform: scaleX(0);
+      transition: transform 0.3s;
     }
 
-    .welcome-link .link-icon {
-      width: 52px;
-      height: 52px;
+    .goal-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .goal-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .goal-icon {
+      width: 70px;
+      height: 70px;
       border-radius: 50%;
       background: linear-gradient(135deg, #f0f8e8, #d5ecd9);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
+      margin: 0 auto 1.2rem;
+      font-size: 2rem;
     }
 
-    .welcome-link .link-title {
-      font-family: 'GmarketSans', 'Pretendard Variable', sans-serif;
-      font-size: 0.85rem;
+    .goal-card h3 {
+      font-size: 1.15rem;
       font-weight: 700;
+      margin-bottom: 0.8rem;
       color: var(--primary);
     }
 
-    .welcome-link .link-desc {
-      font-size: 0.78rem;
+    .goal-card p {
+      font-size: 0.9rem;
       color: var(--text-light);
-      line-height: 1.5;
+      line-height: 1.7;
     }
 
     .mobile-br { display: none; }
 
-    /* Skip Link */
+    /* Skip Link (Accessibility) */
     .skip-link {
       position: absolute;
       top: -100%;
@@ -444,12 +490,33 @@
       transform: translateY(0);
     }
 
+    .fade-in-left {
+      opacity: 0;
+      transform: translateX(-60px);
+      transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .fade-in-right {
+      opacity: 0;
+      transform: translateX(60px);
+      transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .fade-in-left.visible,
+    .fade-in-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
     /* Staggered children */
     .stagger-children > .fade-in:nth-child(1) { transition-delay: 0s; }
-    .stagger-children > .fade-in:nth-child(2) { transition-delay: 0.1s; }
-    .stagger-children > .fade-in:nth-child(3) { transition-delay: 0.2s; }
-    .stagger-children > .fade-in:nth-child(4) { transition-delay: 0.3s; }
-    .stagger-children > .fade-in:nth-child(5) { transition-delay: 0.4s; }
+    .stagger-children > .fade-in:nth-child(2) { transition-delay: 0.15s; }
+    .stagger-children > .fade-in:nth-child(3) { transition-delay: 0.3s; }
+    .stagger-children > .fade-in:nth-child(4) { transition-delay: 0.45s; }
+    .stagger-children > .fade-in:nth-child(5) { transition-delay: 0.6s; }
+    .stagger-children > .fade-in:nth-child(6) { transition-delay: 0.75s; }
 
     /* Responsive */
     @media (max-width: 768px) {
@@ -470,41 +537,32 @@
       .hero h1 { font-size: 2.3rem; }
       .hero h1 .eng { font-size: 0.85rem; letter-spacing: 1.5px; }
 
-      .welcome {
+      .about-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .goal-card {
+        flex: 0 1 100%;
+      }
+
+      section {
         padding: 3rem 1.5rem;
       }
 
-      .welcome h2 {
-        font-size: 1.6rem;
+      .fade-in-left {
+        transform: translateX(-30px);
       }
-
-      .welcome-links {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .welcome-link:last-child {
-        grid-column: span 2;
-        max-width: 50%;
-        margin: 0 auto;
+      .fade-in-right {
+        transform: translateX(30px);
       }
 
       .mobile-br { display: inline; }
     }
-
-    @media (max-width: 480px) {
-      .welcome-links {
-        grid-template-columns: 1fr;
-      }
-
-      .welcome-link:last-child {
-        grid-column: span 1;
-        max-width: 100%;
-      }
-    }
   </style>
 </head>
 <body>
-  <a href="#welcome" class="skip-link">본문 바로가기</a>
+  <a href="#about" class="skip-link">본문 바로가기</a>
 
   <!-- Navigation -->
   <nav class="navbar" aria-label="메인 내비게이션">
@@ -513,7 +571,7 @@
         <img src="images/logo.png" alt="SYNODIA 로고">
       </a>
       <ul class="nav-links" id="navLinks">
-        <li><a href="about.html">소개</a></li>
+        <li><a href="about.html" class="active">소개</a></li>
         <li><a href="activities.html">2025년 활동</a></li>
         <li><a href="plan.html">2026년 활동 계획</a></li>
         <li><a href="recruitment.html">6기 부원 선발</a></li>
@@ -539,45 +597,65 @@
   </section>
   <div class="hero-spacer"></div>
 
-  <!-- Welcome -->
-  <section class="welcome" id="welcome">
+  <!-- About -->
+  <section id="about">
     <div class="container">
-      <div class="welcome-icon fade-in">&#128075;</div>
-      <h2 class="fade-in">SYNODIA 홈페이지에 오신 것을 환영합니다</h2>
-      <p class="welcome-message fade-in">
-        동화고등학교 국제교류부 SYNODIA의 공식 홈페이지를 방문해 주셔서 감사합니다.<br>
-        이곳에서 시노디아의 활동과 계획, 부원 모집 안내 등 다양한 정보를 확인하실 수 있습니다.
-      </p>
-      <div class="welcome-nav-guide fade-in">
-        <span class="guide-arrow">&#9650;</span>
-        상단 목차를 클릭하면 각 페이지로 이동할 수 있습니다
+      <div class="section-header fade-in">
+        <p class="subtitle">About Us</p>
+        <h2>동아리 소개</h2>
+        <div class="divider"></div>
       </div>
-      <div class="welcome-links stagger-children">
-        <a href="about.html" class="welcome-link fade-in">
-          <div class="link-icon">&#128218;</div>
-          <span class="link-title">소개</span>
-          <span class="link-desc">동아리 소개 및<br>목표·특장점</span>
-        </a>
-        <a href="activities.html" class="welcome-link fade-in">
-          <div class="link-icon">&#127942;</div>
-          <span class="link-title">2025년 활동</span>
-          <span class="link-desc">토론, 펜팔,<br>학술제 등</span>
-        </a>
-        <a href="plan.html" class="welcome-link fade-in">
-          <div class="link-icon">&#128197;</div>
-          <span class="link-title">2026년 계획</span>
-          <span class="link-desc">올해 동아리<br>활동 계획</span>
-        </a>
-        <a href="recruitment.html" class="welcome-link fade-in">
-          <div class="link-icon">&#128101;</div>
-          <span class="link-title">6기 부원 선발</span>
-          <span class="link-desc">모집 인원,<br>일정·절차</span>
-        </a>
-        <a href="contact.html" class="welcome-link fade-in">
-          <div class="link-icon">&#128172;</div>
-          <span class="link-title">문의</span>
-          <span class="link-desc">인스타그램,<br>카카오톡</span>
-        </a>
+      <div class="about-content">
+        <img src="images/about.jpg" alt="SYNODIA 동화고등학교 국제교류부 활동 사진" class="about-img fade-in-left" loading="lazy">
+        <div class="about-text fade-in-right">
+          <h3>화합과 소통, SYNODIA<br>동화고등학교 국제교류부입니다</h3>
+          <p>
+            국제교류부는 '국제'를 중심으로 다양한 국가의 문화를 탐구하고,
+            국제 이슈 토론 등 여러 분야에서 탐구활동을 하는 동아리입니다.
+          </p>
+          <p>
+            국제적인 시각을 바탕으로 세계 시민으로서의 역량을 기르고,
+            서로 다른 문화에 대한 존중과 이해를 실천하는 것이 우리의 목표입니다.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Goals -->
+  <section id="goals">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="subtitle">Goals &amp; Strengths</p>
+        <h2>목표 및 특장점</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="goals-grid stagger-children">
+        <div class="goal-card fade-in">
+          <div class="goal-icon">&#127758;</div>
+          <h3>글로벌 역량 강화</h3>
+          <p>국제 이슈를 다양한 관점에서 분석하고 토론하며, 세계 시민으로서의 소통 능력과 비판적 사고력을 기릅니다.</p>
+        </div>
+        <div class="goal-card fade-in">
+          <div class="goal-icon">&#128214;</div>
+          <h3>다문화 이해</h3>
+          <p>다른 나라의 문화와 가치관의 차이를 인지하고 존중하는 문화적 감수성을 키웁니다.</p>
+        </div>
+        <div class="goal-card fade-in">
+          <div class="goal-icon">&#128483;</div>
+          <h3>영어 실전 활용</h3>
+          <p>단순한 학습을 넘어 영어로 토론하고 발표하며, 국제적 소통 능력을 실전에서 키웁니다.</p>
+        </div>
+        <div class="goal-card fade-in">
+          <div class="goal-icon">&#128300;</div>
+          <h3>문·이과 융합 탐구</h3>
+          <p>문과와 이과 팀으로 나누어 국제적인 안목을 바탕으로 관심 주제를 다양한 분야에서 탐구하며, 융합적 사고력을 기릅니다.</p>
+        </div>
+        <div class="goal-card fade-in">
+          <div class="goal-icon">&#127891;</div>
+          <h3>진로 연계 심화 탐구</h3>
+          <p>자신의 진로와 동아리 토론 주제를 연결하고 심화 탐구하여 나만의 활동으로 만들어갈 수 있습니다.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -618,7 +696,7 @@
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right').forEach(el => observer.observe(el));
 
     // Hero content fade + blur on scroll
     const heroContent = document.querySelector('.hero-content');
