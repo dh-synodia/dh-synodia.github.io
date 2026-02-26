@@ -273,18 +273,15 @@
     }
 
     .scroll-indicator {
-      position: absolute;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
+      margin-top: 1.5rem;
       animation: bounce 1.5s ease-in-out infinite;
       color: rgba(255,255,255,0.6);
       font-size: 1.5rem;
     }
 
     @keyframes bounce {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(-10px); }
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
 
     /* Welcome Section */
@@ -326,11 +323,6 @@
       font-size: 0.85rem;
       color: var(--text-light);
       margin-bottom: 3rem;
-    }
-
-    .welcome-nav-guide .guide-arrow {
-      color: var(--primary);
-      font-size: 1.2rem;
     }
 
     .welcome-links {
@@ -509,8 +501,8 @@
       </h1>
       <p>&ldquo;세상과 교류하는 하나의 다리&rdquo;<br>
          <span class="hero-motto">The Bridge that communicates<br class="mobile-br"> with the World</span></p>
+      <div class="scroll-indicator">&#9660;</div>
     </div>
-    <div class="scroll-indicator">&#9660;</div>
   </section>
   <div class="hero-spacer"></div>
 
