@@ -512,20 +512,70 @@
     .stagger-children > .fade-in:nth-child(2) { transition-delay: 0.15s; }
     .stagger-children > .fade-in:nth-child(3) { transition-delay: 0.3s; }
 
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: none;
+      border: none;
+      cursor: pointer;
+      min-width: 44px;
+      min-height: 44px;
+      padding: 0.5rem;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--white);
+      margin: 4px 0;
+      border-radius: 1px;
+      transition: all 0.3s;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
-      .nav-inner {
-        height: auto;
-        padding: 0.5rem 0;
-      }
-      .nav-links {
-        gap: 0.6rem;
-        flex-wrap: wrap;
-      }
-      .nav-links a {
-        font-size: 0.78rem;
-      }
       .navbar { padding: 0 1rem; }
+      .nav-inner { height: 56px; }
+      .hamburger { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: rgba(58, 158, 74, 0.98);
+        backdrop-filter: blur(10px);
+        padding: 0.5rem 0;
+        gap: 0;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.75rem 1.5rem;
+        font-size: 0.95rem;
+        min-height: 44px;
+      }
+      .nav-links a::after { display: none; }
 
       .hero { min-height: 40vh; padding-top: 5rem; padding-bottom: 2rem; }
       .hero h1 { font-size: 1.8rem; }
@@ -552,6 +602,7 @@
       <a href="index.html" class="nav-logo">
         <img src="images/logo.png" alt="SYNODIA 로고">
       </a>
+      <button class="hamburger" id="hamburger" aria-label="메뉴 열기"><span></span><span></span><span></span></button>
       <ul class="nav-links">
         <li><a href="about.html">소개</a></li>
         <li><a href="activities.html">2025년 활동</a></li>
@@ -625,8 +676,19 @@
   </footer>
 
   <script>
-    // Force zoom 100%
-    document.body.style.zoom = '100%';
+    // Hamburger menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('open');
+      });
+    });
 
     // Navbar scroll effect
     const navbar = document.querySelector('.navbar');
