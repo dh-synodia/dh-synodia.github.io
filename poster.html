@@ -340,105 +340,205 @@
       gap: 2rem;
     }
 
-    /* Poster Card */
+    /* Poster Card — Navy & Gold International Theme */
     .poster-card {
+      --poster-gold: #d4a843;
+      --poster-gold-light: #e8d080;
       max-width: 480px;
       width: 100%;
-      background: linear-gradient(175deg, #3a9e4a 0%, #2e8040 30%, #256835 65%, #1d5329 100%);
+      background: linear-gradient(175deg, #1e3454 0%, #152238 35%, #0d1a2e 70%, #0a1628 100%);
       border-radius: 20px;
-      box-shadow: 0 16px 56px rgba(0,0,0,0.22), 0 4px 16px rgba(0,0,0,0.1);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35), 0 4px 16px rgba(0,0,0,0.15);
       overflow: hidden;
       color: #fff;
+      position: relative;
       transition: transform 0.3s, box-shadow 0.3s;
     }
 
     .poster-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 20px 64px rgba(0,0,0,0.28), 0 6px 20px rgba(0,0,0,0.12);
+      box-shadow: 0 24px 70px rgba(0,0,0,0.4), 0 6px 20px rgba(0,0,0,0.18);
     }
 
     .poster-accent-bar {
-      height: 5px;
-      background: linear-gradient(90deg, var(--accent), #e8d270, var(--accent));
+      height: 4px;
+      background: linear-gradient(90deg, transparent, var(--poster-gold) 20%, var(--poster-gold-light) 50%, var(--poster-gold) 80%, transparent);
+    }
+
+    /* Orbital decoration */
+    .poster-orbital {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .poster-orbital:nth-child(2) {
+      width: 280px; height: 280px;
+      top: -50px; right: -90px;
+      border: 1px solid rgba(212,168,67,0.1);
+      transform: rotate(25deg);
+    }
+    .poster-orbital:nth-child(3) {
+      width: 200px; height: 200px;
+      bottom: 80px; left: -70px;
+      border: 1px solid rgba(212,168,67,0.07);
+      transform: rotate(-15deg);
+    }
+    .poster-orbital:nth-child(4) {
+      width: 140px; height: 140px;
+      top: 55%; right: -40px;
+      border: 1px solid rgba(255,255,255,0.04);
+      transform: rotate(45deg);
     }
 
     .poster-body {
-      padding: 2.5rem 2rem 2rem;
+      padding: 2.8rem 2.2rem 2rem;
       text-align: center;
       position: relative;
+      overflow: hidden;
     }
 
+    /* Gradient mesh + star-field background */
     .poster-body::before {
       content: '';
       position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M20 0L40 20L20 40L0 20z'/%3E%3C/g%3E%3C/svg%3E");
+      top: 0; right: 0; bottom: 0; left: 0;
+      background:
+        radial-gradient(ellipse at 20% 15%, rgba(212,168,67,0.07) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 75%, rgba(212,168,67,0.04) 0%, transparent 50%),
+        radial-gradient(1.2px 1.2px at 12% 22%, rgba(255,255,255,0.15) 50%, transparent 50%),
+        radial-gradient(1px 1px at 78% 48%, rgba(255,255,255,0.1) 50%, transparent 50%),
+        radial-gradient(1px 1px at 42% 76%, rgba(255,255,255,0.12) 50%, transparent 50%),
+        radial-gradient(0.8px 0.8px at 92% 8%, rgba(255,255,255,0.08) 50%, transparent 50%),
+        radial-gradient(0.8px 0.8px at 58% 32%, rgba(255,255,255,0.07) 50%, transparent 50%),
+        radial-gradient(1px 1px at 28% 58%, rgba(255,255,255,0.09) 50%, transparent 50%),
+        radial-gradient(0.6px 0.6px at 65% 12%, rgba(255,255,255,0.06) 50%, transparent 50%),
+        radial-gradient(0.7px 0.7px at 35% 42%, rgba(255,255,255,0.05) 50%, transparent 50%);
       pointer-events: none;
     }
 
     .poster-body > * { position: relative; z-index: 1; }
 
-    .poster-logo-img {
-      width: 76px;
-      height: 76px;
+    /* Globe decoration */
+    .poster-globe {
+      position: absolute;
+      width: 180px; height: 180px;
       border-radius: 50%;
-      border: 3px solid rgba(255,255,255,0.25);
+      border: 1px solid rgba(212,168,67,0.08);
+      top: 28%; right: -25px;
+      z-index: 0;
+    }
+    .poster-globe::before {
+      content: '';
+      position: absolute;
+      top: 12%; bottom: 12%;
+      left: 50%; transform: translateX(-50%);
+      width: 50%;
+      border: 1px solid rgba(212,168,67,0.06);
+      border-radius: 50%;
+    }
+    .poster-globe::after {
+      content: '';
+      position: absolute;
+      left: 8%; right: 8%;
+      top: 50%; transform: translateY(-50%);
+      height: 1px;
+      background: rgba(212,168,67,0.06);
+    }
+
+    /* Logo */
+    .poster-logo-img {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      border: 2px solid rgba(212,168,67,0.35);
       object-fit: cover;
-      margin: 0 auto 1.2rem;
+      margin: 0 auto 1.5rem;
       display: block;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.3), 0 0 40px rgba(212,168,67,0.12);
+      animation: posterFloat 4s ease-in-out infinite;
+    }
+
+    @keyframes posterFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
     }
 
     .poster-name {
       font-family: 'GmarketSans', sans-serif;
-      font-size: 2.2rem;
+      font-size: 2.8rem;
       font-weight: 700;
-      letter-spacing: 8px;
-      margin-bottom: 0.3rem;
-      text-shadow: 0 2px 12px rgba(0,0,0,0.2);
+      letter-spacing: 14px;
+      margin-bottom: 0.4rem;
+      background: linear-gradient(180deg, #ffffff 20%, #b8b8b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .poster-school {
-      font-size: 0.88rem;
-      letter-spacing: 4px;
-      opacity: 0.8;
+      font-size: 0.82rem;
+      letter-spacing: 6px;
+      opacity: 0.5;
       font-weight: 300;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
     }
 
-    .poster-line {
-      width: 48px;
+    .poster-divider {
+      width: 52px;
       height: 2px;
-      background: var(--accent);
-      margin: 0 auto 1.2rem;
-      border-radius: 1px;
+      background: linear-gradient(90deg, transparent, var(--poster-gold), transparent);
+      margin: 0 auto 1.5rem;
     }
 
     .poster-motto-text {
-      font-size: 1rem;
-      line-height: 1.7;
-      margin-bottom: 0.3rem;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 0.4rem;
+      color: rgba(255,255,255,0.92);
     }
 
     .poster-motto-en {
       font-size: 0.72rem;
-      letter-spacing: 1.5px;
-      opacity: 0.55;
+      letter-spacing: 2px;
+      opacity: 0.4;
       font-weight: 300;
-      margin-bottom: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Bridge arch motif */
+    .poster-bridge {
+      width: 140px;
+      height: 24px;
+      margin: 0 auto 2rem;
+      position: relative;
+    }
+    .poster-bridge::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 100px; height: 18px;
+      border-top: 1.5px solid rgba(212,168,67,0.35);
+      border-radius: 50px 50px 0 0;
+    }
+    .poster-bridge::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 120px; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(212,168,67,0.2), transparent);
     }
 
     .poster-label {
       font-family: 'GmarketSans', sans-serif;
-      font-size: 0.7rem;
-      letter-spacing: 5px;
-      color: var(--accent);
+      font-size: 0.68rem;
+      letter-spacing: 6px;
+      color: var(--poster-gold);
       margin-bottom: 1rem;
     }
 
+    /* Activity cards — glassmorphism */
     .poster-acts {
       display: flex;
       flex-wrap: wrap;
@@ -448,22 +548,104 @@
     }
 
     .poster-act {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 12px;
-      padding: 0.9rem 0.5rem;
+      background: rgba(255,255,255,0.04);
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(212,168,67,0.12);
+      border-radius: 14px;
+      padding: 1rem 0.5rem 0.8rem;
       width: calc(33.333% - 0.4rem);
-      transition: background 0.3s;
+      transition: background 0.3s, border-color 0.3s;
     }
 
-    .poster-act:hover { background: rgba(255,255,255,0.14); }
+    .poster-act:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(212,168,67,0.25);
+    }
 
-    .poster-act:nth-child(n+4) { width: calc(40% - 0.3rem); }
+    .poster-act:nth-child(n+4) { width: calc(50% - 0.3rem); }
 
-    .poster-act-icon {
-      font-size: 1.4rem;
-      margin-bottom: 0.3rem;
-      display: block;
+    /* CSS Icons */
+    .p-icon {
+      width: 32px; height: 32px;
+      margin: 0 auto 0.5rem;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .p-icon-book::before {
+      content: '';
+      width: 14px; height: 16px;
+      border: 1.5px solid var(--poster-gold);
+      border-left: 3px solid var(--poster-gold);
+      border-radius: 0 3px 3px 0;
+    }
+
+    .p-icon-debate::before {
+      content: '';
+      width: 16px; height: 11px;
+      border: 1.5px solid var(--poster-gold);
+      border-radius: 8px;
+    }
+    .p-icon-debate::after {
+      content: '';
+      position: absolute;
+      bottom: 5px; left: calc(50% - 1px);
+      border-left: 3px solid transparent;
+      border-right: 3px solid transparent;
+      border-top: 4px solid var(--poster-gold);
+    }
+
+    .p-icon-globe::before {
+      content: '';
+      width: 16px; height: 16px;
+      border: 1.5px solid var(--poster-gold);
+      border-radius: 50%;
+    }
+    .p-icon-globe::after {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 8px; height: 13px;
+      border: 1px solid var(--poster-gold);
+      border-radius: 50%;
+    }
+
+    .p-icon-chart::before {
+      content: '';
+      position: absolute;
+      bottom: 7px; left: calc(50% - 7px);
+      width: 4px; height: 7px;
+      background: var(--poster-gold);
+      border-radius: 1px 1px 0 0;
+      box-shadow: 5px 0 0 -0.5px var(--poster-gold);
+    }
+    .p-icon-chart::after {
+      content: '';
+      position: absolute;
+      bottom: 7px; left: calc(50% + 3px);
+      width: 4px; height: 12px;
+      background: var(--poster-gold);
+      border-radius: 1px 1px 0 0;
+    }
+
+    .p-icon-academic::before {
+      content: '';
+      width: 11px; height: 11px;
+      border: 1.5px solid var(--poster-gold);
+      transform: rotate(45deg);
+      margin-bottom: 2px;
+    }
+    .p-icon-academic::after {
+      content: '';
+      position: absolute;
+      bottom: 6px; left: 50%;
+      transform: translateX(-50%);
+      width: 18px; height: 1.5px;
+      background: var(--poster-gold);
     }
 
     .poster-act-name {
@@ -471,13 +653,15 @@
       font-weight: 500;
       letter-spacing: 0.5px;
       line-height: 1.3;
+      color: rgba(255,255,255,0.85);
     }
 
+    /* CTA section */
     .poster-cta {
-      background: linear-gradient(135deg, var(--accent), #c5a83d);
-      color: var(--text-dark);
-      margin: 0 -2rem;
-      padding: 1.4rem 2rem;
+      background: linear-gradient(135deg, var(--poster-gold), #c5a030);
+      color: #1a1400;
+      margin: 0 -2.2rem;
+      padding: 1.5rem 2.2rem;
     }
 
     .poster-cta-title {
@@ -485,22 +669,30 @@
       font-size: 1.15rem;
       font-weight: 700;
       letter-spacing: 2px;
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.3rem;
     }
 
     .poster-cta-desc {
       font-size: 0.82rem;
-      opacity: 0.75;
+      opacity: 0.7;
     }
 
     .poster-contact {
       margin-top: 1.5rem;
-      font-size: 0.8rem;
-      opacity: 0.7;
+      font-size: 0.78rem;
+      opacity: 0.5;
       line-height: 2;
     }
 
     .poster-contact span { display: block; }
+
+    .poster-contact-label {
+      font-size: 0.65rem;
+      letter-spacing: 4px;
+      color: var(--poster-gold);
+      opacity: 0.7;
+      margin-bottom: 0.3rem;
+    }
 
     /* Skip Link */
     .skip-link {
@@ -633,8 +825,8 @@
       }
 
       .poster-name {
-        font-size: 1.8rem;
-        letter-spacing: 3px;
+        font-size: 2rem;
+        letter-spacing: 6px;
       }
 
       .poster-body {
@@ -647,14 +839,14 @@
       }
 
       .poster-act {
-        padding: 0.7rem 0.4rem;
+        padding: 0.8rem 0.4rem;
+        width: calc(50% - 0.3rem);
       }
-
-      .poster-act-icon {
-        font-size: 1.2rem;
-      }
-      .poster-act { width: calc(50% - 0.3rem); }
       .poster-act:nth-child(n+4) { width: calc(50% - 0.3rem); }
+
+      .poster-globe { display: none; }
+      .poster-orbital:nth-child(4) { display: none; }
+      .p-icon { width: 28px; height: 28px; }
 
       section {
         padding: 3rem 1.5rem;
@@ -730,44 +922,51 @@
       <div class="poster-gallery fade-in">
         <div class="poster-card">
           <div class="poster-accent-bar"></div>
+          <!-- Orbital decorations -->
+          <div class="poster-orbital" aria-hidden="true"></div>
+          <div class="poster-orbital" aria-hidden="true"></div>
+          <div class="poster-orbital" aria-hidden="true"></div>
           <div class="poster-body">
-            <img src="images/logo.png" alt="SYNODIA 로고" class="poster-logo-img">
+            <!-- Globe decoration -->
+            <div class="poster-globe" aria-hidden="true"></div>
+            <img src="images/logo.png" alt="SYNODIA 로고" class="poster-logo-img" width="80" height="80">
             <div class="poster-name">SYNODIA</div>
             <div class="poster-school">동화고등학교 &middot; 국제학부</div>
-            <div class="poster-line"></div>
+            <div class="poster-divider"></div>
             <p class="poster-motto-text">&ldquo;세상과 교류하는 하나의 다리&rdquo;</p>
             <p class="poster-motto-en">Bridging the World through Global Perspectives</p>
-            <div class="poster-line"></div>
+            <div class="poster-bridge" aria-hidden="true"></div>
             <p class="poster-label">ACTIVITIES</p>
             <div class="poster-acts">
               <div class="poster-act">
-                <span class="poster-act-icon">&#128214;</span>
+                <div class="p-icon p-icon-book" aria-hidden="true"></div>
                 <span class="poster-act-name">독서 토론</span>
               </div>
               <div class="poster-act">
-                <span class="poster-act-icon">&#128483;</span>
+                <div class="p-icon p-icon-debate" aria-hidden="true"></div>
                 <span class="poster-act-name">영어 토론</span>
               </div>
               <div class="poster-act">
-                <span class="poster-act-icon">&#9993;</span>
+                <div class="p-icon p-icon-globe" aria-hidden="true"></div>
                 <span class="poster-act-name">국제 펜팔</span>
               </div>
               <div class="poster-act">
-                <span class="poster-act-icon">&#128202;</span>
+                <div class="p-icon p-icon-chart" aria-hidden="true"></div>
                 <span class="poster-act-name">인포그래픽</span>
               </div>
               <div class="poster-act">
-                <span class="poster-act-icon">&#127891;</span>
+                <div class="p-icon p-icon-academic" aria-hidden="true"></div>
                 <span class="poster-act-name">학술제</span>
               </div>
             </div>
             <div class="poster-cta">
-              <div class="poster-cta-title">&#11088; 제6기 부원 모집 &#11088;</div>
+              <div class="poster-cta-title">제6기 부원 모집</div>
               <p class="poster-cta-desc">함께 세상을 잇는 다리가 되어 주세요</p>
             </div>
             <div class="poster-contact">
-              <span>&#128247; Instagram @dh.synodia</span>
-              <span>&#128172; 카카오톡 오픈채팅</span>
+              <div class="poster-contact-label" aria-hidden="true">CONTACT</div>
+              <span>Instagram @dh.synodia</span>
+              <span>카카오톡 오픈채팅</span>
             </div>
           </div>
           <div class="poster-accent-bar"></div>
