@@ -39,7 +39,7 @@
     "logo": "https://dh-synodia.github.io/images/logo.png",
     "description": "동화고등학교 국제학부 SYNODIA. 다문화 이해, 국제 이슈 토론, 영어 토론 등 글로벌 역량을 키우는 동아리입니다.",
     "parentOrganization": {
-      "@type": "HighSchool",
+      "@type": "EducationalOrganization",
       "name": "동화고등학교"
     },
     "sameAs": [
@@ -77,8 +77,8 @@
     }
   }
   </script>
-  <link rel="preload" href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
   <style>
     @font-face {
@@ -88,14 +88,6 @@
       font-style: normal;
       font-display: swap;
     }
-    @font-face {
-      font-family: 'GmarketSans';
-      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff2') format('woff2');
-      font-weight: 500;
-      font-style: normal;
-      font-display: swap;
-    }
-
     * {
       margin: 0;
       padding: 0;
@@ -139,9 +131,10 @@
       right: 0;
       z-index: 1000;
       background: rgba(108, 200, 106, 0.92);
+      -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
       padding: 0 2rem;
-      transition: all 0.3s ease;
+      transition: box-shadow 0.3s ease;
     }
 
     .navbar.scrolled {
@@ -378,7 +371,10 @@
     .poster-body::before {
       content: '';
       position: absolute;
-      inset: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
       background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M20 0L40 20L20 40L0 20z'/%3E%3C/g%3E%3C/svg%3E");
       pointer-events: none;
     }
@@ -506,70 +502,6 @@
 
     .poster-contact span { display: block; }
 
-    /* Lightbox */
-    .lightbox-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 10000;
-      background: rgba(0, 0, 0, 0.45);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      padding: 1rem;
-      animation: lightboxFadeIn 0.25s ease;
-    }
-
-    .lightbox-overlay.active {
-      display: flex;
-    }
-
-    @keyframes lightboxFadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    .lightbox-close {
-      position: absolute;
-      top: 1rem;
-      right: 1.2rem;
-      width: 44px;
-      height: 44px;
-      border: none;
-      background: rgba(255,255,255,0.15);
-      color: #fff;
-      font-size: 1.5rem;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.2s;
-      z-index: 10001;
-    }
-
-    .lightbox-close:hover {
-      background: rgba(255,255,255,0.3);
-    }
-
-    .lightbox-img-wrap {
-      max-width: 90vw;
-      max-height: 80vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .lightbox-img-wrap img {
-      max-width: 100%;
-      max-height: 80vh;
-      border-radius: 8px;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.5);
-      user-select: none;
-    }
-
     /* Skip Link */
     .skip-link {
       position: absolute;
@@ -594,7 +526,7 @@
     .footer {
       position: relative;
       z-index: 1;
-      background: #2d3436;
+      background: var(--text-dark);
       color: rgba(255,255,255,0.6);
       text-align: center;
       padding: 2rem;
@@ -604,6 +536,11 @@
     .footer a {
       color: var(--primary-light);
       text-decoration: none;
+    }
+
+    .footer p + p {
+      margin-top: 0.5rem;
+      font-size: 0.8rem;
     }
 
     /* Animations */
@@ -668,6 +605,7 @@
         right: 0;
         flex-direction: column;
         background: rgba(58, 158, 74, 0.98);
+        -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(10px);
         padding: 0.5rem 0;
         gap: 0;
@@ -688,10 +626,6 @@
       .hero h1 { font-size: 1.8rem; }
       .hero h1 .eng { font-size: 0.75rem; letter-spacing: 1.5px; }
       .mobile-br { display: inline; }
-
-      .poster-item {
-        max-width: 100%;
-      }
 
       .poster-card {
         max-width: 100%;
@@ -726,10 +660,25 @@
         padding: 3rem 1.5rem;
       }
 
-      .lightbox-close {
-        top: 0.5rem;
-        right: 0.7rem;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
       }
+      .fade-in { opacity: 1; transform: none; }
+    }
+
+    @media print {
+      .navbar, .hamburger, .skip-link { display: none !important; }
+      .hero { position: static !important; min-height: auto !important; background: #fff !important; color: #000 !important; padding: 1rem !important; }
+      .hero::before { display: none !important; }
+      .fade-in { opacity: 1 !important; transform: none !important; }
+      .footer { background: #fff !important; color: #000 !important; }
+      body { color: #000; }
     }
   </style>
 </head>
@@ -741,9 +690,9 @@
   <nav class="navbar" aria-label="메인 내비게이션">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
-        <img src="images/logo.png" alt="SYNODIA 로고">
+        <img src="images/logo.png" alt="SYNODIA 로고" width="40" height="40">
       </a>
-      <button class="hamburger" id="hamburger" aria-label="메뉴 열기"><span></span><span></span><span></span></button>
+      <button class="hamburger" id="hamburger" aria-label="메뉴 열기" aria-expanded="false"><span></span><span></span><span></span></button>
       <ul class="nav-links">
         <li><a href="about.html">소개</a></li>
         <li><a href="activities.html">2025년 활동</a></li>
@@ -760,7 +709,7 @@
   <!-- Hero -->
   <section class="hero" id="home">
     <div class="hero-content">
-      <img src="images/logo.png" alt="SYNODIA 로고" class="hero-logo">
+      <img src="images/logo.png" alt="SYNODIA 로고" class="hero-logo" width="72" height="72">
       <h1>
         SYNODIA
         <span class="eng">동화고등학교 &middot; 국제학부</span>
@@ -828,82 +777,50 @@
   </section>
   </main>
 
-  <!-- Lightbox Popup -->
-  <div class="lightbox-overlay" id="lightbox">
-    <button class="lightbox-close" id="lightboxClose" aria-label="닫기">&times;</button>
-    <div class="lightbox-img-wrap">
-      <img id="lightboxImg" src="" alt="포스터 확대">
-    </div>
-  </div>
-
   <!-- Footer -->
   <footer class="footer">
     <p>&copy; 2026 SYNODIA 국제학부. All Rights Reserved.</p>
-    <p style="margin-top: 0.5rem; font-size: 0.8rem;">본 홈페이지에 게시된 발표 자료 및 콘텐츠의 저작권은 SYNODIA 국제학부에 있으며, 무단 복제·배포를 금합니다.</p>
+    <p>본 홈페이지에 게시된 발표 자료 및 콘텐츠의 저작권은 SYNODIA 국제학부에 있으며, 무단 복제·배포를 금합니다.</p>
   </footer>
 
   <script>
     // Hamburger menu toggle
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.querySelector('.nav-links');
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navLinks.classList.toggle('open');
-    });
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('open');
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', () => {
+        const isOpen = hamburger.classList.toggle('active');
+        navLinks.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', String(isOpen));
       });
-    });
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('active');
+          navLinks.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
 
     // Navbar scroll effect
     const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 50);
-    });
-
+    if (navbar) {
+      window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 50);
+      }, { passive: true });
+    }
 
     // Scroll fade-in animation
-    const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
         }
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-    // Lightbox for poster images
-    (() => {
-      const overlay = document.getElementById('lightbox');
-      const lbImg = document.getElementById('lightboxImg');
-      const lbClose = document.getElementById('lightboxClose');
-
-      function openLightbox(src) {
-        lbImg.src = src;
-        overlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
-
-      function closeLightbox() {
-        overlay.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-
-      lbClose.addEventListener('click', closeLightbox);
-      overlay.addEventListener('click', (e) => {
-        if (e.target === overlay) closeLightbox();
-      });
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && overlay.classList.contains('active')) closeLightbox();
-      });
-
-      document.querySelectorAll('.poster-card img').forEach((img) => {
-        img.addEventListener('click', () => openLightbox(img.src));
-      });
-    })();
   </script>
 </body>
 </html>

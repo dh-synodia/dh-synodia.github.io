@@ -40,7 +40,7 @@
     "logo": "https://dh-synodia.github.io/images/logo.png",
     "description": "동화고등학교 국제학부 SYNODIA. 다문화 이해, 국제 이슈 토론, 영어 토론 등 글로벌 역량을 키우는 동아리입니다.",
     "parentOrganization": {
-      "@type": "HighSchool",
+      "@type": "EducationalOrganization",
       "name": "동화고등학교"
     },
     "sameAs": [
@@ -57,8 +57,8 @@
     "description": "동화고등학교 국제학부 SYNODIA(시노디아). 다문화 이해, 국제 이슈 토론, 영어 토론 등 글로벌 역량을 키우는 동아리입니다."
   }
   </script>
-  <link rel="preload" href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
   <style>
     @font-face {
@@ -68,14 +68,6 @@
       font-style: normal;
       font-display: swap;
     }
-    @font-face {
-      font-family: 'GmarketSans';
-      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff2') format('woff2');
-      font-weight: 500;
-      font-style: normal;
-      font-display: swap;
-    }
-
     * {
       margin: 0;
       padding: 0;
@@ -119,9 +111,10 @@
       right: 0;
       z-index: 1000;
       background: rgba(108, 200, 106, 0.92);
+      -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
       padding: 0 2rem;
-      transition: all 0.3s ease;
+      transition: box-shadow 0.3s ease;
     }
 
     .navbar.scrolled {
@@ -214,6 +207,7 @@
 
     .hero-spacer {
       height: 100vh;
+      height: 100dvh;
       position: relative;
     }
 
@@ -413,7 +407,7 @@
     .footer {
       position: relative;
       z-index: 1;
-      background: #2d3436;
+      background: var(--text-dark);
       color: rgba(255,255,255,0.6);
       text-align: center;
       padding: 2rem;
@@ -424,6 +418,8 @@
       color: var(--primary-light);
       text-decoration: none;
     }
+
+    .footer p + p { margin-top: 0.5rem; font-size: 0.8rem; }
 
     /* Animations */
     .fade-in {
@@ -495,6 +491,7 @@
         right: 0;
         flex-direction: column;
         background: rgba(58, 158, 74, 0.98);
+        -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(10px);
         padding: 0.5rem 0;
         gap: 0;
@@ -528,6 +525,25 @@
 
       .mobile-br { display: inline; }
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .fade-in, .fade-in-left, .fade-in-right { opacity: 1; transform: none; }
+    }
+
+    @media print {
+      .navbar, .hamburger, .scroll-indicator, .lightbox-overlay, .skip-link { display: none !important; }
+      .hero { position: static !important; min-height: auto !important; background: #fff !important; color: #000 !important; padding: 1rem !important; }
+      .hero::before { display: none !important; }
+      .fade-in, .fade-in-left, .fade-in-right { opacity: 1 !important; transform: none !important; }
+      .footer { background: #fff !important; color: #000 !important; }
+      body { color: #000; }
+    }
   </style>
 </head>
 <body>
@@ -538,9 +554,9 @@
   <nav class="navbar" aria-label="메인 내비게이션">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
-        <img src="images/logo.png" alt="SYNODIA 로고">
+        <img src="images/logo.png" alt="SYNODIA 로고" width="40" height="40">
       </a>
-      <button class="hamburger" id="hamburger" aria-label="메뉴 열기"><span></span><span></span><span></span></button>
+      <button class="hamburger" id="hamburger" aria-label="메뉴 열기" aria-expanded="false"><span></span><span></span><span></span></button>
       <ul class="nav-links">
         <li><a href="about.html">소개</a></li>
         <li><a href="activities.html">2025년 활동</a></li>
@@ -557,7 +573,7 @@
   <!-- Hero -->
   <section class="hero" id="home">
     <div class="hero-content">
-      <img src="images/logo.png" alt="SYNODIA 로고" class="hero-logo">
+      <img src="images/logo.png" alt="SYNODIA 로고" class="hero-logo" width="72" height="72">
       <h1>
         SYNODIA
         <span class="eng">동화고등학교 &middot; 국제학부</span>
@@ -565,14 +581,14 @@
       <p>&ldquo;세상과 교류하는 하나의 다리&rdquo;<br>
          <span class="hero-motto">Bridging the World<br class="mobile-br"> through Global Perspectives</span></p>
     </div>
-    <div class="scroll-indicator">&#9660;</div>
+    <div class="scroll-indicator" aria-hidden="true">&#9660;</div>
   </section>
   <div class="hero-spacer"></div>
 
   <!-- Welcome -->
   <section class="welcome" id="welcome">
     <div class="container">
-      <div class="welcome-icon fade-in">&#128075;</div>
+      <div class="welcome-icon fade-in"><span aria-hidden="true">&#128075;</span></div>
       <h2 class="fade-in">SYNODIA 홈페이지에 오신 것을 환영합니다</h2>
       <p class="welcome-message fade-in">
         동화고등학교 국제학부 SYNODIA의 공식 홈페이지를 방문해 주셔서 감사합니다.<br>
@@ -583,32 +599,32 @@
       </div>
       <div class="welcome-links stagger-children">
         <a href="about.html" class="welcome-link fade-in">
-          <div class="link-icon">&#128218;</div>
+          <div class="link-icon"><span aria-hidden="true">&#128218;</span></div>
           <span class="link-title">소개</span>
           <span class="link-desc">동아리 소개 및<br>목표·특장점</span>
         </a>
         <a href="activities.html" class="welcome-link fade-in">
-          <div class="link-icon">&#127942;</div>
+          <div class="link-icon"><span aria-hidden="true">&#127942;</span></div>
           <span class="link-title">2025년 활동</span>
           <span class="link-desc">토론, 펜팔,<br>학술제 등</span>
         </a>
         <a href="plan.html" class="welcome-link fade-in">
-          <div class="link-icon">&#128197;</div>
+          <div class="link-icon"><span aria-hidden="true">&#128197;</span></div>
           <span class="link-title">2026년 계획</span>
           <span class="link-desc">올해 동아리<br>활동 계획</span>
         </a>
         <a href="poster.html" class="welcome-link fade-in">
-          <div class="link-icon">&#128444;</div>
+          <div class="link-icon"><span aria-hidden="true">&#128444;</span></div>
           <span class="link-title">홍보 포스터</span>
           <span class="link-desc">동아리<br>홍보 포스터</span>
         </a>
         <a href="recruitment.html" class="welcome-link fade-in">
-          <div class="link-icon">&#128101;</div>
+          <div class="link-icon"><span aria-hidden="true">&#128101;</span></div>
           <span class="link-title">6기 부원 선발</span>
           <span class="link-desc">모집 인원,<br>일정·절차</span>
         </a>
         <a href="contact.html" class="welcome-link fade-in">
-          <div class="link-icon">&#128172;</div>
+          <div class="link-icon"><span aria-hidden="true">&#128172;</span></div>
           <span class="link-title">문의</span>
           <span class="link-desc">인스타그램,<br>카카오톡</span>
         </a>
@@ -620,53 +636,60 @@
   <!-- Footer -->
   <footer class="footer">
     <p>&copy; 2026 SYNODIA 국제학부. All Rights Reserved.</p>
-    <p style="margin-top: 0.5rem; font-size: 0.8rem;">본 홈페이지에 게시된 발표 자료 및 콘텐츠의 저작권은 SYNODIA 국제학부에 있으며, 무단 복제·배포를 금합니다.</p>
+    <p>본 홈페이지에 게시된 발표 자료 및 콘텐츠의 저작권은 SYNODIA 국제학부에 있으며, 무단 복제·배포를 금합니다.</p>
   </footer>
 
   <script>
     // Hamburger menu toggle
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.querySelector('.nav-links');
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navLinks.classList.toggle('open');
-    });
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('open');
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', navLinks.classList.contains('open'));
+        hamburger.setAttribute('aria-label', navLinks.classList.contains('open') ? '메뉴 닫기' : '메뉴 열기');
       });
-    });
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('active');
+          navLinks.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+          hamburger.setAttribute('aria-label', '메뉴 열기');
+        });
+      });
+    }
 
-    // Navbar scroll effect
+    // Navbar scroll effect + Hero content fade/blur (merged)
     const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 50);
-    });
+    let heroHeight = window.innerHeight;
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => { heroHeight = window.innerHeight; }, 150);
+    }, { passive: true });
 
+    const heroContent = document.querySelector('.hero-content');
+    window.addEventListener('scroll', () => {
+      if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 50);
+      if (heroContent && window.scrollY < heroHeight) {
+        const progress = Math.max(0, (window.scrollY - heroHeight * 0.3) / (heroHeight * 0.7));
+        heroContent.style.opacity = 1 - progress;
+        heroContent.style.filter = 'blur(' + progress * 10 + 'px)';
+      }
+    }, { passive: true });
 
     // Scroll fade-in animation
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
         }
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-    // Hero content fade + blur on scroll
-    const heroContent = document.querySelector('.hero-content');
-    const heroHeight = window.innerHeight;
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      if (scrollY < heroHeight) {
-        const progress = Math.max(0, (scrollY - heroHeight * 0.3) / (heroHeight * 0.7));
-        heroContent.style.opacity = 1 - progress;
-        heroContent.style.filter = 'blur(' + progress * 10 + 'px)';
-      }
-    }, { passive: true });
   </script>
 </body>
 </html>

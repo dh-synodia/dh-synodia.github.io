@@ -39,7 +39,7 @@
     "logo": "https://dh-synodia.github.io/images/logo.png",
     "description": "동화고등학교 국제학부 SYNODIA. 다문화 이해, 국제 이슈 토론, 영어 토론 등 글로벌 역량을 키우는 동아리입니다.",
     "parentOrganization": {
-      "@type": "HighSchool",
+      "@type": "EducationalOrganization",
       "name": "동화고등학교"
     },
     "sameAs": [
@@ -77,8 +77,8 @@
     }
   }
   </script>
-  <link rel="preload" href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
   <style>
     @font-face {
@@ -88,14 +88,6 @@
       font-style: normal;
       font-display: swap;
     }
-    @font-face {
-      font-family: 'GmarketSans';
-      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff2') format('woff2');
-      font-weight: 500;
-      font-style: normal;
-      font-display: swap;
-    }
-
     * {
       margin: 0;
       padding: 0;
@@ -139,9 +131,10 @@
       right: 0;
       z-index: 1000;
       background: rgba(108, 200, 106, 0.92);
+      -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
       padding: 0 2rem;
-      transition: all 0.3s ease;
+      transition: box-shadow 0.3s ease;
     }
 
     .navbar.scrolled {
@@ -560,6 +553,8 @@
     .discussion-table .label-stance.pro { color: #2980b9; }
     .discussion-table .label-stance.con { color: #c0392b; }
 
+    table caption { font-size: 0.85rem; color: var(--text-light); margin-bottom: 0.5rem; text-align: left; font-weight: 600; }
+
     .image-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -592,7 +587,7 @@
     .lightbox-overlay {
       display: none;
       position: fixed;
-      inset: 0;
+      top: 0; right: 0; bottom: 0; left: 0;
       z-index: 10000;
       background: rgba(0, 0, 0, 0.45);
       backdrop-filter: blur(4px);
@@ -709,7 +704,7 @@
     .footer {
       position: relative;
       z-index: 1;
-      background: #2d3436;
+      background: var(--text-dark);
       color: rgba(255,255,255,0.6);
       text-align: center;
       padding: 2rem;
@@ -720,6 +715,8 @@
       color: var(--primary-light);
       text-decoration: none;
     }
+
+    .footer p + p { margin-top: 0.5rem; font-size: 0.8rem; }
 
     /* Animations */
     .fade-in {
@@ -783,6 +780,7 @@
         right: 0;
         flex-direction: column;
         background: rgba(58, 158, 74, 0.98);
+        -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(10px);
         padding: 0.5rem 0;
         gap: 0;
@@ -834,6 +832,25 @@
       }
       .slide-btn { width: 44px; height: 44px; font-size: 1.1rem; }
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .fade-in { opacity: 1; transform: none; }
+    }
+
+    @media print {
+      .navbar, .hamburger, .scroll-indicator, .lightbox-overlay, .skip-link { display: none !important; }
+      .hero { position: static !important; min-height: auto !important; background: #fff !important; color: #000 !important; padding: 1rem !important; }
+      .hero::before { display: none !important; }
+      .fade-in { opacity: 1 !important; transform: none !important; }
+      .footer { background: #fff !important; color: #000 !important; }
+      body { color: #000; }
+    }
   </style>
 </head>
 <body>
@@ -844,9 +861,9 @@
   <nav class="navbar" aria-label="메인 내비게이션">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
-        <img src="images/logo.png" alt="SYNODIA 로고">
+        <img src="images/logo.png" alt="SYNODIA 로고" width="40" height="40">
       </a>
-      <button class="hamburger" id="hamburger" aria-label="메뉴 열기"><span></span><span></span><span></span></button>
+      <button class="hamburger" id="hamburger" aria-label="메뉴 열기" aria-expanded="false"><span></span><span></span><span></span></button>
       <ul class="nav-links">
         <li><a href="about.html">소개</a></li>
         <li><a href="activities.html" class="active">2025년 활동</a></li>
@@ -863,7 +880,7 @@
   <!-- Hero -->
   <section class="hero" id="home">
     <div class="hero-content">
-      <img src="images/logo.png" alt="SYNODIA 로고" class="hero-logo">
+      <img src="images/logo.png" alt="SYNODIA 로고" class="hero-logo" width="72" height="72">
       <h1>
         SYNODIA
         <span class="eng">동화고등학교 &middot; 국제학부</span>
@@ -884,14 +901,15 @@
       </div>
       <div class="accordion fade-in">
         <div class="accordion-item">
-          <h3><button class="accordion-header">
-            <span>&#128214; 독서 활동 후 자유토론</span>
+          <h3><button class="accordion-header" id="acc-btn-1" aria-expanded="false" aria-controls="acc-panel-1">
+            <span><span aria-hidden="true">&#128214;</span> 독서 활동 후 자유토론</span>
             <span class="accordion-arrow">&#9662;</span>
           </button></h3>
-          <div class="accordion-body">
+          <div class="accordion-body" id="acc-panel-1" role="region" aria-labelledby="acc-btn-1">
             <p>문과 팀(수도권 과밀화와 도시 기능 분배)과 이과 팀(생화학 무기 개발의 정당성)으로 나누어 주제에 맞는 책을 읽고 의견을 공유했습니다.</p>
             <div class="table-scroll-wrapper">
             <table class="discussion-table">
+              <caption>독서 토론 활동 내역</caption>
               <thead>
                 <tr><th>팀</th><th>입장</th><th>주장</th></tr>
               </thead>
@@ -916,14 +934,15 @@
           </div>
         </div>
         <div class="accordion-item">
-          <h3><button class="accordion-header">
-            <span>&#127760; 국제 정세를 파악하는 영어 토론</span>
+          <h3><button class="accordion-header" id="acc-btn-2" aria-expanded="false" aria-controls="acc-panel-2">
+            <span><span aria-hidden="true">&#127760;</span> 국제 정세를 파악하는 영어 토론</span>
             <span class="accordion-arrow">&#9662;</span>
           </button></h3>
-          <div class="accordion-body">
+          <div class="accordion-body" id="acc-panel-2" role="region" aria-labelledby="acc-btn-2">
             <p>"러시아-우크라이나 전쟁: 영토를 양보해야 하는가?"를 주제로 의견 발표, 질의응답, 결론 도출까지 영어로 진행했습니다.</p>
             <div class="table-scroll-wrapper">
             <table class="discussion-table">
+              <caption>영어 토론 주제 목록</caption>
               <thead>
                 <tr><th>입장</th><th>주장</th></tr>
               </thead>
@@ -948,11 +967,11 @@
           </div>
         </div>
         <div class="accordion-item">
-          <h3><button class="accordion-header">
-            <span>&#128232; 국제교류 펜팔 활동</span>
+          <h3><button class="accordion-header" id="acc-btn-3" aria-expanded="false" aria-controls="acc-panel-3">
+            <span><span aria-hidden="true">&#128232;</span> 국제교류 펜팔 활동</span>
             <span class="accordion-arrow">&#9662;</span>
           </button></h3>
-          <div class="accordion-body">
+          <div class="accordion-body" id="acc-panel-3" role="region" aria-labelledby="acc-btn-3">
             <p>전 세계 외국인 친구들과 교류하며 서로의 나라를 알아가고, 문화와 특색의 차이를 인지하고 존중하는 경험을 쌓았습니다.</p>
             <div class="accordion-tags">
               <span class="tag">펜팔</span>
@@ -962,16 +981,16 @@
           </div>
         </div>
         <div class="accordion-item">
-          <h3><button class="accordion-header">
-            <span>&#128202; 국제 인포그래픽 제작 활동</span>
+          <h3><button class="accordion-header" id="acc-btn-4" aria-expanded="false" aria-controls="acc-panel-4">
+            <span><span aria-hidden="true">&#128202;</span> 국제 인포그래픽 제작 활동</span>
             <span class="accordion-arrow">&#9662;</span>
           </button></h3>
-          <div class="accordion-body">
+          <div class="accordion-body" id="acc-panel-4" role="region" aria-labelledby="acc-btn-4">
             <p>외국의 관점에서 한국의 긍정적·부정적 측면을 주제로 조별로 국가를 선정하여 조사·발표하며 국제 정세 이해와 세계 시민적 역량을 길렀습니다.</p>
             <div class="image-grid">
-              <img src="images/photo/activities4-1.png" alt="SYNODIA 인포그래픽 자료 1" loading="lazy">
-              <img src="images/photo/activities4-2.png" alt="SYNODIA 인포그래픽 자료 2" loading="lazy">
-              <img src="images/photo/activities4-3.png" alt="SYNODIA 인포그래픽 자료 3" loading="lazy">
+              <img src="images/photo/activities4-1.png" alt="SYNODIA 인포그래픽 자료 1" loading="lazy" tabindex="0" role="button" aria-label="이미지 확대">
+              <img src="images/photo/activities4-2.png" alt="SYNODIA 인포그래픽 자료 2" loading="lazy" tabindex="0" role="button" aria-label="이미지 확대">
+              <img src="images/photo/activities4-3.png" alt="SYNODIA 인포그래픽 자료 3" loading="lazy" tabindex="0" role="button" aria-label="이미지 확대">
             </div>
             <p class="image-grid-caption">조별로 제작한 국제 인포그래픽 발표자료입니다. (이미지를 클릭하면 크게 볼 수 있습니다)</p>
             <div class="accordion-tags">
@@ -982,22 +1001,22 @@
           </div>
         </div>
         <div class="accordion-item">
-          <h3><button class="accordion-header">
-            <span>&#127891; 심화 탐구 학술제 참여</span>
+          <h3><button class="accordion-header" id="acc-btn-5" aria-expanded="false" aria-controls="acc-panel-5">
+            <span><span aria-hidden="true">&#127891;</span> 심화 탐구 학술제 참여</span>
             <span class="accordion-arrow">&#9662;</span>
           </button></h3>
-          <div class="accordion-body">
+          <div class="accordion-body" id="acc-panel-5" role="region" aria-labelledby="acc-btn-5">
             <p>국제기구의 역할에 대한 토론을 심화하여 "국제기구의 비실질적 역할에 대응하는 민간과 NGO의 영향력 확대"를 주제로 학술제에 참여하고, 두 주체를 다각적으로 분석했습니다.</p>
             <div class="slide-viewer" id="slideViewer">
               <div class="slide-track" id="slideTrack">
-                <img src="images/photo/activities5_1.png" alt="SYNODIA 학술제 발표자료 슬라이드 1" loading="lazy">
-                <img src="images/photo/activities5_2.png" alt="SYNODIA 학술제 발표자료 슬라이드 2" loading="lazy">
-                <img src="images/photo/activities5_3.png" alt="SYNODIA 학술제 발표자료 슬라이드 3" loading="lazy">
-                <img src="images/photo/activities5_4.png" alt="SYNODIA 학술제 발표자료 슬라이드 4" loading="lazy">
-                <img src="images/photo/activities5_5.png" alt="SYNODIA 학술제 발표자료 슬라이드 5" loading="lazy">
-                <img src="images/photo/activities5_6.png" alt="SYNODIA 학술제 발표자료 슬라이드 6" loading="lazy">
-                <img src="images/photo/activities5_7.png" alt="SYNODIA 학술제 발표자료 슬라이드 7" loading="lazy">
-                <img src="images/photo/activities5_8.png" alt="SYNODIA 학술제 발표자료 슬라이드 8" loading="lazy">
+                <img src="images/photo/activities5_1.png" alt="SYNODIA 학술제 발표자료 슬라이드 1" loading="lazy" tabindex="0" role="button" aria-label="이미지 확대">
+                <img src="images/photo/activities5_2.png" alt="SYNODIA 학술제 발표자료 슬라이드 2" loading="lazy" tabindex="0" role="button" aria-label="이미지 확대">
+                <img src="images/photo/activities5_3.png" alt="SYNODIA 학술제 발표자료 슬라이드 3" loading="lazy" tabindex="0" role="button" aria-label="이미지 확대">
+                <img src="images/photo/activities5_4.png" alt="SYNODIA 학술제 발표자료 슬라이드 4" loading="lazy" tabindex="0" role="button" aria-label="이미지 확대">
+                <img src="images/photo/activities5_5.png" alt="SYNODIA 학술제 발표자료 슬라이드 5" loading="lazy" tabindex="0" role="button" aria-label="이미지 확대">
+                <img src="images/photo/activities5_6.png" alt="SYNODIA 학술제 발표자료 슬라이드 6" loading="lazy" tabindex="0" role="button" aria-label="이미지 확대">
+                <img src="images/photo/activities5_7.png" alt="SYNODIA 학술제 발표자료 슬라이드 7" loading="lazy" tabindex="0" role="button" aria-label="이미지 확대">
+                <img src="images/photo/activities5_8.png" alt="SYNODIA 학술제 발표자료 슬라이드 8" loading="lazy" tabindex="0" role="button" aria-label="이미지 확대">
               </div>
               <div class="slide-controls">
                 <button class="slide-btn" id="slidePrev" aria-label="이전 슬라이드">&#9664;</button>
@@ -1019,7 +1038,7 @@
   </main>
 
   <!-- Lightbox Popup -->
-  <div class="lightbox-overlay" id="lightbox">
+  <div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="이미지 확대 보기">
     <button class="lightbox-close" id="lightboxClose" aria-label="닫기">&times;</button>
     <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="이전">&#9664;</button>
     <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="다음">&#9654;</button>
@@ -1032,43 +1051,51 @@
   <!-- Footer -->
   <footer class="footer">
     <p>&copy; 2026 SYNODIA 국제학부. All Rights Reserved.</p>
-    <p style="margin-top: 0.5rem; font-size: 0.8rem;">본 홈페이지에 게시된 발표 자료 및 콘텐츠의 저작권은 SYNODIA 국제학부에 있으며, 무단 복제·배포를 금합니다.</p>
+    <p>본 홈페이지에 게시된 발표 자료 및 콘텐츠의 저작권은 SYNODIA 국제학부에 있으며, 무단 복제·배포를 금합니다.</p>
   </footer>
 
   <script>
-    // Hamburger menu toggle
+    // Hamburger menu toggle (with null check)
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.querySelector('.nav-links');
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navLinks.classList.toggle('open');
-    });
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('open');
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', navLinks.classList.contains('open'));
+        hamburger.setAttribute('aria-label', navLinks.classList.contains('open') ? '메뉴 닫기' : '메뉴 열기');
       });
-    });
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('active');
+          navLinks.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+          hamburger.setAttribute('aria-label', '메뉴 열기');
+        });
+      });
+    }
 
-    // Navbar scroll effect
+    // Navbar scroll effect (with null check + passive)
     const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 50);
-    });
+    if (navbar) {
+      window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 50);
+      }, { passive: true });
+    }
 
-
-    // Scroll fade-in animation
+    // Scroll fade-in animation (with unobserve)
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
         }
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-    // Accordion toggle with dynamic max-height
+    // Accordion toggle with dynamic max-height and aria-expanded
     document.querySelectorAll('.accordion-header').forEach(header => {
       header.addEventListener('click', () => {
         const item = header.closest('.accordion-item');
@@ -1077,9 +1104,12 @@
         document.querySelectorAll('.accordion-item').forEach(i => {
           i.classList.remove('active');
           i.querySelector('.accordion-body').style.maxHeight = null;
+          const btn = i.querySelector('.accordion-header');
+          if (btn) btn.setAttribute('aria-expanded', 'false');
         });
         if (!isActive) {
           item.classList.add('active');
+          header.setAttribute('aria-expanded', 'true');
           body.style.maxHeight = (body.scrollHeight + 48) + 'px';
           body.querySelectorAll('img').forEach(img => {
             if (!img.complete) img.addEventListener('load', () => {
@@ -1090,24 +1120,40 @@
       });
     });
 
-    // Slide viewer
+    // Slide viewer (with touch swipe support)
     (() => {
       const track = document.getElementById('slideTrack');
       const counter = document.getElementById('slideCurrent');
+      if (!track || !counter) return;
       const total = track.children.length;
       let current = 0;
       const update = () => {
         track.style.transform = 'translateX(-' + (current * 100) + '%)';
         counter.textContent = current + 1;
       };
-      document.getElementById('slidePrev').addEventListener('click', () => {
+      function prevSlide() {
         current = (current - 1 + total) % total;
         update();
-      });
-      document.getElementById('slideNext').addEventListener('click', () => {
+      }
+      function nextSlide() {
         current = (current + 1) % total;
         update();
-      });
+      }
+      document.getElementById('slidePrev').addEventListener('click', prevSlide);
+      document.getElementById('slideNext').addEventListener('click', nextSlide);
+
+      // Touch swipe support
+      let touchStartX = 0;
+      let touchEndX = 0;
+      const slideContainer = document.querySelector('.slide-viewer') || track.parentElement;
+      if (slideContainer) {
+        slideContainer.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+        slideContainer.addEventListener('touchend', (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          const diff = touchStartX - touchEndX;
+          if (Math.abs(diff) > 50) { diff > 0 ? nextSlide() : prevSlide(); }
+        }, { passive: true });
+      }
     })();
 
     // Lightbox popup for presentation materials
@@ -1121,8 +1167,10 @@
 
       let images = [];
       let lbIndex = 0;
+      let lastFocusedElement = null;
 
       function openLightbox(imgList, startIndex) {
+        lastFocusedElement = document.activeElement;
         images = imgList;
         lbIndex = startIndex;
         showSlide();
@@ -1130,11 +1178,13 @@
         document.body.style.overflow = 'hidden';
         lbPrev.style.display = images.length > 1 ? 'flex' : 'none';
         lbNext.style.display = images.length > 1 ? 'flex' : 'none';
+        lbClose.focus();
       }
 
       function closeLightbox() {
         overlay.classList.remove('active');
         document.body.style.overflow = '';
+        if (lastFocusedElement) lastFocusedElement.focus();
       }
 
       function showSlide() {
@@ -1167,9 +1217,20 @@
         if (e.key === 'Escape') closeLightbox();
         if (e.key === 'ArrowLeft') { lbIndex = (lbIndex - 1 + images.length) % images.length; showSlide(); }
         if (e.key === 'ArrowRight') { lbIndex = (lbIndex + 1) % images.length; showSlide(); }
+        // Focus trap
+        if (e.key === 'Tab') {
+          const focusable = overlay.querySelectorAll('button');
+          const first = focusable[0];
+          const last = focusable[focusable.length - 1];
+          if (e.shiftKey) {
+            if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+          } else {
+            if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+          }
+        }
       });
 
-      // Slide viewer images
+      // Slide viewer images (with keyboard support)
       document.querySelectorAll('.slide-track img').forEach((img) => {
         img.addEventListener('click', () => {
           const parent = img.closest('.slide-track');
@@ -1178,9 +1239,19 @@
           const idx = siblings.indexOf(img);
           openLightbox(srcs, idx);
         });
+        img.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            const parent = img.closest('.slide-track');
+            const siblings = Array.from(parent.querySelectorAll('img'));
+            const srcs = siblings.map(i => i.src);
+            const idx = siblings.indexOf(img);
+            openLightbox(srcs, idx);
+          }
+        });
       });
 
-      // Image grid images
+      // Image grid images (with keyboard support)
       document.querySelectorAll('.image-grid img').forEach((img) => {
         img.addEventListener('click', () => {
           const parent = img.closest('.image-grid');
@@ -1188,6 +1259,16 @@
           const srcs = siblings.map(i => i.src);
           const idx = siblings.indexOf(img);
           openLightbox(srcs, idx);
+        });
+        img.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            const parent = img.closest('.image-grid');
+            const siblings = Array.from(parent.querySelectorAll('img'));
+            const srcs = siblings.map(i => i.src);
+            const idx = siblings.indexOf(img);
+            openLightbox(srcs, idx);
+          }
         });
       });
     })();
