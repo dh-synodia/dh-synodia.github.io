@@ -347,7 +347,7 @@
 
     .recruit-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
       position: relative;
     }
@@ -445,29 +445,22 @@
       flex-shrink: 0;
     }
 
-    /* Wide card */
-    .recruit-card-wide {
-      grid-column: 1 / -1;
-    }
-
     /* Calendar layout */
     .calendar-layout {
       display: flex;
-      gap: 2rem;
-      align-items: flex-start;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
       margin-top: 1rem;
     }
 
     .calendar-left {
-      flex: 0 0 340px;
+      width: 100%;
+      max-width: 340px;
     }
 
     .calendar-right {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding-top: 1.5rem;
+      width: 100%;
     }
 
     .calendar-month {
@@ -725,20 +718,11 @@
         grid-template-columns: 1fr;
       }
 
-      .calendar-layout {
-        flex-direction: column;
-        align-items: center;
-      }
-
       .calendar-left {
-        flex: none;
-        width: 100%;
         max-width: 340px;
       }
 
       .calendar-right {
-        padding-top: 0;
-        width: 100%;
         max-width: 340px;
       }
 
@@ -822,7 +806,7 @@
         <p class="recruit-intro"><em>2026년, 시노디아와 함께 세계를 향해 한 걸음 내딛을 6기 부원을 기다립니다.</em></p>
       </div>
       <div class="recruit-grid stagger-children">
-        <div class="recruit-card recruit-card-wide fade-in">
+        <div class="recruit-card fade-in">
           <div class="recruit-icon"><span aria-hidden="true">&#128197;</span></div>
           <h3>모집 일정</h3>
           <div class="calendar-layout">
