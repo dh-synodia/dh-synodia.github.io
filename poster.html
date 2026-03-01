@@ -372,28 +372,164 @@
       margin-top: 1rem;
     }
 
-    /* Placeholder */
-    .poster-placeholder {
-      max-width: 500px;
+    /* Poster Card */
+    .poster-card {
+      max-width: 480px;
       width: 100%;
-      background: var(--bg-light);
-      border: 2px dashed var(--primary-light);
-      border-radius: 16px;
-      padding: 4rem 2rem;
+      background: linear-gradient(175deg, #3a9e4a 0%, #2e8040 30%, #256835 65%, #1d5329 100%);
+      border-radius: 20px;
+      box-shadow: 0 16px 56px rgba(0,0,0,0.22), 0 4px 16px rgba(0,0,0,0.1);
+      overflow: hidden;
+      color: #fff;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .poster-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 64px rgba(0,0,0,0.28), 0 6px 20px rgba(0,0,0,0.12);
+    }
+
+    .poster-accent-bar {
+      height: 5px;
+      background: linear-gradient(90deg, var(--accent), #e8d270, var(--accent));
+    }
+
+    .poster-body {
+      padding: 2.5rem 2rem 2rem;
       text-align: center;
+      position: relative;
     }
 
-    .poster-placeholder .placeholder-icon {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      opacity: 0.5;
+    .poster-body::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M20 0L40 20L20 40L0 20z'/%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
     }
 
-    .poster-placeholder p {
+    .poster-body > * { position: relative; z-index: 1; }
+
+    .poster-logo-img {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      border: 3px solid rgba(255,255,255,0.25);
+      object-fit: cover;
+      margin: 0 auto 1.2rem;
+      display: block;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+
+    .poster-name {
+      font-family: 'GmarketSans', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: 8px;
+      margin-bottom: 0.3rem;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    }
+
+    .poster-school {
+      font-size: 0.88rem;
+      letter-spacing: 4px;
+      opacity: 0.8;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+
+    .poster-line {
+      width: 48px;
+      height: 2px;
+      background: var(--accent);
+      margin: 0 auto 1.2rem;
+      border-radius: 1px;
+    }
+
+    .poster-motto-text {
       font-size: 1rem;
-      color: var(--text-light);
-      line-height: 1.8;
+      line-height: 1.7;
+      margin-bottom: 0.3rem;
     }
+
+    .poster-motto-en {
+      font-size: 0.72rem;
+      letter-spacing: 1.5px;
+      opacity: 0.55;
+      font-weight: 300;
+      margin-bottom: 1.8rem;
+    }
+
+    .poster-label {
+      font-family: 'GmarketSans', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 5px;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .poster-acts {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.6rem;
+      margin-bottom: 2rem;
+    }
+
+    .poster-act {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 0.9rem 0.5rem;
+      width: calc(33.333% - 0.4rem);
+      transition: background 0.3s;
+    }
+
+    .poster-act:hover { background: rgba(255,255,255,0.14); }
+
+    .poster-act:nth-child(n+4) { width: calc(40% - 0.3rem); }
+
+    .poster-act-icon {
+      font-size: 1.4rem;
+      margin-bottom: 0.3rem;
+      display: block;
+    }
+
+    .poster-act-name {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      line-height: 1.3;
+    }
+
+    .poster-cta {
+      background: linear-gradient(135deg, var(--accent), #c5a83d);
+      color: var(--text-dark);
+      margin: 0 -2rem;
+      padding: 1.4rem 2rem;
+    }
+
+    .poster-cta-title {
+      font-family: 'GmarketSans', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 0.25rem;
+    }
+
+    .poster-cta-desc {
+      font-size: 0.82rem;
+      opacity: 0.75;
+    }
+
+    .poster-contact {
+      margin-top: 1.5rem;
+      font-size: 0.8rem;
+      opacity: 0.7;
+      line-height: 2;
+    }
+
+    .poster-contact span { display: block; }
 
     /* Lightbox */
     .lightbox-overlay {
@@ -532,8 +668,31 @@
         max-width: 100%;
       }
 
-      .poster-placeholder {
-        padding: 3rem 1.5rem;
+      .poster-card {
+        max-width: 100%;
+        border-radius: 14px;
+      }
+
+      .poster-name {
+        font-size: 1.8rem;
+        letter-spacing: 5px;
+      }
+
+      .poster-body {
+        padding: 2rem 1.5rem 1.5rem;
+      }
+
+      .poster-cta {
+        margin: 0 -1.5rem;
+        padding: 1.2rem 1.5rem;
+      }
+
+      .poster-act {
+        padding: 0.7rem 0.4rem;
+      }
+
+      .poster-act-icon {
+        font-size: 1.2rem;
       }
 
       section {
@@ -592,14 +751,49 @@
         <div class="divider"></div>
       </div>
       <div class="poster-gallery fade-in">
-        <!-- 포스터 이미지가 준비되면 아래 placeholder를 제거하고 poster-item으로 교체하세요.
-        <div class="poster-item">
-          <img src="images/poster.png" alt="SYNODIA 국제학부 홍보 포스터" loading="lazy">
-        </div>
-        -->
-        <div class="poster-placeholder">
-          <div class="placeholder-icon">&#128444;</div>
-          <p>홍보 포스터가 곧 게시될 예정입니다.</p>
+        <div class="poster-card">
+          <div class="poster-accent-bar"></div>
+          <div class="poster-body">
+            <img src="images/logo.png" alt="SYNODIA 로고" class="poster-logo-img">
+            <div class="poster-name">SYNODIA</div>
+            <div class="poster-school">동화고등학교 &middot; 국제학부</div>
+            <div class="poster-line"></div>
+            <p class="poster-motto-text">&ldquo;세상과 교류하는 하나의 다리&rdquo;</p>
+            <p class="poster-motto-en">The Bridge that communicates with the World</p>
+            <div class="poster-line"></div>
+            <p class="poster-label">ACTIVITIES</p>
+            <div class="poster-acts">
+              <div class="poster-act">
+                <span class="poster-act-icon">&#128214;</span>
+                <span class="poster-act-name">독서 토론</span>
+              </div>
+              <div class="poster-act">
+                <span class="poster-act-icon">&#128483;</span>
+                <span class="poster-act-name">영어 토론</span>
+              </div>
+              <div class="poster-act">
+                <span class="poster-act-icon">&#9993;</span>
+                <span class="poster-act-name">국제 펜팔</span>
+              </div>
+              <div class="poster-act">
+                <span class="poster-act-icon">&#128202;</span>
+                <span class="poster-act-name">인포그래픽</span>
+              </div>
+              <div class="poster-act">
+                <span class="poster-act-icon">&#127891;</span>
+                <span class="poster-act-name">학술제</span>
+              </div>
+            </div>
+            <div class="poster-cta">
+              <div class="poster-cta-title">&#11088; 제6기 부원 모집 &#11088;</div>
+              <p class="poster-cta-desc">함께 세상을 잇는 다리가 되어 주세요</p>
+            </div>
+            <div class="poster-contact">
+              <span>&#128247; Instagram @dh.synodia</span>
+              <span>&#128172; 카카오톡 오픈채팅</span>
+            </div>
+          </div>
+          <div class="poster-accent-bar"></div>
         </div>
       </div>
     </div>
