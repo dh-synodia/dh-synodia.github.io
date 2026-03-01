@@ -347,31 +347,6 @@
       gap: 2rem;
     }
 
-    .poster-item {
-      max-width: 500px;
-      width: 100%;
-    }
-
-    .poster-item img {
-      width: 100%;
-      border-radius: 16px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-      cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .poster-item img:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.18);
-    }
-
-    .poster-caption {
-      text-align: center;
-      font-size: 0.85rem;
-      color: var(--text-light);
-      margin-top: 1rem;
-    }
-
     /* Poster Card */
     .poster-card {
       max-width: 480px;
@@ -861,7 +836,7 @@
         if (e.key === 'Escape' && overlay.classList.contains('active')) closeLightbox();
       });
 
-      document.querySelectorAll('.poster-item img').forEach((img) => {
+      document.querySelectorAll('.poster-card img').forEach((img) => {
         img.addEventListener('click', () => openLightbox(img.src));
       });
     })();

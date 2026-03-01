@@ -948,8 +948,8 @@
                 <img src="images/photo/activities5_8.png" alt="SYNODIA 학술제 발표자료 슬라이드 8" loading="lazy">
               </div>
               <div class="slide-controls">
-                <button class="slide-btn" id="slidePrev">&#9664;</button>
-                <button class="slide-btn" id="slideNext">&#9654;</button>
+                <button class="slide-btn" id="slidePrev" aria-label="이전 슬라이드">&#9664;</button>
+                <button class="slide-btn" id="slideNext" aria-label="다음 슬라이드">&#9654;</button>
               </div>
             </div>
             <div class="slide-counter"><span id="slideCurrent">1</span> / 8</div>
@@ -1018,6 +1018,11 @@
         if (!isActive) {
           item.classList.add('active');
           body.style.maxHeight = (body.scrollHeight + 48) + 'px';
+          body.querySelectorAll('img').forEach(img => {
+            if (!img.complete) img.addEventListener('load', () => {
+              body.style.maxHeight = (body.scrollHeight + 48) + 'px';
+            }, { once: true });
+          });
         }
       });
     });
