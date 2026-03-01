@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2026년 계획 | SYNODIA 동화고등학교 국제학부</title>
-  <meta name="description" content="SYNODIA 국제학부의 2026년 동아리 활동 계획. 독서 토론, 영어 토론, 국제교류, 인포그래픽, 학술제 참여 등.">
-  <meta name="keywords" content="시노디아, SYNODIA, 동화고등학교, 국제학부, 2026, 계획">
-  <link rel="canonical" href="https://dh-synodia.github.io/plan.html">
+  <title>홍보 포스터 | SYNODIA 동화고등학교 국제학부</title>
+  <meta name="description" content="SYNODIA 국제학부 홍보 포스터. 동화고등학교 국제학부 시노디아의 동아리 홍보 포스터를 확인하세요.">
+  <meta name="keywords" content="시노디아, SYNODIA, 동화고등학교, 국제학부, 홍보, 포스터">
+  <link rel="canonical" href="https://dh-synodia.github.io/poster.html">
 
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://dh-synodia.github.io/plan.html">
-  <meta property="og:title" content="2026년 계획 | SYNODIA 동화고등학교 국제학부">
-  <meta property="og:description" content="SYNODIA 국제학부의 2026년 동아리 활동 계획. 독서 토론, 영어 토론, 국제교류, 인포그래픽, 학술제 참여 등.">
+  <meta property="og:url" content="https://dh-synodia.github.io/poster.html">
+  <meta property="og:title" content="홍보 포스터 | SYNODIA 동화고등학교 국제학부">
+  <meta property="og:description" content="SYNODIA 국제학부 홍보 포스터. 동화고등학교 국제학부 시노디아의 동아리 홍보 포스터를 확인하세요.">
   <meta property="og:image" content="https://dh-synodia.github.io/images/logo.png">
   <meta property="og:image:width" content="512">
   <meta property="og:image:height" content="512">
@@ -21,8 +21,8 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="2026년 계획 | SYNODIA 동화고등학교 국제학부">
-  <meta name="twitter:description" content="SYNODIA 국제학부의 2026년 동아리 활동 계획. 독서 토론, 영어 토론, 국제교류, 인포그래픽, 학술제 참여 등.">
+  <meta name="twitter:title" content="홍보 포스터 | SYNODIA 동화고등학교 국제학부">
+  <meta name="twitter:description" content="SYNODIA 국제학부 홍보 포스터. 동화고등학교 국제학부 시노디아의 동아리 홍보 포스터를 확인하세요.">
   <meta name="twitter:image" content="https://dh-synodia.github.io/images/logo.png">
   <meta name="twitter:image:alt" content="SYNODIA 국제학부 로고">
 
@@ -51,9 +51,9 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "2026년 계획 | SYNODIA 동화고등학교 국제학부",
-    "description": "SYNODIA 국제학부의 2026년 동아리 활동 계획. 독서 토론, 영어 토론, 국제교류, 인포그래픽, 학술제 참여 등.",
-    "url": "https://dh-synodia.github.io/plan.html",
+    "name": "홍보 포스터 | SYNODIA 동화고등학교 국제학부",
+    "description": "SYNODIA 국제학부 홍보 포스터. 동화고등학교 국제학부 시노디아의 동아리 홍보 포스터를 확인하세요.",
+    "url": "https://dh-synodia.github.io/poster.html",
     "isPartOf": {
       "@type": "WebSite",
       "name": "SYNODIA 국제학부",
@@ -71,7 +71,7 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "2026년 계획"
+          "name": "홍보 포스터"
         }
       ]
     }
@@ -300,7 +300,6 @@
       z-index: 1;
     }
 
-
     .section-header {
       text-align: center;
       margin-bottom: 3.5rem;
@@ -336,75 +335,128 @@
       margin: 0 auto;
     }
 
-    /* Plan Section */
-    #plan {
+    /* Poster Section */
+    #poster {
       background: var(--white);
     }
 
-    .plan-grid {
+    .poster-gallery {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 2rem;
     }
 
-    .plan-card {
-      flex: 0 1 calc(33.333% - 1.34rem);
-      min-width: 240px;
-      background: var(--bg-light);
+    .poster-item {
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .poster-item img {
+      width: 100%;
       border-radius: 16px;
-      padding: 2rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .poster-item img:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+    }
+
+    .poster-caption {
       text-align: center;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-      transition: all 0.3s;
-      position: relative;
-      overflow: hidden;
+      font-size: 0.85rem;
+      color: var(--text-light);
+      margin-top: 1rem;
     }
 
-    .plan-card::before {
-      content: '';
+    /* Placeholder */
+    .poster-placeholder {
+      max-width: 500px;
+      width: 100%;
+      background: var(--bg-light);
+      border: 2px dashed var(--primary-light);
+      border-radius: 16px;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .poster-placeholder .placeholder-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      opacity: 0.5;
+    }
+
+    .poster-placeholder p {
+      font-size: 1rem;
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+
+    /* Lightbox */
+    .lightbox-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 1rem;
+      animation: lightboxFadeIn 0.25s ease;
+    }
+
+    .lightbox-overlay.active {
+      display: flex;
+    }
+
+    @keyframes lightboxFadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .lightbox-close {
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--primary-light), var(--accent));
-      transform: scaleX(0);
-      transition: transform 0.3s;
-    }
-
-    .plan-card:hover::before {
-      transform: scaleX(1);
-    }
-
-    .plan-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
-
-    .plan-icon {
-      width: 70px;
-      height: 70px;
+      top: 1rem;
+      right: 1.2rem;
+      width: 44px;
+      height: 44px;
+      border: none;
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      font-size: 1.5rem;
       border-radius: 50%;
-      background: linear-gradient(135deg, #f0f8e8, #d5ecd9);
+      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 1.2rem;
-      font-size: 2rem;
+      transition: background 0.2s;
+      z-index: 10001;
     }
 
-    .plan-card h3 {
-      font-size: 1.15rem;
-      font-weight: 700;
-      margin-bottom: 0.8rem;
-      color: var(--primary);
+    .lightbox-close:hover {
+      background: rgba(255,255,255,0.3);
     }
 
-    .plan-card p {
-      font-size: 0.9rem;
-      color: var(--text-light);
-      line-height: 1.7;
+    .lightbox-img-wrap {
+      max-width: 90vw;
+      max-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-img-wrap img {
+      max-width: 100%;
+      max-height: 80vh;
+      border-radius: 8px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+      user-select: none;
     }
 
     /* Skip Link */
@@ -456,11 +508,6 @@
       transform: translateY(0);
     }
 
-    /* Staggered children */
-    .stagger-children > .fade-in:nth-child(1) { transition-delay: 0s; }
-    .stagger-children > .fade-in:nth-child(2) { transition-delay: 0.15s; }
-    .stagger-children > .fade-in:nth-child(3) { transition-delay: 0.3s; }
-
     /* Responsive */
     @media (max-width: 768px) {
       .nav-inner {
@@ -481,18 +528,27 @@
       .hero h1 .eng { font-size: 0.75rem; letter-spacing: 1.5px; }
       .mobile-br { display: inline; }
 
-      .plan-card {
-        flex: 0 1 100%;
+      .poster-item {
+        max-width: 100%;
+      }
+
+      .poster-placeholder {
+        padding: 3rem 1.5rem;
       }
 
       section {
         padding: 3rem 1.5rem;
       }
+
+      .lightbox-close {
+        top: 0.5rem;
+        right: 0.7rem;
+      }
     }
   </style>
 </head>
 <body>
-  <a href="#plan" class="skip-link">본문 바로가기</a>
+  <a href="#poster" class="skip-link">본문 바로가기</a>
 
   <!-- Navigation -->
   <header>
@@ -504,8 +560,8 @@
       <ul class="nav-links">
         <li><a href="about.html">소개</a></li>
         <li><a href="activities.html">2025년 활동</a></li>
-        <li><a href="plan.html" class="active">2026년 계획</a></li>
-        <li><a href="poster.html">홍보 포스터</a></li>
+        <li><a href="plan.html">2026년 계획</a></li>
+        <li><a href="poster.html" class="active">홍보 포스터</a></li>
         <li><a href="recruitment.html">6기 부원 선발</a></li>
         <li><a href="contact.html">문의</a></li>
       </ul>
@@ -519,43 +575,44 @@
     <div class="hero-content">
       <img src="images/logo.png" alt="SYNODIA 로고" class="hero-logo">
       <h1>
-        SYNODIA 계획
-        <span class="eng">2026 Plan</span>
+        SYNODIA 홍보
+        <span class="eng">Promotion</span>
       </h1>
       <p>&ldquo;세상과 교류하는 하나의 다리&rdquo;<br>
          <span class="hero-motto">The Bridge that communicates<br class="mobile-br"> with the World</span></p>
     </div>
   </section>
 
-  <!-- Plan -->
-  <section id="plan">
+  <!-- Poster -->
+  <section id="poster">
     <div class="container">
       <div class="section-header fade-in">
-        <p class="subtitle">2026 Plan</p>
-        <h2>2026 동아리 계획</h2>
+        <p class="subtitle">Poster</p>
+        <h2>홍보 포스터</h2>
         <div class="divider"></div>
-        <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 1rem;">아래 계획은 예정 사항이며, 추후 동아리 부원들과의 협의를 거쳐 최종 확정됩니다.</p>
       </div>
-      <div class="plan-grid stagger-children">
-        <div class="plan-card fade-in">
-          <div class="plan-icon">&#128172;</div>
-          <h3>독서 토론 &amp; 영어 토론</h3>
-          <p>문·이과 팀별 독서 토론, 국제 이슈 영어 토론</p>
+      <div class="poster-gallery fade-in">
+        <!-- 포스터 이미지가 준비되면 아래 placeholder를 제거하고 poster-item으로 교체하세요.
+        <div class="poster-item">
+          <img src="images/poster.png" alt="SYNODIA 국제학부 홍보 포스터" loading="lazy">
         </div>
-        <div class="plan-card fade-in">
-          <div class="plan-icon">&#127760;</div>
-          <h3>국제교류 &amp; 문화 탐구</h3>
-          <p>펜팔 활동, 다문화 체험 및 조별 문화 리서치</p>
-        </div>
-        <div class="plan-card fade-in">
-          <div class="plan-icon">&#128202;</div>
-          <h3>인포그래픽 &amp; 학술제</h3>
-          <p>국제 인포그래픽 제작, 심화 탐구 학술제 참여</p>
+        -->
+        <div class="poster-placeholder">
+          <div class="placeholder-icon">&#128444;</div>
+          <p>홍보 포스터가 곧 게시될 예정입니다.</p>
         </div>
       </div>
     </div>
   </section>
   </main>
+
+  <!-- Lightbox Popup -->
+  <div class="lightbox-overlay" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose" aria-label="닫기">&times;</button>
+    <div class="lightbox-img-wrap">
+      <img id="lightboxImg" src="" alt="포스터 확대">
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer class="footer">
@@ -594,6 +651,35 @@
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
+    // Lightbox for poster images
+    (() => {
+      const overlay = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lightboxImg');
+      const lbClose = document.getElementById('lightboxClose');
+
+      function openLightbox(src) {
+        lbImg.src = src;
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      lbClose.addEventListener('click', closeLightbox);
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) closeLightbox();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && overlay.classList.contains('active')) closeLightbox();
+      });
+
+      document.querySelectorAll('.poster-item img').forEach((img) => {
+        img.addEventListener('click', () => openLightbox(img.src));
+      });
+    })();
   </script>
 </body>
 </html>
