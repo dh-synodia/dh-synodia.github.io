@@ -343,7 +343,7 @@
     }
 
     .plan-card {
-      flex: 0 1 calc(33.333% - 1.34rem);
+      flex: 0 1 calc(50% - 1rem);
       min-width: 240px;
       background: var(--bg-light);
       border-radius: 16px;
@@ -401,6 +401,26 @@
       line-height: 1.7;
     }
 
+    .plan-semester {
+      font-family: 'GmarketSans', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .plan-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      background: rgba(58,158,74,0.1);
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
     /* Skip Link */
     .skip-link {
       position: absolute;
@@ -456,6 +476,7 @@
     .stagger-children > .fade-in:nth-child(1) { transition-delay: 0s; }
     .stagger-children > .fade-in:nth-child(2) { transition-delay: 0.15s; }
     .stagger-children > .fade-in:nth-child(3) { transition-delay: 0.3s; }
+    .stagger-children > .fade-in:nth-child(4) { transition-delay: 0.45s; }
 
     /* Hamburger Menu */
     .hamburger {
@@ -603,21 +624,34 @@
         <div class="divider"></div>
         <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 1rem;">아래 계획은 예정 사항이며, 추후 동아리 부원들과의 협의를 거쳐 최종 확정됩니다.</p>
       </div>
+      <p class="plan-semester fade-in">1학기 — 독립 활동</p>
       <div class="plan-grid stagger-children">
         <div class="plan-card fade-in">
-          <div class="plan-icon"><span aria-hidden="true">&#128172;</span></div>
-          <h3>독서 토론 &amp; 영어 토론</h3>
-          <p>문·이과 팀별 독서 토론, 국제 이슈 영어 토론</p>
+          <div class="plan-icon"><span aria-hidden="true">&#128202;</span></div>
+          <span class="plan-badge">3월 ~ 5월</span>
+          <h3>비교 정책 분석 &amp; 포스터 세션</h3>
+          <p>동일 이슈에 대한 2~3개국의 정책을 비교 분석하고, 결과를 포스터로 제작하여 세션 형식으로 공유합니다.</p>
         </div>
         <div class="plan-card fade-in">
           <div class="plan-icon"><span aria-hidden="true">&#127760;</span></div>
-          <h3>국제교류 &amp; 문화 탐구</h3>
-          <p>펜팔 활동, 다문화 체험 및 조별 문화 리서치</p>
+          <span class="plan-badge">6월 ~ 7월</span>
+          <h3>외교 협상 시뮬레이션</h3>
+          <p>국제 위기 시나리오 속에서 각국 대표로 참여하여, 입장문 작성부터 비공식 회의·본회의·표결까지 외교 협상을 실습합니다.</p>
+        </div>
+      </div>
+      <p class="plan-semester fade-in" style="margin-top: 2.5rem;">2학기 — 모의 UN 교과 연계 심화</p>
+      <div class="plan-grid stagger-children">
+        <div class="plan-card fade-in">
+          <div class="plan-icon"><span aria-hidden="true">&#9878;</span></div>
+          <span class="plan-badge">9월 ~ 10월</span>
+          <h3>ICJ 모의재판 &amp; 외교 정책 자문</h3>
+          <p>모의 UN의 외교 협상을 국제법 논증으로 확장합니다. 서면 변론·구술 변론을 거친 뒤, 특정 국가의 외교 전략을 분석한 정책 자문 보고서를 작성합니다.</p>
         </div>
         <div class="plan-card fade-in">
-          <div class="plan-icon"><span aria-hidden="true">&#128202;</span></div>
-          <h3>인포그래픽 &amp; 학술제</h3>
-          <p>국제 인포그래픽 제작, 심화 탐구 학술제 참여</p>
+          <div class="plan-icon"><span aria-hidden="true">&#128218;</span></div>
+          <span class="plan-badge">11월 ~ 12월</span>
+          <h3>글로벌 이슈 백서 &amp; 학술제</h3>
+          <p>1년간의 분석·연구 역량을 종합하여 글로벌 이슈 백서를 작성하고, 이를 학술제 발표 자료로 활용합니다.</p>
         </div>
       </div>
     </div>
