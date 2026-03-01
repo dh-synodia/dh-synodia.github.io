@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>6기 부원 선발 | SYNODIA 동화고등학교 국제학부</title>
-  <meta name="description" content="SYNODIA 국제학부 6기 부원 모집 안내. 모집 인원, 선발 일정, 선발 절차 등 부원 모집 정보를 확인하세요.">
-  <meta name="keywords" content="시노디아, SYNODIA, 동화고등학교, 국제학부, 부원모집, 선발">
+  <title>6기 부원 모집 | SYNODIA 동화고등학교 국제학부</title>
+  <meta name="description" content="SYNODIA 국제학부 6기 부원 모집 안내. 모집 인원, 모집 일정, 모집 절차 등 부원 모집 정보를 확인하세요.">
+  <meta name="keywords" content="시노디아, SYNODIA, 동화고등학교, 국제학부, 부원모집, 모집">
   <link rel="canonical" href="https://dh-synodia.github.io/recruitment.html">
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://dh-synodia.github.io/recruitment.html">
-  <meta property="og:title" content="6기 부원 선발 | SYNODIA 동화고등학교 국제학부">
-  <meta property="og:description" content="SYNODIA 국제학부 6기 부원 모집 안내. 모집 인원, 선발 일정, 선발 절차 등 부원 모집 정보를 확인하세요.">
+  <meta property="og:title" content="6기 부원 모집 | SYNODIA 동화고등학교 국제학부">
+  <meta property="og:description" content="SYNODIA 국제학부 6기 부원 모집 안내. 모집 인원, 모집 일정, 모집 절차 등 부원 모집 정보를 확인하세요.">
   <meta property="og:image" content="https://dh-synodia.github.io/images/logo.png">
   <meta property="og:image:width" content="512">
   <meta property="og:image:height" content="512">
@@ -21,8 +21,8 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="6기 부원 선발 | SYNODIA 동화고등학교 국제학부">
-  <meta name="twitter:description" content="SYNODIA 국제학부 6기 부원 모집 안내. 모집 인원, 선발 일정, 선발 절차 등 부원 모집 정보를 확인하세요.">
+  <meta name="twitter:title" content="6기 부원 모집 | SYNODIA 동화고등학교 국제학부">
+  <meta name="twitter:description" content="SYNODIA 국제학부 6기 부원 모집 안내. 모집 인원, 모집 일정, 모집 절차 등 부원 모집 정보를 확인하세요.">
   <meta name="twitter:image" content="https://dh-synodia.github.io/images/logo.png">
   <meta name="twitter:image:alt" content="SYNODIA 국제학부 로고">
 
@@ -51,8 +51,8 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "6기 부원 선발 | SYNODIA 동화고등학교 국제학부",
-    "description": "SYNODIA 국제학부 6기 부원 모집 안내. 모집 인원, 선발 일정, 선발 절차 등 부원 모집 정보를 확인하세요.",
+    "name": "6기 부원 모집 | SYNODIA 동화고등학교 국제학부",
+    "description": "SYNODIA 국제학부 6기 부원 모집 안내. 모집 인원, 모집 일정, 모집 절차 등 부원 모집 정보를 확인하세요.",
     "url": "https://dh-synodia.github.io/recruitment.html",
     "isPartOf": {
       "@type": "WebSite",
@@ -71,7 +71,7 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "6기 부원 선발"
+          "name": "6기 부원 모집"
         }
       ]
     }
@@ -325,13 +325,6 @@
       border-radius: 2px;
     }
 
-    .section-hint {
-      font-size: 0.8rem;
-      color: var(--text-light);
-      margin-top: 0.8rem;
-      opacity: 0.7;
-    }
-
     .container {
       max-width: 1100px;
       margin: 0 auto;
@@ -354,7 +347,7 @@
 
     .recruit-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 2rem;
       position: relative;
     }
@@ -450,6 +443,154 @@
       font-size: 0.8rem;
       font-weight: 700;
       flex-shrink: 0;
+    }
+
+    /* Wide card */
+    .recruit-card-wide {
+      grid-column: 1 / -1;
+    }
+
+    /* Calendar layout */
+    .calendar-layout {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      margin-top: 1rem;
+    }
+
+    .calendar-left {
+      flex: 0 0 340px;
+    }
+
+    .calendar-right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 1.5rem;
+    }
+
+    .calendar-month {
+      text-align: center;
+      font-family: 'GmarketSans', sans-serif;
+      font-size: 0.85rem;
+      color: var(--primary);
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+
+    .calendar-legend-vertical {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+    }
+
+    .calendar-grid .day-label {
+      text-align: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--text-light);
+      padding: 0.4rem 0 0.2rem;
+    }
+
+    .calendar-grid .day-label.sun-label { color: #e74c3c; }
+    .calendar-grid .day-label.sat-label { color: #3498db; }
+
+    .calendar-grid .day {
+      text-align: center;
+      padding: 0.5rem 0;
+      font-size: 0.8rem;
+      color: var(--text-dark);
+      position: relative;
+    }
+
+    .calendar-grid .day.empty { visibility: hidden; }
+    .calendar-grid .day.sun { color: #e74c3c; }
+    .calendar-grid .day.sat { color: #3498db; }
+    .calendar-grid .day.holiday { color: #e74c3c; }
+
+    /* Range bar: 3/9~3/17 하나의 직사각형 */
+    .calendar-grid .day.range {
+      background: rgba(58,158,74,0.13);
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .calendar-grid .day.range-row-start {
+      border-radius: 20px 0 0 20px;
+    }
+
+    .calendar-grid .day.range-row-end {
+      border-radius: 0 20px 20px 0;
+    }
+
+    /* Circle: 면접일 */
+    .calendar-grid .day.circle {
+      font-weight: 700;
+      z-index: 1;
+    }
+
+    .calendar-grid .day.circle::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      z-index: -1;
+    }
+
+    .calendar-grid .day.circle-green::before {
+      background: var(--primary);
+    }
+    .calendar-grid .day.circle-green {
+      color: var(--white);
+    }
+
+    .calendar-grid .day.circle-gold::before {
+      background: var(--accent);
+    }
+    .calendar-grid .day.circle-gold {
+      color: var(--white);
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      flex-shrink: 0;
+    }
+
+    .legend-dot.bar {
+      border-radius: 3px;
+      background: rgba(58,158,74,0.13);
+      border: 1px solid var(--primary);
+      width: 18px;
+    }
+
+    .legend-dot.circle-g {
+      border-radius: 50%;
+      background: var(--primary);
+    }
+
+    .legend-dot.circle-a {
+      border-radius: 50%;
+      background: var(--accent);
     }
 
     /* Skip Link */
@@ -584,6 +725,30 @@
         grid-template-columns: 1fr;
       }
 
+      .calendar-layout {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .calendar-left {
+        flex: none;
+        width: 100%;
+        max-width: 340px;
+      }
+
+      .calendar-right {
+        padding-top: 0;
+        width: 100%;
+        max-width: 340px;
+      }
+
+      .calendar-legend-vertical {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem 1rem;
+      }
+
       section {
         padding: 3rem 1.5rem;
       }
@@ -626,7 +791,7 @@
         <li><a href="activities.html">2025년 활동</a></li>
         <li><a href="plan.html">2026년 계획</a></li>
         <li><a href="poster.html">홍보 포스터</a></li>
-        <li><a href="recruitment.html" class="active">6기 부원 선발</a></li>
+        <li><a href="recruitment.html" class="active">6기 부원 모집</a></li>
         <li><a href="contact.html">문의</a></li>
       </ul>
     </div>
@@ -655,9 +820,32 @@
         <h2>6기 부원 모집</h2>
         <div class="divider"></div>
         <p class="recruit-intro"><em>2026년, 시노디아와 함께 세계를 향해 한 걸음 내딛을 6기 부원을 기다립니다.</em></p>
-        <p class="section-hint">아래 일정은 학사일정에 따라 변경될 수 있습니다.</p>
       </div>
       <div class="recruit-grid stagger-children">
+        <div class="recruit-card recruit-card-wide fade-in">
+          <div class="recruit-icon"><span aria-hidden="true">&#128197;</span></div>
+          <h3>모집 일정</h3>
+          <div class="calendar-layout">
+            <div class="calendar-left">
+              <div class="calendar-month">2026년 3월</div>
+              <div class="calendar-grid">
+                <span class="day-label sun-label">일</span><span class="day-label">월</span><span class="day-label">화</span><span class="day-label">수</span><span class="day-label">목</span><span class="day-label">금</span><span class="day-label sat-label">토</span>
+                <span class="day sun">1</span><span class="day holiday">2</span><span class="day">3</span><span class="day">4</span><span class="day">5</span><span class="day">6</span><span class="day sat">7</span>
+                <span class="day sun">8</span><span class="day range range-row-start">9</span><span class="day range">10</span><span class="day range">11</span><span class="day range">12</span><span class="day range">13</span><span class="day range range-row-end">14</span>
+                <span class="day range range-row-start sun">15</span><span class="day range">16</span><span class="day range range-row-end">17</span><span class="day circle circle-green">18</span><span class="day">19</span><span class="day">20</span><span class="day sat">21</span>
+                <span class="day sun">22</span><span class="day">23</span><span class="day">24</span><span class="day circle circle-gold">25</span><span class="day">26</span><span class="day">27</span><span class="day sat">28</span>
+                <span class="day sun">29</span><span class="day">30</span><span class="day">31</span><span class="day empty">0</span><span class="day empty">0</span><span class="day empty">0</span><span class="day empty">0</span>
+              </div>
+            </div>
+            <div class="calendar-right">
+              <div class="calendar-legend-vertical">
+                <span class="legend-item"><span class="legend-dot bar"></span>모집 안내 및 홍보 (3/9~17)</span>
+                <span class="legend-item"><span class="legend-dot circle-g"></span>동아리 면접 (3/18)</span>
+                <span class="legend-item"><span class="legend-dot circle-a"></span>1·2학년 면접 및 활동 (3/25)</span>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="recruit-card fade-in">
           <div class="recruit-icon"><span aria-hidden="true">&#128101;</span></div>
           <h3>모집 인원</h3>
@@ -665,22 +853,10 @@
           <p class="recruit-desc">추후 공지 예정</p>
         </div>
         <div class="recruit-card fade-in">
-          <div class="recruit-icon"><span aria-hidden="true">&#128197;</span></div>
-          <h3>선발 일정</h3>
-          <ul class="recruit-schedule">
-            <li><strong>선발 안내 및 홍보</strong> 3/9 ~ 3/17</li>
-            <li><strong>동아리 면접</strong> 3/18</li>
-            <li><strong>1,2학년 동아리 면접 및 활동</strong> 3/25</li>
-          </ul>
-        </div>
-        <div class="recruit-card fade-in">
           <div class="recruit-icon"><span aria-hidden="true">&#128203;</span></div>
-          <h3>선발 절차</h3>
-          <div class="recruit-steps">
-            <div class="step"><span class="step-num">1</span> 선발 안내 및 홍보</div>
-            <div class="step"><span class="step-num">2</span> 동아리 면접</div>
-            <div class="step"><span class="step-num">3</span> 1,2학년 동아리 면접 및 활동</div>
-          </div>
+          <h3>모집 절차</h3>
+          <p class="recruit-number">-</p>
+          <p class="recruit-desc">추후 공지 예정</p>
         </div>
       </div>
     </div>
