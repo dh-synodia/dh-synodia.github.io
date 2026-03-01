@@ -579,35 +579,36 @@
 
     /* Responsive */
     @media (max-width: 768px) {
-      .navbar { padding: 0 1rem; }
-      .nav-inner { height: 56px; }
-      .hamburger { display: flex; }
+      .navbar { padding: 0 0.6rem; }
+      .nav-inner { height: auto; flex-wrap: wrap; justify-content: center; padding: 0.4rem 0; }
+      .hamburger { display: none; }
+      .nav-logo { width: 100%; justify-content: center; }
       .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        flex-direction: column;
-        background: rgba(58, 158, 74, 0.98);
-        -webkit-backdrop-filter: blur(10px);
-        backdrop-filter: blur(10px);
-        padding: 0.5rem 0;
-        gap: 0;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-      }
-      .nav-links.open { display: flex; }
-      .nav-links a {
         display: flex;
+        position: static;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        background: none;
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+        padding: 0.15rem 0 0;
+        gap: 0;
+        box-shadow: none;
+        width: 100%;
+      }
+      .nav-links a {
+        display: inline-flex;
         align-items: center;
         justify-content: center;
-        padding: 0.75rem 1.5rem;
-        font-size: 0.95rem;
-        min-height: 44px;
+        padding: 0.25rem 0.4rem;
+        font-size: 0.7rem;
+        min-height: auto;
+        white-space: nowrap;
       }
       .nav-links a::after { display: none; }
 
-      .hero { min-height: 40vh; padding-top: 5rem; padding-bottom: 2rem; }
+      .hero { min-height: 40vh; padding-top: 7rem; padding-bottom: 2rem; }
       .hero h1 { font-size: 1.8rem; }
       .hero h1 .eng { font-size: 0.75rem; letter-spacing: 1.5px; }
       .mobile-br { display: inline; }
@@ -665,11 +666,12 @@
   <header>
   <nav class="navbar" aria-label="메인 내비게이션">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo">
+      <span class="nav-logo">
         <img src="images/logo.png" alt="SYNODIA 로고" width="40" height="40">
-      </a>
+      </span>
       <button class="hamburger" id="hamburger" aria-label="메뉴 열기" aria-expanded="false"><span></span><span></span><span></span></button>
       <ul class="nav-links">
+        <li><a href="index.html">홈</a></li>
         <li><a href="about.html">소개</a></li>
         <li><a href="activities.html">2025년 활동</a></li>
         <li><a href="plan.html">2026년 계획</a></li>

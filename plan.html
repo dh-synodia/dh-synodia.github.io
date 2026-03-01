@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>2026년 계획 | SYNODIA 동화고등학교 국제학부</title>
-  <meta name="description" content="SYNODIA 국제학부의 2026년 동아리 활동 계획. 독서 토론, 영어 토론, 국제교류, 인포그래픽, 학술제 참여 등.">
+  <meta name="description" content="SYNODIA 국제학부의 2026년 동아리 활동 계획. 글로벌 미디어 비교 분석, 독서 토론, 데이터 시각화, 다국적 보도 시뮬레이션, 학술제 포스터 전시 등.">
   <meta name="keywords" content="시노디아, SYNODIA, 동화고등학교, 국제학부, 2026, 계획">
   <link rel="canonical" href="https://dh-synodia.github.io/plan.html">
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://dh-synodia.github.io/plan.html">
   <meta property="og:title" content="2026년 계획 | SYNODIA 동화고등학교 국제학부">
-  <meta property="og:description" content="SYNODIA 국제학부의 2026년 동아리 활동 계획. 독서 토론, 영어 토론, 국제교류, 인포그래픽, 학술제 참여 등.">
+  <meta property="og:description" content="SYNODIA 국제학부의 2026년 동아리 활동 계획. 글로벌 미디어 비교 분석, 독서 토론, 데이터 시각화, 다국적 보도 시뮬레이션, 학술제 포스터 전시 등.">
   <meta property="og:image" content="https://dh-synodia.github.io/images/logo.png">
   <meta property="og:image:width" content="512">
   <meta property="og:image:height" content="512">
@@ -22,7 +22,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="2026년 계획 | SYNODIA 동화고등학교 국제학부">
-  <meta name="twitter:description" content="SYNODIA 국제학부의 2026년 동아리 활동 계획. 독서 토론, 영어 토론, 국제교류, 인포그래픽, 학술제 참여 등.">
+  <meta name="twitter:description" content="SYNODIA 국제학부의 2026년 동아리 활동 계획. 글로벌 미디어 비교 분석, 독서 토론, 데이터 시각화, 다국적 보도 시뮬레이션, 학술제 포스터 전시 등.">
   <meta name="twitter:image" content="https://dh-synodia.github.io/images/logo.png">
   <meta name="twitter:image:alt" content="SYNODIA 국제학부 로고">
 
@@ -52,7 +52,7 @@
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "2026년 계획 | SYNODIA 동화고등학교 국제학부",
-    "description": "SYNODIA 국제학부의 2026년 동아리 활동 계획. 독서 토론, 영어 토론, 국제교류, 인포그래픽, 학술제 참여 등.",
+    "description": "SYNODIA 국제학부의 2026년 동아리 활동 계획. 글로벌 미디어 비교 분석, 독서 토론, 데이터 시각화, 다국적 보도 시뮬레이션, 학술제 포스터 전시 등.",
     "url": "https://dh-synodia.github.io/plan.html",
     "isPartOf": {
       "@type": "WebSite",
@@ -516,35 +516,36 @@
 
     /* Responsive */
     @media (max-width: 768px) {
-      .navbar { padding: 0 1rem; }
-      .nav-inner { height: 56px; }
-      .hamburger { display: flex; }
+      .navbar { padding: 0 0.6rem; }
+      .nav-inner { height: auto; flex-wrap: wrap; justify-content: center; padding: 0.4rem 0; }
+      .hamburger { display: none; }
+      .nav-logo { width: 100%; justify-content: center; }
       .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        flex-direction: column;
-        background: rgba(58, 158, 74, 0.98);
-        -webkit-backdrop-filter: blur(10px);
-        backdrop-filter: blur(10px);
-        padding: 0.5rem 0;
-        gap: 0;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-      }
-      .nav-links.open { display: flex; }
-      .nav-links a {
         display: flex;
+        position: static;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        background: none;
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+        padding: 0.15rem 0 0;
+        gap: 0;
+        box-shadow: none;
+        width: 100%;
+      }
+      .nav-links a {
+        display: inline-flex;
         align-items: center;
         justify-content: center;
-        padding: 0.75rem 1.5rem;
-        font-size: 0.95rem;
-        min-height: 44px;
+        padding: 0.25rem 0.4rem;
+        font-size: 0.7rem;
+        min-height: auto;
+        white-space: nowrap;
       }
       .nav-links a::after { display: none; }
 
-      .hero { min-height: 40vh; padding-top: 5rem; padding-bottom: 2rem; }
+      .hero { min-height: 40vh; padding-top: 7rem; padding-bottom: 2rem; }
       .hero h1 { font-size: 1.8rem; }
       .hero h1 .eng { font-size: 0.75rem; letter-spacing: 1.5px; }
       .mobile-br { display: inline; }
@@ -585,11 +586,12 @@
   <header>
   <nav class="navbar" aria-label="메인 내비게이션">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo">
+      <span class="nav-logo">
         <img src="images/logo.png" alt="SYNODIA 로고" width="40" height="40">
-      </a>
+      </span>
       <button class="hamburger" id="hamburger" aria-label="메뉴 열기" aria-expanded="false"><span></span><span></span><span></span></button>
       <ul class="nav-links">
+        <li><a href="index.html">홈</a></li>
         <li><a href="about.html">소개</a></li>
         <li><a href="activities.html">2025년 활동</a></li>
         <li><a href="plan.html" class="active">2026년 계획</a></li>
@@ -624,34 +626,32 @@
         <div class="divider"></div>
         <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 1rem;">아래 계획은 예정 사항이며, 추후 동아리 부원들과의 협의를 거쳐 최종 확정됩니다.</p>
       </div>
-      <p class="plan-semester fade-in">1학기 — 독립 활동</p>
       <div class="plan-grid stagger-children">
+        <div class="plan-card fade-in">
+          <div class="plan-icon"><span aria-hidden="true">&#128225;</span></div>
+          <span class="plan-badge">3월 ~ 5월</span>
+          <h3>글로벌 미디어 비교 분석 &amp; 독서 토론</h3>
+          <p>같은 뉴스라도 나라마다 시선이 다릅니다. CNN, BBC 등 세계적인 언론들의 보도를 직접 비교하며 세상을 보는 넓은 눈을 기릅니다. 흥미로운 국제 시사 도서를 함께 읽고 자유롭게 대화하며 국제적 감각을 익히는 시간입니다.</p>
+        </div>
         <div class="plan-card fade-in">
           <div class="plan-icon"><span aria-hidden="true">&#128202;</span></div>
-          <span class="plan-badge">3월 ~ 5월</span>
-          <h3>비교 정책 분석 &amp; 포스터 세션</h3>
-          <p>동일 이슈에 대한 2~3개국의 정책을 비교 분석하고, 결과를 포스터로 제작하여 세션 형식으로 공유합니다.</p>
-        </div>
-        <div class="plan-card fade-in">
-          <div class="plan-icon"><span aria-hidden="true">&#127760;</span></div>
           <span class="plan-badge">6월 ~ 7월</span>
-          <h3>외교 협상 시뮬레이션</h3>
-          <p>국제 위기 시나리오 속에서 각국 대표로 참여하여, 입장문 작성부터 비공식 회의·본회의·표결까지 외교 협상을 실습합니다.</p>
+          <h3>글로벌 데이터 시각화 &amp; 포스터 세션</h3>
+          <p>복잡한 국제 뉴스를 한눈에 들어오는 그림과 그래프로 그려봅니다. 우리가 조사한 결과물을 포스터로 멋지게 꾸미고, 친구들에게 우리만의 이야기를 들려주는 즐거운 시간입니다.</p>
         </div>
       </div>
-      <p class="plan-semester fade-in" style="margin-top: 2.5rem;">2학기 — 모의 UN 교과 연계 심화</p>
-      <div class="plan-grid stagger-children">
+      <div class="plan-grid stagger-children" style="margin-top: 2rem">
         <div class="plan-card fade-in">
-          <div class="plan-icon"><span aria-hidden="true">&#9878;</span></div>
+          <div class="plan-icon"><span aria-hidden="true">&#128240;</span></div>
           <span class="plan-badge">9월 ~ 10월</span>
-          <h3>ICJ 모의재판 &amp; 외교 정책 자문</h3>
-          <p>모의 UN의 외교 협상을 국제법 논증으로 확장합니다. 서면 변론·구술 변론을 거친 뒤, 특정 국가의 외교 전략을 분석한 정책 자문 보고서를 작성합니다.</p>
+          <h3>다국적 보도 시뮬레이션</h3>
+          <p>모의 UN 의제를 각국 기자 시점에서 취재·보도합니다. 팀별로 다른 국가의 미디어 역할을 맡아 기사 작성과 뉴스 브리핑을 진행하며, 관점에 따른 보도 차이를 체험하는 시간입니다.</p>
         </div>
         <div class="plan-card fade-in">
-          <div class="plan-icon"><span aria-hidden="true">&#128218;</span></div>
+          <div class="plan-icon"><span aria-hidden="true">&#127891;</span></div>
           <span class="plan-badge">11월 ~ 12월</span>
-          <h3>글로벌 이슈 백서 &amp; 학술제</h3>
-          <p>1년간의 분석·연구 역량을 종합하여 글로벌 이슈 백서를 작성하고, 이를 학술제 발표 자료로 활용합니다.</p>
+          <h3>심화 탐구 학술제 참여</h3>
+          <p>동아리 활동을 통해 얻은 아이디어를 하나가 되어 더욱 깊게 연구하여 결실을 맺습니다. 우리만의 심화 탐구 주제를 바탕으로 학생들 앞에서 당당히 발표하며 시노디아원의 여정을 완성하는 시간입니다.</p>
         </div>
       </div>
     </div>
