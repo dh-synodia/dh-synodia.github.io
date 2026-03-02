@@ -119,7 +119,7 @@
       letter-spacing: -0.02em;
     }
 
-    h1, h2, h3, .nav-logo {
+    h1, h2, h3 {
       font-family: 'GmarketSans', 'Pretendard Variable', sans-serif;
       font-weight: 700;
     }
@@ -149,22 +149,6 @@
       justify-content: center;
       align-items: center;
       height: 70px;
-    }
-
-    .nav-logo {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--white);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .nav-logo img {
-      height: 40px;
-      width: auto;
-      border-radius: 6px;
     }
 
     .nav-links {
@@ -647,74 +631,28 @@
     .stagger-children > .fade-in:nth-child(2) { transition-delay: 0.15s; }
     .stagger-children > .fade-in:nth-child(3) { transition-delay: 0.3s; }
 
-    /* Hamburger Menu */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: none;
-      border: none;
-      cursor: pointer;
-      min-width: 44px;
-      min-height: 44px;
-      padding: 0.5rem;
-    }
-
-    .hamburger span {
-      display: block;
-      width: 22px;
-      height: 2px;
-      background: var(--white);
-      margin: 4px 0;
-      border-radius: 1px;
-      transition: all 0.3s;
-    }
-
-    .hamburger.active span:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-
-    .hamburger.active span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .hamburger.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(5px, -5px);
-    }
-
     /* Responsive */
     @media (max-width: 768px) {
       .navbar { padding: 0 0.6rem; }
-      .nav-inner { height: auto; flex-wrap: wrap; justify-content: center; padding: 0.4rem 0; }
-      .hamburger { display: none; }
-      .nav-logo { width: 100%; justify-content: center; }
+      .nav-inner { height: auto; flex-wrap: wrap; padding: 0.4rem 0; }
       .nav-links {
-        display: flex;
-        position: static;
-        flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
-        background: none;
-        -webkit-backdrop-filter: none;
-        backdrop-filter: none;
         padding: 0.15rem 0 0;
         gap: 0;
-        box-shadow: none;
         width: 100%;
       }
       .nav-links a {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        padding: 0.25rem 0.4rem;
+        padding: 0.45rem 0.5rem;
         font-size: 0.7rem;
-        min-height: auto;
         white-space: nowrap;
       }
       .nav-links a::after { display: none; }
 
-      .hero { min-height: 40vh; padding-top: 7rem; padding-bottom: 2rem; }
+      .hero { padding-top: 7rem; padding-bottom: 2rem; }
       .hero h1 { font-size: 1.8rem; }
       .hero h1 .eng { font-size: 0.75rem; letter-spacing: 1.5px; }
       .mobile-br { display: inline; }
@@ -726,10 +664,6 @@
 
       .recruit-card-schedule {
         grid-row: auto;
-      }
-
-      .calendar-left {
-        max-width: 340px;
       }
 
       .calendar-right {
@@ -759,7 +693,7 @@
     }
 
     @media print {
-      .navbar, .hamburger, .lightbox-overlay, .skip-link { display: none !important; }
+      .navbar, .skip-link { display: none !important; }
       .hero { position: static !important; min-height: auto !important; background: #fff !important; color: #000 !important; padding: 1rem !important; }
       .hero::before { display: none !important; }
       .fade-in { opacity: 1 !important; transform: none !important; }
@@ -775,7 +709,6 @@
   <header>
   <nav class="navbar" aria-label="메인 내비게이션">
     <div class="nav-inner">
-      <button class="hamburger" id="hamburger" aria-label="메뉴 열기" aria-expanded="false"><span></span><span></span><span></span></button>
       <ul class="nav-links">
         <li><a href="index.html">홈</a></li>
         <li><a href="about.html">소개</a></li>
@@ -861,26 +794,6 @@
   </footer>
 
   <script>
-    // Hamburger menu toggle
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    if (hamburger && navLinks) {
-      hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navLinks.classList.toggle('open');
-        hamburger.setAttribute('aria-expanded', navLinks.classList.contains('open'));
-        hamburger.setAttribute('aria-label', navLinks.classList.contains('open') ? '메뉴 닫기' : '메뉴 열기');
-      });
-      navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          hamburger.classList.remove('active');
-          navLinks.classList.remove('open');
-          hamburger.setAttribute('aria-expanded', 'false');
-          hamburger.setAttribute('aria-label', '메뉴 열기');
-        });
-      });
-    }
-
     // Navbar scroll effect
     const navbar = document.querySelector('.navbar');
     if (navbar) {
