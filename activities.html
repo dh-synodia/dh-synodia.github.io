@@ -490,6 +490,65 @@
       margin-top: 0.3rem;
     }
 
+    .topic-cards {
+      display: flex;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .topic-card {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.6rem 0.9rem;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    .topic-label {
+      flex-shrink: 0;
+      font-family: 'GmarketSans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      color: var(--white);
+    }
+
+    .topic-name {
+      color: var(--text-dark);
+      font-weight: 500;
+    }
+
+    .topic-munka {
+      background: rgba(58, 158, 74, 0.08);
+      border: 1px solid rgba(58, 158, 74, 0.2);
+    }
+
+    .topic-munka .topic-label {
+      background: var(--primary);
+    }
+
+    .topic-igwa {
+      background: rgba(212, 184, 75, 0.08);
+      border: 1px solid rgba(212, 184, 75, 0.25);
+    }
+
+    .topic-igwa .topic-label {
+      background: var(--accent);
+    }
+
+    .topic-debate {
+      background: rgba(41, 128, 185, 0.08);
+      border: 1px solid rgba(41, 128, 185, 0.2);
+    }
+
+    .topic-debate .topic-label {
+      background: #2980b9;
+    }
+
     .discussion-table {
       width: 100%;
       border-collapse: separate;
@@ -751,6 +810,10 @@
       .hero h1 .eng { font-size: 0.75rem; letter-spacing: 1.5px; }
       .mobile-br { display: inline; }
 
+      .topic-cards {
+        flex-direction: column;
+      }
+
       .image-grid {
         grid-template-columns: 1fr;
       }
@@ -852,6 +915,16 @@
             <span class="accordion-arrow">&#9662;</span>
           </button></h3>
           <div class="accordion-body" id="acc-panel-1" role="region" aria-labelledby="acc-btn-1">
+            <div class="topic-cards">
+              <div class="topic-card topic-munka">
+                <span class="topic-label">문과</span>
+                <span class="topic-name">수도권 과밀화와 도시 기능 분배</span>
+              </div>
+              <div class="topic-card topic-igwa">
+                <span class="topic-label">이과</span>
+                <span class="topic-name">생화학 무기 개발의 정당성</span>
+              </div>
+            </div>
             <p>문과 팀은 수도권 과밀화 문제를 <strong>청년 세대의 기회 균형</strong>과 <strong>지방 재생 정책의 실효성</strong> 관점에서, 이과 팀은 생화학 무기의 허용범위를 <strong>국제 협약(BWC·CWC)의 한계</strong>, <strong>2001년 탄저균 테러 대응 사례</strong>, <strong>북한 생화학 무기 위협의 현실</strong> 등 다양한 각도에서 심층 분석했습니다.</p>
             <div class="table-scroll-wrapper">
             <table class="discussion-table">
@@ -885,7 +958,13 @@
             <span class="accordion-arrow">&#9662;</span>
           </button></h3>
           <div class="accordion-body" id="acc-panel-2" role="region" aria-labelledby="acc-btn-2">
-            <p>"러시아-우크라이나 전쟁: 영토를 양보해야 하는가?"를 주제로 의견 발표, 질의응답, 결론 도출까지 영어로 진행했습니다.</p>
+            <div class="topic-cards">
+              <div class="topic-card topic-debate">
+                <span class="topic-label">주제</span>
+                <span class="topic-name">러시아-우크라이나 전쟁: 영토를 양보해야 하는가?</span>
+              </div>
+            </div>
+            <p>찬성 측은 <strong>난민 문제와 전후 복구</strong>, <strong>경제적 자립의 현실적 필요성</strong>을 중심으로, 반대 측은 <strong>부다페스트 각서 위반과 국제법적 선례</strong>, <strong>돈바스 지역 양보의 군사적 위험</strong>, <strong>영토와 국민 정체성의 관계</strong> 등 다각적 시각에서 심층 분석했습니다. 의견 발표, 질의응답, 결론 도출까지 영어로 진행했습니다.</p>
             <div class="table-scroll-wrapper">
             <table class="discussion-table">
 
