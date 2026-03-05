@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>홍보 포스터 | SYNODIA 동화고등학교 국제학부</title>
-  <meta name="description" content="SYNODIA 국제학부 홍보 포스터. 동화고등학교 국제학부 시노디아의 동아리 홍보 포스터를 확인하세요.">
-  <meta name="keywords" content="시노디아, SYNODIA, 동화고등학교, 국제학부, 홍보, 포스터">
-  <link rel="canonical" href="https://dh-synodia.github.io/poster.html">
+  <title>2026 편입 안내 | SYNODIA 동화고등학교 국제학부</title>
+  <meta name="description" content="동화고등학교 SYNODIA 국제학부 2026 편입 모집. 편입 인원 2명, 지원 방법, 모집 기한 안내. 인스타그램 DM(@dh.synodia)으로 지원하세요.">
+  <meta name="keywords" content="시노디아, SYNODIA, 동화고등학교, 국제학부, 편입, 편입모집">
+  <link rel="canonical" href="https://dh-synodia.github.io/transfer.html">
 
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://dh-synodia.github.io/poster.html">
-  <meta property="og:title" content="홍보 포스터 | SYNODIA 동화고등학교 국제학부">
-  <meta property="og:description" content="SYNODIA 국제학부 홍보 포스터. 동화고등학교 국제학부 시노디아의 동아리 홍보 포스터를 확인하세요.">
+  <meta property="og:url" content="https://dh-synodia.github.io/transfer.html">
+  <meta property="og:title" content="2026 편입 안내 | SYNODIA 동화고등학교 국제학부">
+  <meta property="og:description" content="SYNODIA 국제학부 편입 모집 안내. 편입 자격, 절차 등 편입 관련 정보를 확인하세요.">
   <meta property="og:image" content="https://dh-synodia.github.io/images/logo.png">
   <meta property="og:image:width" content="512">
   <meta property="og:image:height" content="512">
@@ -21,8 +21,8 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="홍보 포스터 | SYNODIA 동화고등학교 국제학부">
-  <meta name="twitter:description" content="SYNODIA 국제학부 홍보 포스터. 동화고등학교 국제학부 시노디아의 동아리 홍보 포스터를 확인하세요.">
+  <meta name="twitter:title" content="2026 편입 안내 | SYNODIA 동화고등학교 국제학부">
+  <meta name="twitter:description" content="SYNODIA 국제학부 편입 모집 안내. 편입 자격, 절차 등 편입 관련 정보를 확인하세요.">
   <meta name="twitter:image" content="https://dh-synodia.github.io/images/logo.png">
   <meta name="twitter:image:alt" content="SYNODIA 국제학부 로고">
 
@@ -57,9 +57,9 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "홍보 포스터 | SYNODIA 동화고등학교 국제학부",
-    "description": "SYNODIA 국제학부 홍보 포스터. 동화고등학교 국제학부 시노디아의 동아리 홍보 포스터를 확인하세요.",
-    "url": "https://dh-synodia.github.io/poster.html",
+    "name": "2026 편입 안내 | SYNODIA 동화고등학교 국제학부",
+    "description": "SYNODIA 국제학부 편입 모집 안내. 편입 자격, 절차 등 편입 관련 정보를 확인하세요.",
+    "url": "https://dh-synodia.github.io/transfer.html",
     "isPartOf": {
       "@type": "WebSite",
       "name": "SYNODIA 국제학부",
@@ -77,7 +77,7 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "홍보 포스터"
+          "name": "편입 모집"
         }
       ]
     }
@@ -94,6 +94,7 @@
       font-style: normal;
       font-display: swap;
     }
+
     * {
       margin: 0;
       padding: 0;
@@ -195,7 +196,6 @@
       color: var(--white);
     }
 
-
     /* Hero Section */
     .hero {
       min-height: 40vh;
@@ -286,7 +286,7 @@
 
     .section-header {
       text-align: center;
-      margin-bottom: 3.5rem;
+      margin-bottom: 1.5rem;
     }
 
     .section-header h2 {
@@ -319,370 +319,118 @@
       margin: 0 auto;
     }
 
-    /* Poster Section */
-    #poster {
+    .transfer-intro {
+      font-family: 'GmarketSans', 'Pretendard Variable', sans-serif;
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--text-dark);
+      opacity: 0.85;
+      margin-top: 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    .transfer-desc {
+      text-align: center;
+      font-family: 'Pretendard Variable', sans-serif;
+      font-size: 1rem;
+      color: var(--text-light);
+      line-height: 1.9;
+      max-width: 640px;
+      margin: 0 auto 3rem;
+    }
+
+    /* Transfer Cards */
+    #transfer {
       background: var(--white);
     }
 
-    .poster-gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+    .transfer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 2rem;
     }
 
-    /* Poster Card — Navy & Gold International Theme */
-    .poster-card {
-      --poster-gold: #d4a843;
-      --poster-gold-light: #e8d080;
-      max-width: 480px;
-      width: 100%;
-      background: linear-gradient(175deg, #1e3454 0%, #152238 35%, #0d1a2e 70%, #0a1628 100%);
-      border-radius: 20px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.35), 0 4px 16px rgba(0,0,0,0.15);
-      overflow: hidden;
-      color: #fff;
-      position: relative;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .poster-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 24px 70px rgba(0,0,0,0.4), 0 6px 20px rgba(0,0,0,0.18);
-    }
-
-    .poster-accent-bar {
-      height: 4px;
-      background: linear-gradient(90deg, transparent, var(--poster-gold) 20%, var(--poster-gold-light) 50%, var(--poster-gold) 80%, transparent);
-    }
-
-    /* Orbital decoration */
-    .poster-orbital {
-      position: absolute;
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 0;
-    }
-    .poster-orbital:nth-child(2) {
-      width: 280px; height: 280px;
-      top: -50px; right: -90px;
-      border: 1px solid rgba(212,168,67,0.1);
-      transform: rotate(25deg);
-    }
-    .poster-orbital:nth-child(3) {
-      width: 200px; height: 200px;
-      bottom: 80px; left: -70px;
-      border: 1px solid rgba(212,168,67,0.07);
-      transform: rotate(-15deg);
-    }
-    .poster-orbital:nth-child(4) {
-      width: 140px; height: 140px;
-      top: 55%; right: -40px;
-      border: 1px solid rgba(255,255,255,0.04);
-      transform: rotate(45deg);
-    }
-
-    .poster-body {
-      padding: 2.8rem 2.2rem 2rem;
+    .transfer-card {
+      background: var(--bg-light);
+      border: 1.5px solid var(--primary-light);
+      border-radius: 16px;
+      padding: 2rem;
       text-align: center;
-      position: relative;
-      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: all 0.3s;
     }
 
-    /* Gradient mesh + star-field background */
-    .poster-body::before {
-      content: '';
-      position: absolute;
-      top: 0; right: 0; bottom: 0; left: 0;
-      background:
-        radial-gradient(ellipse at 20% 15%, rgba(212,168,67,0.07) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 75%, rgba(212,168,67,0.04) 0%, transparent 50%),
-        radial-gradient(1.2px 1.2px at 12% 22%, rgba(255,255,255,0.15) 50%, transparent 50%),
-        radial-gradient(1px 1px at 78% 48%, rgba(255,255,255,0.1) 50%, transparent 50%),
-        radial-gradient(1px 1px at 42% 76%, rgba(255,255,255,0.12) 50%, transparent 50%),
-        radial-gradient(0.8px 0.8px at 92% 8%, rgba(255,255,255,0.08) 50%, transparent 50%),
-        radial-gradient(0.8px 0.8px at 58% 32%, rgba(255,255,255,0.07) 50%, transparent 50%),
-        radial-gradient(1px 1px at 28% 58%, rgba(255,255,255,0.09) 50%, transparent 50%),
-        radial-gradient(0.6px 0.6px at 65% 12%, rgba(255,255,255,0.06) 50%, transparent 50%),
-        radial-gradient(0.7px 0.7px at 35% 42%, rgba(255,255,255,0.05) 50%, transparent 50%);
-      pointer-events: none;
+    .transfer-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
 
-    .poster-body > * { position: relative; z-index: 1; }
-
-    /* Globe decoration */
-    .poster-globe {
-      position: absolute;
-      width: 180px; height: 180px;
-      border-radius: 50%;
-      border: 1px solid rgba(212,168,67,0.08);
-      top: 28%; right: -25px;
-      z-index: 0;
-    }
-    .poster-globe::before {
-      content: '';
-      position: absolute;
-      top: 12%; bottom: 12%;
-      left: 50%; transform: translateX(-50%);
-      width: 50%;
-      border: 1px solid rgba(212,168,67,0.06);
-      border-radius: 50%;
-    }
-    .poster-globe::after {
-      content: '';
-      position: absolute;
-      left: 8%; right: 8%;
-      top: 50%; transform: translateY(-50%);
-      height: 1px;
-      background: rgba(212,168,67,0.06);
+    .transfer-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
     }
 
-    /* Logo */
-    .poster-logo-img {
-      width: 80px; height: 80px;
-      border-radius: 50%;
-      border: 2px solid rgba(212,168,67,0.35);
-      object-fit: cover;
-      margin: 0 auto 1.5rem;
-      display: block;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.3), 0 0 40px rgba(212,168,67,0.12);
-      animation: posterFloat 4s ease-in-out infinite;
-    }
-
-    @keyframes posterFloat {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
-    }
-
-    .poster-name {
-      font-family: 'GmarketSans', sans-serif;
-      font-size: 2.8rem;
+    .transfer-card h3 {
+      font-size: 1.15rem;
       font-weight: 700;
-      letter-spacing: 14px;
-      margin-bottom: 0.4rem;
-      background: linear-gradient(180deg, #ffffff 20%, #b8b8b8 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .poster-school {
-      font-size: 0.82rem;
-      letter-spacing: 6px;
-      opacity: 0.5;
-      font-weight: 300;
-      margin-bottom: 2rem;
-    }
-
-    .poster-divider {
-      width: 52px;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--poster-gold), transparent);
-      margin: 0 auto 1.5rem;
-    }
-
-    .poster-motto-text {
-      font-size: 1.05rem;
-      line-height: 1.8;
-      margin-bottom: 0.4rem;
-      color: rgba(255,255,255,0.92);
-    }
-
-    .poster-motto-en {
-      font-size: 0.72rem;
-      letter-spacing: 2px;
-      opacity: 0.4;
-      font-weight: 300;
+      color: var(--primary);
       margin-bottom: 1rem;
     }
 
-    /* Bridge arch motif */
-    .poster-bridge {
-      width: 140px;
-      height: 24px;
-      margin: 0 auto 2rem;
-      position: relative;
-    }
-    .poster-bridge::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 50%;
-      transform: translateX(-50%);
-      width: 100px; height: 18px;
-      border-top: 1.5px solid rgba(212,168,67,0.35);
-      border-radius: 50px 50px 0 0;
-    }
-    .poster-bridge::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 50%;
-      transform: translateX(-50%);
-      width: 120px; height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(212,168,67,0.2), transparent);
+    .transfer-number {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--primary);
+      margin-bottom: 0.3rem;
     }
 
-    .poster-label {
-      font-family: 'GmarketSans', sans-serif;
-      font-size: 0.68rem;
-      letter-spacing: 6px;
-      color: var(--poster-gold);
-      margin-bottom: 1rem;
+    .transfer-detail {
+      font-size: 0.85rem;
+      color: var(--text-light);
     }
 
-    /* Activity cards — glassmorphism */
-    .poster-acts {
+    .transfer-card-full {
+      grid-column: 1 / -1;
+    }
+
+    .transfer-steps {
+      text-align: left;
+    }
+
+    .step {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.6rem;
-      margin-bottom: 2rem;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.6rem 0;
+      font-size: 0.9rem;
+      color: var(--text-light);
     }
 
-    .poster-act {
-      background: rgba(255,255,255,0.04);
-      -webkit-backdrop-filter: blur(8px);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(212,168,67,0.12);
-      border-radius: 14px;
-      padding: 1rem 0.5rem 0.8rem;
-      width: calc(33.333% - 0.4rem);
-      transition: background 0.3s, border-color 0.3s;
+    .step:last-child {
+      padding-bottom: 0;
     }
 
-    .poster-act:hover {
-      background: rgba(255,255,255,0.08);
-      border-color: rgba(212,168,67,0.25);
-    }
-
-    .poster-act:nth-child(n+4) { width: calc(50% - 0.3rem); }
-
-    /* CSS Icons */
-    .p-icon {
-      width: 32px; height: 32px;
-      margin: 0 auto 0.5rem;
-      position: relative;
+    .step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: var(--white);
       display: flex;
       align-items: center;
       justify-content: center;
-    }
-
-    .p-icon-book::before {
-      content: '';
-      width: 14px; height: 16px;
-      border: 1.5px solid var(--poster-gold);
-      border-left: 3px solid var(--poster-gold);
-      border-radius: 0 3px 3px 0;
-    }
-
-    .p-icon-debate::before {
-      content: '';
-      width: 16px; height: 11px;
-      border: 1.5px solid var(--poster-gold);
-      border-radius: 8px;
-    }
-    .p-icon-debate::after {
-      content: '';
-      position: absolute;
-      bottom: 5px; left: calc(50% - 1px);
-      border-left: 3px solid transparent;
-      border-right: 3px solid transparent;
-      border-top: 4px solid var(--poster-gold);
-    }
-
-    .p-icon-globe::before {
-      content: '';
-      width: 16px; height: 16px;
-      border: 1.5px solid var(--poster-gold);
-      border-radius: 50%;
-    }
-    .p-icon-globe::after {
-      content: '';
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 8px; height: 13px;
-      border: 1px solid var(--poster-gold);
-      border-radius: 50%;
-    }
-
-    .p-icon-chart::before {
-      content: '';
-      position: absolute;
-      bottom: 7px; left: calc(50% - 7px);
-      width: 4px; height: 7px;
-      background: var(--poster-gold);
-      border-radius: 1px 1px 0 0;
-      box-shadow: 5px 0 0 -0.5px var(--poster-gold);
-    }
-    .p-icon-chart::after {
-      content: '';
-      position: absolute;
-      bottom: 7px; left: calc(50% + 3px);
-      width: 4px; height: 12px;
-      background: var(--poster-gold);
-      border-radius: 1px 1px 0 0;
-    }
-
-    .p-icon-academic::before {
-      content: '';
-      width: 11px; height: 11px;
-      border: 1.5px solid var(--poster-gold);
-      transform: rotate(45deg);
-      margin-bottom: 2px;
-    }
-    .p-icon-academic::after {
-      content: '';
-      position: absolute;
-      bottom: 6px; left: 50%;
-      transform: translateX(-50%);
-      width: 18px; height: 1.5px;
-      background: var(--poster-gold);
-    }
-
-    .poster-act-name {
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-      line-height: 1.3;
-      color: rgba(255,255,255,0.85);
-    }
-
-    /* CTA section */
-    .poster-cta {
-      background: linear-gradient(135deg, var(--poster-gold), #c5a030);
-      color: #1a1400;
-      margin: 0 -2.2rem;
-      padding: 1.5rem 2.2rem;
-    }
-
-    .poster-cta-title {
-      font-family: 'GmarketSans', sans-serif;
-      font-size: 1.15rem;
+      font-size: 0.8rem;
       font-weight: 700;
-      letter-spacing: 2px;
-      margin-bottom: 0.3rem;
+      flex-shrink: 0;
     }
 
-    .poster-cta-desc {
-      font-size: 0.82rem;
-      opacity: 0.7;
-    }
-
-    .poster-contact {
-      margin-top: 1.5rem;
-      font-size: 0.78rem;
-      opacity: 0.5;
-      line-height: 2;
-    }
-
-    .poster-contact span { display: block; }
-
-    .poster-contact-label {
-      font-size: 0.65rem;
-      letter-spacing: 4px;
-      color: var(--poster-gold);
-      opacity: 0.7;
-      margin-bottom: 0.3rem;
+    .transfer-closing {
+      text-align: center;
+      font-family: 'GmarketSans', 'Pretendard Variable', sans-serif;
+      font-size: 1.1rem;
+      color: var(--primary);
+      margin-top: 2.5rem;
+      letter-spacing: -0.01em;
     }
 
     /* Skip Link */
@@ -721,10 +469,7 @@
       text-decoration: none;
     }
 
-    .footer p + p {
-      margin-top: 0.5rem;
-      font-size: 0.8rem;
-    }
+    .footer p + p { margin-top: 0.5rem; font-size: 0.8rem; }
 
     /* Animations */
     .fade-in {
@@ -738,6 +483,11 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    .stagger-children > .fade-in:nth-child(1) { transition-delay: 0s; }
+    .stagger-children > .fade-in:nth-child(2) { transition-delay: 0.15s; }
+    .stagger-children > .fade-in:nth-child(3) { transition-delay: 0.3s; }
+    .stagger-children > .fade-in:nth-child(4) { transition-delay: 0.45s; }
 
     /* Responsive */
     @media (max-width: 768px) {
@@ -765,37 +515,65 @@
       .hero h1 .eng { font-size: 0.75rem; letter-spacing: 1.5px; }
       .mobile-br { display: inline; }
 
-      .poster-card {
-        max-width: 100%;
-        border-radius: 14px;
+      .transfer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
       }
 
-      .poster-name {
-        font-size: 2rem;
-        letter-spacing: 6px;
+      .transfer-card {
+        padding: 1.2rem 0.8rem;
+        border-radius: 12px;
       }
 
-      .poster-body {
-        padding: 2rem 1.5rem 1.5rem;
+      .transfer-icon {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
       }
 
-      .poster-cta {
-        margin: 0 -1.5rem;
-        padding: 1.2rem 1.5rem;
+      .transfer-card h3 {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
       }
 
-      .poster-act {
-        padding: 0.8rem 0.4rem;
-        width: calc(50% - 0.3rem);
+      .transfer-number {
+        font-size: 1.2rem;
       }
-      .poster-globe { display: none; }
-      .poster-orbital:nth-child(4) { display: none; }
-      .p-icon { width: 28px; height: 28px; }
+
+      .transfer-detail {
+        font-size: 0.75rem;
+      }
+
+      .transfer-desc {
+        font-size: 0.88rem;
+        margin: 0 auto 2rem;
+      }
+
+      .section-header h2 {
+        font-size: 1.6rem;
+      }
+
+      .transfer-intro {
+        font-size: 1.05rem;
+      }
+
+      .transfer-closing {
+        font-size: 0.95rem;
+      }
+
+      .step {
+        font-size: 0.8rem;
+        gap: 0.6rem;
+      }
+
+      .step-num {
+        width: 24px;
+        height: 24px;
+        font-size: 0.7rem;
+      }
 
       section {
         padding: 3rem 1.5rem;
       }
-
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -819,7 +597,7 @@
   </style>
 </head>
 <body>
-  <a href="#poster" class="skip-link">본문 바로가기</a>
+  <a href="#transfer" class="skip-link">본문 바로가기</a>
 
   <!-- Navigation -->
   <header>
@@ -830,9 +608,9 @@
         <li><a href="about.html">소개</a></li>
         <li><a href="activities.html">2025년 활동</a></li>
         <li><a href="plan.html">2026년 계획</a></li>
-        <li><a href="poster.html" class="active">홍보 포스터</a></li>
+        <li><a href="poster.html">홍보 포스터</a></li>
         <li><a href="recruitment.html">6기 부원 모집</a></li>
-        <li><a href="transfer.html">편입 모집</a></li>
+        <li><a href="transfer.html" class="active">편입 모집</a></li>
         <li><a href="contact.html">문의</a></li>
       </ul>
     </div>
@@ -853,20 +631,53 @@
     </div>
   </section>
 
-  <!-- Poster -->
-  <section id="poster">
+  <!-- Transfer Recruitment -->
+  <section id="transfer">
     <div class="container">
       <div class="section-header fade-in">
-        <p class="subtitle">Poster</p>
-        <h2>홍보 포스터</h2>
+        <p class="subtitle">Transfer</p>
+        <h2>편입 모집</h2>
         <div class="divider"></div>
+        <p class="transfer-intro"><em>2026 시노디아 편입 안내</em></p>
       </div>
-      <div class="poster-gallery fade-in" style="text-align: center; padding: 3rem 1rem;">
-        <p style="font-size: 1.1rem; color: var(--text-light); line-height: 1.8;">
-          포스터 완성본이 곧 게시될 예정입니다.<br>
-          잠시만 기다려 주세요.
-        </p>
+      <p class="transfer-desc fade-in">
+        시작이 다르다고, 길이 다르진 않습니다.<br>
+        세계를 향한 관심 하나면 충분합니다.<br>
+        지금, 시노디아와 함께 새로운 여정에 합류하세요.
+      </p>
+      <div class="transfer-grid stagger-children">
+        <div class="transfer-card fade-in">
+          <div class="transfer-icon"><span aria-hidden="true">&#128101;</span></div>
+          <h3>모집 인원</h3>
+          <p class="transfer-number">2명</p>
+          <p class="transfer-detail">&nbsp;</p>
+        </div>
+        <div class="transfer-card fade-in">
+          <div class="transfer-icon"><span aria-hidden="true">&#128197;</span></div>
+          <h3>모집 기한</h3>
+          <p class="transfer-number">3월 6일 오후 12:00</p>
+        </div>
+        <div class="transfer-card fade-in">
+          <div class="transfer-icon"><span aria-hidden="true">&#128227;</span></div>
+          <h3>결과 공지</h3>
+          <p class="transfer-number">3월 6일 14:00 이내</p>
+          <p class="transfer-detail">개인 DM 공지 (변동 가능)</p>
+        </div>
+        <a href="contact.html" class="transfer-card fade-in" style="text-decoration: none; color: inherit; cursor: pointer;">
+          <div class="transfer-icon"><span aria-hidden="true">&#128172;</span></div>
+          <h3>문의</h3>
+          <p class="transfer-number">문의 페이지로 이동</p>
+        </a>
+        <div class="transfer-card transfer-card-full fade-in">
+          <div class="transfer-icon"><span aria-hidden="true">&#128221;</span></div>
+          <h3>지원 방법</h3>
+          <div class="transfer-steps">
+            <div class="step"><span class="step-num">1</span><span><strong style="color: var(--text-dark);">평소 관심 있는 국제 분야</strong>와 <strong style="color: var(--text-dark);">시노디아에서 활동하고 싶은 이유</strong>를 편하게 적어 주세요</span></div>
+            <div class="step"><span class="step-num">2</span><span>위 내용을 <a href="https://www.instagram.com/dh.synodia" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none; font-weight: 600;">시노디아 공식 인스타그램</a> DM으로 제출</span></div>
+          </div>
+        </div>
       </div>
+      <p class="transfer-closing fade-in"><em>늦은 출발이 아닌, 새로운 시작입니다.</em></p>
     </div>
   </section>
   </main>
@@ -887,16 +698,17 @@
     }
 
     // Scroll fade-in animation
-    const observer = new IntersectionObserver((entries, obs) => {
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          obs.unobserve(entry.target);
+          observer.unobserve(entry.target);
         }
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
   </script>
 </body>
 </html>
