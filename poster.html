@@ -685,6 +685,60 @@
       margin-bottom: 0.3rem;
     }
 
+    /* Poster Preview (blurred) */
+    .poster-preview {
+      position: relative;
+      max-width: 480px;
+      width: 100%;
+      margin: 0 auto;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    }
+
+    .poster-blur-img {
+      display: block;
+      width: 100%;
+      height: auto;
+      filter: blur(18px);
+      transform: scale(1.05);
+      -webkit-user-select: none;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .poster-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.15);
+    }
+
+    .poster-overlay-text {
+      font-family: 'GmarketSans', 'Pretendard Variable', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      background: rgba(0, 0, 0, 0.45);
+      padding: 0.8rem 1.8rem;
+      border-radius: 12px;
+      letter-spacing: 1px;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+
+    @media (max-width: 768px) {
+      .poster-blur-img {
+        filter: blur(14px);
+      }
+      .poster-overlay-text {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.2rem;
+      }
+    }
+
     /* Skip Link */
     .skip-link {
       position: absolute;
@@ -861,11 +915,13 @@
         <h2>홍보 포스터</h2>
         <div class="divider"></div>
       </div>
-      <div class="poster-gallery fade-in" style="text-align: center; padding: 3rem 1rem;">
-        <p style="font-size: 1.1rem; color: var(--text-light); line-height: 1.8;">
-          포스터 완성본이 곧 게시될 예정입니다.<br>
-          잠시만 기다려 주세요.
-        </p>
+      <div class="poster-gallery fade-in">
+        <div class="poster-preview">
+          <img src="images/Synodia recruit.png/Synodia recruit_1.png" alt="SYNODIA 6기 부원 모집 홍보 포스터 (미리보기)" class="poster-blur-img" width="3306" height="4677" loading="lazy">
+          <div class="poster-overlay">
+            <p class="poster-overlay-text">포스터 전체 공개 준비 중입니다<br><span style="font-size:0.85em;font-weight:500;opacity:0.9;">3월 9일(월) 공개 예정</span></p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
