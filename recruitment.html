@@ -448,6 +448,10 @@
       font-size: 0.8rem;
       font-weight: 700;
       flex-shrink: 0;
+      line-height: 1;
+      letter-spacing: 0;
+      text-indent: 0;
+      font-family: 'Pretendard Variable', sans-serif;
     }
 
     /* Calendar layout */
@@ -512,11 +516,26 @@
     .calendar-grid .day.sat { color: #3498db; }
     .calendar-grid .day.holiday { color: #e74c3c; }
 
-    /* Range bar: 3/9~3/17 하나의 직사각형 */
+    /* Range bar: 홍보 기간 */
     .calendar-grid .day.range {
       background: rgba(58,158,74,0.13);
       color: var(--primary);
       font-weight: 600;
+    }
+
+    /* Range: 지원 기간 (파란색 바) */
+    .calendar-grid .day.range-apply {
+      background: rgba(52,152,219,0.15);
+      color: #2471a3;
+      font-weight: 700;
+    }
+
+    .calendar-grid .day.range-apply.range-row-start {
+      border-radius: 20px 0 0 20px;
+    }
+
+    .calendar-grid .day.range-apply.range-row-end {
+      border-radius: 0 20px 20px 0;
     }
 
     .calendar-grid .day.range-row-start {
@@ -524,6 +543,21 @@
     }
 
     .calendar-grid .day.range-row-end {
+      border-radius: 0 20px 20px 0;
+    }
+
+    /* Range bar: 2차 선발 기간 */
+    .calendar-grid .day.range-b {
+      background: rgba(212,184,75,0.15);
+      color: #b8960f;
+      font-weight: 600;
+    }
+
+    .calendar-grid .day.range-b.range-row-start {
+      border-radius: 20px 0 0 20px;
+    }
+
+    .calendar-grid .day.range-b.range-row-end {
       border-radius: 0 20px 20px 0;
     }
 
@@ -589,6 +623,20 @@
     .legend-dot.circle-a {
       border-radius: 50%;
       background: var(--accent);
+    }
+
+    .legend-dot.bar-apply {
+      border-radius: 3px;
+      background: rgba(52,152,219,0.15);
+      border: 1px solid #2471a3;
+      width: 18px;
+    }
+
+    .legend-dot.bar-b {
+      border-radius: 3px;
+      background: rgba(212,184,75,0.15);
+      border: 1px solid #b8960f;
+      width: 18px;
     }
 
     /* Skip Link */
@@ -771,17 +819,19 @@
               <div class="calendar-grid">
                 <span class="day-label sun-label">일</span><span class="day-label">월</span><span class="day-label">화</span><span class="day-label">수</span><span class="day-label">목</span><span class="day-label">금</span><span class="day-label sat-label">토</span>
                 <span class="day sun">1</span><span class="day holiday">2</span><span class="day">3</span><span class="day">4</span><span class="day">5</span><span class="day">6</span><span class="day sat">7</span>
-                <span class="day sun">8</span><span class="day range range-row-start">9</span><span class="day range">10</span><span class="day range">11</span><span class="day range">12</span><span class="day range">13</span><span class="day range range-row-end">14</span>
-                <span class="day range range-row-start sun">15</span><span class="day range">16</span><span class="day range range-row-end">17</span><span class="day circle circle-green">18</span><span class="day">19</span><span class="day">20</span><span class="day sat">21</span>
-                <span class="day sun">22</span><span class="day">23</span><span class="day">24</span><span class="day circle circle-gold">25</span><span class="day">26</span><span class="day">27</span><span class="day sat">28</span>
+                <span class="day sun">8</span><span class="day">9</span><span class="day range range-row-start">10</span><span class="day range">11</span><span class="day range range-row-end">12</span><span class="day range-apply range-row-start">13</span><span class="day range-apply range-row-end sat">14</span>
+                <span class="day range-apply range-row-start sun">15</span><span class="day range-apply range-row-end">16</span><span class="day">17</span><span class="day circle circle-green">18</span><span class="day range-b range-row-start">19</span><span class="day range-b">20</span><span class="day range-b range-row-end sat">21</span>
+                <span class="day range-b range-row-start sun">22</span><span class="day range-b">23</span><span class="day range-b range-row-end">24</span><span class="day circle circle-gold">25</span><span class="day">26</span><span class="day">27</span><span class="day sat">28</span>
                 <span class="day sun">29</span><span class="day">30</span><span class="day">31</span><span class="day empty">0</span><span class="day empty">0</span><span class="day empty">0</span><span class="day empty">0</span>
               </div>
             </div>
             <div class="calendar-right">
               <div class="calendar-legend-vertical">
-                <span class="legend-item"><span class="legend-dot bar"></span>모집 안내 및 홍보 (3/9~17)</span>
-                <span class="legend-item"><span class="legend-dot circle-g"></span>동아리 면접 (3/18)</span>
-                <span class="legend-item"><span class="legend-dot circle-a"></span>1·2학년 면접 및 활동 (3/25)</span>
+                <span class="legend-item"><span class="legend-dot bar"></span>모집 안내 및 홍보 (3/10~12)</span>
+                <span class="legend-item"><span class="legend-dot bar-apply"></span>1~3지망 동아리 지원 (3/13~16)</span>
+                <span class="legend-item"><span class="legend-dot circle-g"></span>1차 선발 · 1지망 대상 (3/18)</span>
+                <span class="legend-item"><span class="legend-dot bar-b"></span>2차 선발 · 2지망 대상 (3/19~24)</span>
+                <span class="legend-item"><span class="legend-dot circle-a"></span>3차 선발 · 3지망 대상 (3/25)</span>
               </div>
             </div>
           </div>
@@ -795,8 +845,11 @@
         <div class="recruit-card fade-in">
           <div class="recruit-icon"><span aria-hidden="true">&#128203;</span></div>
           <h3>모집 절차</h3>
-          <p class="recruit-number">-</p>
-          <p class="recruit-desc">추후 공지 예정</p>
+          <div class="recruit-steps">
+            <div class="step"><span class="step-num">1</span><span>1~3지망 동아리 지원 (3/13~16)</span></div>
+            <div class="step"><span class="step-num">2</span><span>지망 순서에 따라 순차 선발</span></div>
+            <div class="step"><span class="step-num">3</span><span>필요시 면접 진행</span></div>
+          </div>
         </div>
       </div>
       <p class="recruit-closing fade-in"><em>시노디아와 함께 세계를 향해 한 걸음 내딛어 보세요.</em></p>
