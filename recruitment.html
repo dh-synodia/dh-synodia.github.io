@@ -487,6 +487,87 @@
       gap: 0.8rem;
     }
 
+    /* Timeline grid */
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      margin-top: 1.5rem;
+      position: relative;
+    }
+
+    .tl-item {
+      text-align: center;
+      padding: 0.3rem 0.2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Line connecting dots: each item (except last) draws a line from its dot center to the right */
+    .tl-item:not(:last-child)::before {
+      content: '';
+      position: absolute;
+      top: calc(0.3rem + 6px);
+      left: 50%;
+      right: 0;
+      height: 2px;
+      background: #ddd;
+      z-index: 0;
+    }
+
+    /* Line from the left edge to dot center (except first) */
+    .tl-item:not(:first-child)::after {
+      content: '';
+      position: absolute;
+      top: calc(0.3rem + 6px);
+      left: 0;
+      right: 50%;
+      height: 2px;
+      background: #ddd;
+      z-index: 0;
+    }
+
+    .tl-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      margin: 0 auto 0.5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .tl-dot.dot-green { background: var(--primary); }
+    .tl-dot.dot-blue { background: #3498db; }
+    .tl-dot.dot-gold { background: var(--accent); }
+
+    .tl-date {
+      font-family: 'GmarketSans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 0.15rem;
+      text-align: center;
+    }
+
+    .tl-date.date-green { color: var(--primary); }
+    .tl-date.date-blue { color: #2471a3; }
+    .tl-date.date-gold { color: #b8960f; }
+
+    .tl-text {
+      font-size: 0.78rem;
+      color: var(--text-dark);
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .tl-sub {
+      display: block;
+      font-size: 0.68rem;
+      color: var(--text-light);
+      font-weight: 400;
+      margin-top: 0.1rem;
+    }
+
     .calendar-grid {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
@@ -734,12 +815,64 @@
         max-width: 340px;
       }
 
-      .calendar-legend-vertical {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.5rem 1rem;
+      .timeline-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+        max-width: fit-content;
+        margin: 1.5rem auto 0;
       }
+
+      /* Reset desktop lines */
+      .tl-item::before,
+      .tl-item::after {
+        display: none !important;
+      }
+
+      .tl-item {
+        text-align: left;
+        padding: 0.15rem 0;
+        display: grid;
+        grid-template-columns: 14px 5.2rem 1fr;
+        align-items: center;
+        gap: 0 0.4rem;
+      }
+
+      /* Vertical line through dots on mobile */
+      .tl-item:not(:last-child) .tl-dot::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+        height: calc(0.3rem + 100%);
+        background: #ddd;
+        z-index: -1;
+      }
+
+      .tl-dot {
+        position: relative;
+        margin: 0;
+        grid-row: 1;
+        grid-column: 1;
+      }
+
+      .tl-date {
+        display: inline;
+        margin-right: 0;
+        margin-bottom: 0;
+        grid-row: 1;
+        grid-column: 2;
+        white-space: nowrap;
+      }
+
+      .tl-text {
+        display: inline;
+        grid-row: 1;
+        grid-column: 3;
+      }
+      .tl-text br { display: none; }
+      .tl-sub { display: inline; }
 
       section {
         padding: 3rem 1.5rem;
@@ -820,18 +953,38 @@
                 <span class="day-label sun-label">일</span><span class="day-label">월</span><span class="day-label">화</span><span class="day-label">수</span><span class="day-label">목</span><span class="day-label">금</span><span class="day-label sat-label">토</span>
                 <span class="day sun">1</span><span class="day holiday">2</span><span class="day">3</span><span class="day">4</span><span class="day">5</span><span class="day">6</span><span class="day sat">7</span>
                 <span class="day sun">8</span><span class="day">9</span><span class="day range range-row-start">10</span><span class="day range">11</span><span class="day range range-row-end">12</span><span class="day range-apply range-row-start">13</span><span class="day range-apply range-row-end sat">14</span>
-                <span class="day range-apply range-row-start sun">15</span><span class="day range-apply range-row-end">16</span><span class="day">17</span><span class="day circle circle-green">18</span><span class="day range-b range-row-start">19</span><span class="day range-b">20</span><span class="day range-b range-row-end sat">21</span>
+                <span class="day range-apply range-row-start sun">15</span><span class="day range-apply range-row-end">16</span><span class="day">17</span><span class="day circle circle-gold">18</span><span class="day range-b range-row-start">19</span><span class="day range-b">20</span><span class="day range-b range-row-end sat">21</span>
                 <span class="day range-b range-row-start sun">22</span><span class="day range-b">23</span><span class="day range-b range-row-end">24</span><span class="day circle circle-gold">25</span><span class="day">26</span><span class="day">27</span><span class="day sat">28</span>
                 <span class="day sun">29</span><span class="day">30</span><span class="day">31</span><span class="day empty">0</span><span class="day empty">0</span><span class="day empty">0</span><span class="day empty">0</span>
               </div>
             </div>
             <div class="calendar-right">
-              <div class="calendar-legend-vertical">
-                <span class="legend-item"><span class="legend-dot bar"></span>모집 안내 및 홍보 (3/10~12)</span>
-                <span class="legend-item"><span class="legend-dot bar-apply"></span>1~3지망 동아리 지원 (3/13~16)</span>
-                <span class="legend-item"><span class="legend-dot circle-g"></span>1차 선발 · 1지망 대상 (3/18)</span>
-                <span class="legend-item"><span class="legend-dot bar-b"></span>2차 선발 · 2지망 대상 (3/19~24)</span>
-                <span class="legend-item"><span class="legend-dot circle-a"></span>3차 선발 · 3지망 대상 (3/25)</span>
+              <div class="timeline-grid">
+                <div class="tl-item">
+                  <div class="tl-dot dot-green"></div>
+                  <span class="tl-date date-green">3/10 ~ 12</span>
+                  <span class="tl-text">모집 안내 <br>및 홍보</span>
+                </div>
+                <div class="tl-item">
+                  <div class="tl-dot dot-blue"></div>
+                  <span class="tl-date date-blue">3/13 ~ 16</span>
+                  <span class="tl-text">1~3지망 <br>동아리 지원</span>
+                </div>
+                <div class="tl-item">
+                  <div class="tl-dot dot-gold"></div>
+                  <span class="tl-date date-gold">3/18</span>
+                  <span class="tl-text">1차 선발 <span class="tl-sub">(1지망)</span></span>
+                </div>
+                <div class="tl-item">
+                  <div class="tl-dot dot-gold"></div>
+                  <span class="tl-date date-gold">3/19 ~ 24</span>
+                  <span class="tl-text">2차 선발 <span class="tl-sub">(2지망)</span></span>
+                </div>
+                <div class="tl-item">
+                  <div class="tl-dot dot-gold"></div>
+                  <span class="tl-date date-gold">3/25</span>
+                  <span class="tl-text">3차 선발 <span class="tl-sub">(3지망)</span></span>
+                </div>
               </div>
             </div>
           </div>
@@ -841,6 +994,7 @@
           <h3>모집 인원</h3>
           <p class="recruit-number">-</p>
           <p class="recruit-desc">추후 공지 예정</p>
+          <p class="recruit-desc" style="margin-top: 0.5rem;">(문·이과 상관없이 모집합니다.)</p>
         </div>
         <div class="recruit-card fade-in">
           <div class="recruit-icon"><span aria-hidden="true">&#128203;</span></div>
