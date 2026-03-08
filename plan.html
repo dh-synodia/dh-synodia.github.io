@@ -413,6 +413,173 @@
       margin-bottom: 0.5rem;
     }
 
+    /* Calendar Section */
+    #calendar {
+      background: var(--bg-light);
+    }
+
+    .calendar-grid-wrap {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .cal-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cal-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary-light), var(--accent));
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+
+    .cal-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .cal-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+
+    .cal-month {
+      text-align: center;
+      font-family: 'GmarketSans', sans-serif;
+      font-size: 0.95rem;
+      color: var(--primary);
+      letter-spacing: 1px;
+      margin-bottom: 0.8rem;
+    }
+
+    .cal-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+    }
+
+    .cal-grid .dl {
+      text-align: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--text-light);
+      padding: 0.4rem 0 0.2rem;
+    }
+
+    .cal-grid .dl.sun { color: #e74c3c; }
+    .cal-grid .dl.sat { color: #3498db; }
+
+    .cal-grid .d {
+      text-align: center;
+      padding: 0.45rem 0;
+      font-size: 0.8rem;
+      color: var(--text-dark);
+    }
+
+    .cal-grid .d.e { visibility: hidden; }
+    .cal-grid .d.sun { color: #e74c3c; }
+    .cal-grid .d.sat { color: #3498db; }
+    .cal-grid .d.hol { color: #e74c3c; font-weight: 700; }
+
+    /* School event */
+    .cal-grid .d.sch {
+      color: #7d3c98;
+      font-weight: 700;
+      position: relative;
+      z-index: 1;
+    }
+    .cal-grid .d.sch::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(142,68,173,0.18);
+      z-index: -1;
+    }
+    .cal-grid .d.sch.sat { color: #7d3c98; }
+    .cal-grid .d.sch.hol { color: #7d3c98; }
+
+    /* Club activity */
+    .cal-grid .d.club {
+      color: var(--primary);
+      font-weight: 700;
+      position: relative;
+      z-index: 1;
+    }
+    .cal-grid .d.club::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(58,158,74,0.18);
+      z-index: -1;
+    }
+
+    /* Calendar legend */
+    .cal-legend-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-light);
+      box-shadow: none;
+      grid-column: span 2;
+    }
+    .cal-legend-card:hover {
+      transform: none;
+      box-shadow: none;
+    }
+    .cal-legend-card::before {
+      display: none;
+    }
+
+    .cal-legend {
+      display: grid;
+      grid-template-columns: auto auto;
+      gap: 0.5rem 1.5rem;
+      justify-content: center;
+    }
+
+    .cal-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      color: var(--text-dark);
+      white-space: nowrap;
+    }
+
+    .cal-legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .cal-legend-dot.dot-hol { background: #e74c3c; }
+    .cal-legend-dot.dot-sch { background: rgba(142,68,173,0.6); }
+    .cal-legend-dot.dot-club { background: rgba(58,158,74,0.6); }
+
     /* Skip Link */
     .skip-link {
       position: absolute;
@@ -498,6 +665,38 @@
 
       .plan-card {
         flex: 0 1 100%;
+      }
+
+      .calendar-grid-wrap {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+      }
+
+      .cal-card {
+        padding: 1rem;
+      }
+
+      .cal-grid .d {
+        padding: 0.3rem 0;
+        font-size: 0.7rem;
+      }
+
+      .cal-grid .dl {
+        font-size: 0.6rem;
+      }
+
+      .cal-month {
+        font-size: 0.8rem;
+      }
+
+      .cal-grid .d.sch::before,
+      .cal-grid .d.club::before {
+        width: 22px;
+        height: 22px;
+      }
+
+      .cal-legend-card {
+        grid-column: 1 / -1;
       }
 
       section {
@@ -595,6 +794,157 @@
           <h3>심화 탐구 학술제 참여</h3>
           <p>동아리 활동을 통해 얻은 아이디어를 하나가 되어 더욱 깊게 연구하여 결실을 맺습니다. 우리만의 심화 탐구 주제를 바탕으로 학생들 앞에서 당당히 발표하며 시노디아원의 여정을 완성하는 시간입니다.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calendar -->
+  <section id="calendar">
+    <div class="container">
+      <div class="calendar-grid-wrap stagger-children">
+
+        <!-- 3월 -->
+        <div class="cal-card fade-in">
+          <div class="cal-month">3월</div>
+          <div class="cal-grid">
+            <span class="dl sun">일</span><span class="dl">월</span><span class="dl">화</span><span class="dl">수</span><span class="dl">목</span><span class="dl">금</span><span class="dl sat">토</span>
+            <span class="d hol">1</span><span class="d hol">2</span><span class="d">3</span><span class="d">4</span><span class="d">5</span><span class="d">6</span><span class="d sat">7</span>
+            <span class="d sun">8</span><span class="d">9</span><span class="d">10</span><span class="d">11</span><span class="d">12</span><span class="d">13</span><span class="d sat">14</span>
+            <span class="d sun">15</span><span class="d">16</span><span class="d">17</span><span class="d">18</span><span class="d">19</span><span class="d">20</span><span class="d sat">21</span>
+            <span class="d sun">22</span><span class="d">23</span><span class="d">24</span><span class="d club">25</span><span class="d">26</span><span class="d">27</span><span class="d sat">28</span>
+            <span class="d sun">29</span><span class="d">30</span><span class="d">31</span><span class="d e">0</span><span class="d e">0</span><span class="d e">0</span><span class="d e">0</span>
+          </div>
+        </div>
+
+        <!-- 4월 -->
+        <div class="cal-card fade-in">
+          <div class="cal-month">4월</div>
+          <div class="cal-grid">
+            <span class="dl sun">일</span><span class="dl">월</span><span class="dl">화</span><span class="dl">수</span><span class="dl">목</span><span class="dl">금</span><span class="dl sat">토</span>
+            <span class="d e">0</span><span class="d e">0</span><span class="d e">0</span><span class="d club">1</span><span class="d">2</span><span class="d">3</span><span class="d sat">4</span>
+            <span class="d sun">5</span><span class="d">6</span><span class="d">7</span><span class="d club">8</span><span class="d">9</span><span class="d">10</span><span class="d sat">11</span>
+            <span class="d sun">12</span><span class="d">13</span><span class="d">14</span><span class="d">15</span><span class="d">16</span><span class="d">17</span><span class="d sat">18</span>
+            <span class="d sun">19</span><span class="d">20</span><span class="d">21</span><span class="d">22</span><span class="d">23</span><span class="d">24</span><span class="d sat">25</span>
+            <span class="d sun">26</span><span class="d">27</span><span class="d">28</span><span class="d">29</span><span class="d">30</span><span class="d e">0</span><span class="d e">0</span>
+          </div>
+        </div>
+
+        <!-- 5월 -->
+        <div class="cal-card fade-in">
+          <div class="cal-month">5월</div>
+          <div class="cal-grid">
+            <span class="dl sun">일</span><span class="dl">월</span><span class="dl">화</span><span class="dl">수</span><span class="dl">목</span><span class="dl">금</span><span class="dl sat">토</span>
+            <span class="d e">0</span><span class="d e">0</span><span class="d e">0</span><span class="d e">0</span><span class="d e">0</span><span class="d">1</span><span class="d sat">2</span>
+            <span class="d sun">3</span><span class="d">4</span><span class="d hol">5</span><span class="d">6</span><span class="d">7</span><span class="d">8</span><span class="d sat">9</span>
+            <span class="d sun">10</span><span class="d">11</span><span class="d">12</span><span class="d">13</span><span class="d">14</span><span class="d">15</span><span class="d sat">16</span>
+            <span class="d sun">17</span><span class="d">18</span><span class="d">19</span><span class="d">20</span><span class="d">21</span><span class="d">22</span><span class="d sat">23</span>
+            <span class="d hol">24</span><span class="d hol">25</span><span class="d">26</span><span class="d club">27</span><span class="d">28</span><span class="d">29</span><span class="d sat">30</span>
+            <span class="d sun">31</span><span class="d e">0</span><span class="d e">0</span><span class="d e">0</span><span class="d e">0</span><span class="d e">0</span><span class="d e">0</span>
+          </div>
+        </div>
+
+        <!-- 6월 -->
+        <div class="cal-card fade-in">
+          <div class="cal-month">6월</div>
+          <div class="cal-grid">
+            <span class="dl sun">일</span><span class="dl">월</span><span class="dl">화</span><span class="dl">수</span><span class="dl">목</span><span class="dl">금</span><span class="dl sat">토</span>
+            <span class="d e">0</span><span class="d">1</span><span class="d">2</span><span class="d hol">3</span><span class="d">4</span><span class="d">5</span><span class="d sat hol">6</span>
+            <span class="d sun">7</span><span class="d">8</span><span class="d">9</span><span class="d club">10</span><span class="d">11</span><span class="d">12</span><span class="d sat">13</span>
+            <span class="d sun">14</span><span class="d">15</span><span class="d">16</span><span class="d club">17</span><span class="d">18</span><span class="d">19</span><span class="d sat">20</span>
+            <span class="d sun">21</span><span class="d">22</span><span class="d">23</span><span class="d">24</span><span class="d">25</span><span class="d">26</span><span class="d sat">27</span>
+            <span class="d sun">28</span><span class="d">29</span><span class="d">30</span><span class="d e">0</span><span class="d e">0</span><span class="d e">0</span><span class="d e">0</span>
+          </div>
+        </div>
+
+        <!-- 7월 -->
+        <div class="cal-card fade-in">
+          <div class="cal-month">7월</div>
+          <div class="cal-grid">
+            <span class="dl sun">일</span><span class="dl">월</span><span class="dl">화</span><span class="dl">수</span><span class="dl">목</span><span class="dl">금</span><span class="dl sat">토</span>
+            <span class="d e">0</span><span class="d e">0</span><span class="d e">0</span><span class="d">1</span><span class="d">2</span><span class="d">3</span><span class="d sat">4</span>
+            <span class="d sun">5</span><span class="d">6</span><span class="d">7</span><span class="d club">8</span><span class="d">9</span><span class="d">10</span><span class="d sat">11</span>
+            <span class="d sun">12</span><span class="d">13</span><span class="d">14</span><span class="d club">15</span><span class="d">16</span><span class="d">17</span><span class="d sat">18</span>
+            <span class="d sun">19</span><span class="d">20</span><span class="d">21</span><span class="d">22</span><span class="d">23</span><span class="d">24</span><span class="d sat">25</span>
+            <span class="d sun">26</span><span class="d">27</span><span class="d">28</span><span class="d">29</span><span class="d">30</span><span class="d">31</span><span class="d e">0</span>
+          </div>
+        </div>
+
+        <!-- 8월 -->
+        <div class="cal-card fade-in">
+          <div class="cal-month">8월</div>
+          <div class="cal-grid">
+            <span class="dl sun">일</span><span class="dl">월</span><span class="dl">화</span><span class="dl">수</span><span class="dl">목</span><span class="dl">금</span><span class="dl sat">토</span>
+            <span class="d e">0</span><span class="d e">0</span><span class="d e">0</span><span class="d e">0</span><span class="d e">0</span><span class="d e">0</span><span class="d sat">1</span>
+            <span class="d sun">2</span><span class="d">3</span><span class="d">4</span><span class="d">5</span><span class="d">6</span><span class="d">7</span><span class="d sat">8</span>
+            <span class="d sun">9</span><span class="d">10</span><span class="d">11</span><span class="d">12</span><span class="d">13</span><span class="d">14</span><span class="d sat hol">15</span>
+            <span class="d sun">16</span><span class="d hol">17</span><span class="d">18</span><span class="d club">19</span><span class="d">20</span><span class="d">21</span><span class="d sat">22</span>
+            <span class="d sun">23</span><span class="d">24</span><span class="d">25</span><span class="d club">26</span><span class="d">27</span><span class="d sch">28</span><span class="d sat">29</span>
+            <span class="d sun">30</span><span class="d">31</span><span class="d e">0</span><span class="d e">0</span><span class="d e">0</span><span class="d e">0</span><span class="d e">0</span>
+          </div>
+        </div>
+
+        <!-- 9월 -->
+        <div class="cal-card fade-in">
+          <div class="cal-month">9월</div>
+          <div class="cal-grid">
+            <span class="dl sun">일</span><span class="dl">월</span><span class="dl">화</span><span class="dl">수</span><span class="dl">목</span><span class="dl">금</span><span class="dl sat">토</span>
+            <span class="d e">0</span><span class="d e">0</span><span class="d">1</span><span class="d">2</span><span class="d">3</span><span class="d">4</span><span class="d sat">5</span>
+            <span class="d sun">6</span><span class="d">7</span><span class="d">8</span><span class="d">9</span><span class="d">10</span><span class="d">11</span><span class="d sat">12</span>
+            <span class="d sun">13</span><span class="d">14</span><span class="d">15</span><span class="d">16</span><span class="d">17</span><span class="d">18</span><span class="d sat">19</span>
+            <span class="d sun">20</span><span class="d">21</span><span class="d">22</span><span class="d">23</span><span class="d hol">24</span><span class="d hol">25</span><span class="d sat hol">26</span>
+            <span class="d sun">27</span><span class="d hol">28</span><span class="d">29</span><span class="d">30</span><span class="d e">0</span><span class="d e">0</span><span class="d e">0</span>
+          </div>
+        </div>
+
+        <!-- 10월 -->
+        <div class="cal-card fade-in">
+          <div class="cal-month">10월</div>
+          <div class="cal-grid">
+            <span class="dl sun">일</span><span class="dl">월</span><span class="dl">화</span><span class="dl">수</span><span class="dl">목</span><span class="dl">금</span><span class="dl sat">토</span>
+            <span class="d e">0</span><span class="d e">0</span><span class="d e">0</span><span class="d e">0</span><span class="d">1</span><span class="d">2</span><span class="d sat hol">3</span>
+            <span class="d sun">4</span><span class="d hol">5</span><span class="d">6</span><span class="d">7</span><span class="d">8</span><span class="d hol">9</span><span class="d sat">10</span>
+            <span class="d sun">11</span><span class="d">12</span><span class="d">13</span><span class="d club">14</span><span class="d">15</span><span class="d">16</span><span class="d sat sch">17</span>
+            <span class="d sun">18</span><span class="d">19</span><span class="d">20</span><span class="d">21</span><span class="d">22</span><span class="d">23</span><span class="d sat">24</span>
+            <span class="d sun">25</span><span class="d">26</span><span class="d">27</span><span class="d club">28</span><span class="d">29</span><span class="d">30</span><span class="d sat">31</span>
+          </div>
+        </div>
+
+        <!-- 11월 -->
+        <div class="cal-card fade-in">
+          <div class="cal-month">11월</div>
+          <div class="cal-grid">
+            <span class="dl sun">일</span><span class="dl">월</span><span class="dl">화</span><span class="dl">수</span><span class="dl">목</span><span class="dl">금</span><span class="dl sat">토</span>
+            <span class="d sun">1</span><span class="d">2</span><span class="d">3</span><span class="d">4</span><span class="d">5</span><span class="d">6</span><span class="d sat">7</span>
+            <span class="d sun">8</span><span class="d">9</span><span class="d">10</span><span class="d">11</span><span class="d">12</span><span class="d">13</span><span class="d sat">14</span>
+            <span class="d sun">15</span><span class="d">16</span><span class="d">17</span><span class="d">18</span><span class="d">19</span><span class="d">20</span><span class="d sat">21</span>
+            <span class="d sun">22</span><span class="d">23</span><span class="d">24</span><span class="d club">25</span><span class="d">26</span><span class="d">27</span><span class="d sat">28</span>
+            <span class="d sun">29</span><span class="d">30</span><span class="d e">0</span><span class="d e">0</span><span class="d e">0</span><span class="d e">0</span><span class="d e">0</span>
+          </div>
+        </div>
+
+        <!-- 12월 -->
+        <div class="cal-card fade-in">
+          <div class="cal-month">12월</div>
+          <div class="cal-grid">
+            <span class="dl sun">일</span><span class="dl">월</span><span class="dl">화</span><span class="dl">수</span><span class="dl">목</span><span class="dl">금</span><span class="dl sat">토</span>
+            <span class="d e">0</span><span class="d e">0</span><span class="d">1</span><span class="d">2</span><span class="d">3</span><span class="d">4</span><span class="d sat">5</span>
+            <span class="d sun">6</span><span class="d">7</span><span class="d">8</span><span class="d">9</span><span class="d">10</span><span class="d">11</span><span class="d sat">12</span>
+            <span class="d sun">13</span><span class="d">14</span><span class="d">15</span><span class="d club">16</span><span class="d">17</span><span class="d">18</span><span class="d sat">19</span>
+            <span class="d sun">20</span><span class="d">21</span><span class="d">22</span><span class="d sch">23</span><span class="d sch">24</span><span class="d sch hol">25</span><span class="d sat sch">26</span>
+            <span class="d sun sch">27</span><span class="d sch">28</span><span class="d">29</span><span class="d">30</span><span class="d">31</span><span class="d e">0</span><span class="d e">0</span>
+          </div>
+        </div>
+
+        <!-- 범례 -->
+        <div class="cal-card cal-legend-card fade-in">
+          <div class="cal-legend">
+            <span class="cal-legend-item"><span class="cal-legend-dot dot-sch"></span> 예술제 (8/28)</span>
+            <span class="cal-legend-item"><span class="cal-legend-dot dot-sch"></span> 교육나눔 페스티벌 (10/17)</span>
+            <span class="cal-legend-item"><span class="cal-legend-dot dot-sch"></span> 학술제 (12/23~28)</span>
+            <span class="cal-legend-item"><span class="cal-legend-dot dot-club"></span> 동아리 활동</span>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
