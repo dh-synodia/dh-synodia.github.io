@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>부원 설문 조사 | SYNODIA 동화고등학교 국제학부</title>
+  <meta name="description" content="SYNODIA 국제학부 2026년 고2 부원 성향 및 진로 파악 설문 조사.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+  <style>
+    @font-face {
+      font-family: 'GmarketSans';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff2') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary: #3a9e4a;
+      --primary-light: #7bc88a;
+      --accent: #d4b84b;
+      --bg-light: #f7f4e6;
+      --text-dark: #2d3436;
+      --text-light: #636e72;
+      --white: #ffffff;
+      --naver-green: #03c75a;
+      --naver-bg: #f0f2f5;
+      --card-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      scrollbar-gutter: stable;
+    }
+
+    body {
+      font-family: 'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-dark);
+      line-height: 1.7;
+      letter-spacing: -0.02em;
+      background: var(--naver-bg);
+    }
+
+    h1, h2, h3 {
+      font-family: 'GmarketSans', 'Pretendard Variable', sans-serif;
+      font-weight: 700;
+    }
+
+    /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(11, 163, 96, 0.92);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      padding: 0 2rem;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 70px;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 400;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after { width: 100%; }
+
+    .nav-links a.active { color: var(--white); }
+
+    /* Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      background: var(--primary);
+      color: var(--white);
+      padding: 0.6rem 1.2rem;
+      border-radius: 0 0 8px 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      z-index: 2000;
+      text-decoration: none;
+      transition: top 0.2s;
+    }
+
+    .skip-link:focus { top: 0; }
+
+    /* Survey Form Container */
+    .survey-wrap {
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 90px 1rem 3rem;
+    }
+
+    /* Header Card */
+    .survey-header {
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: var(--card-shadow);
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    .survey-header-bar {
+      height: 8px;
+      background: linear-gradient(90deg, var(--primary), var(--naver-green));
+    }
+
+    .survey-header-body {
+      padding: 2rem 2rem 1.5rem;
+    }
+
+    .survey-header-logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .survey-header-body h1 {
+      font-size: 1.6rem;
+      color: var(--text-dark);
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+
+    .survey-header-body .survey-desc {
+      font-size: 0.88rem;
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+
+    .survey-header-body .survey-required-note {
+      font-size: 0.8rem;
+      color: #e74c3c;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid #eee;
+    }
+
+    /* Part Divider Card */
+    .survey-part {
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: var(--card-shadow);
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+
+    .survey-part-bar {
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--naver-green));
+    }
+
+    .survey-part-body {
+      padding: 1.5rem 2rem;
+    }
+
+    .survey-part-body h2 {
+      font-size: 1.15rem;
+      color: var(--primary);
+      margin-bottom: 0.3rem;
+    }
+
+    .survey-part-body p {
+      font-size: 0.82rem;
+      color: var(--text-light);
+    }
+
+    /* Question Card */
+    .q-card {
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: var(--card-shadow);
+      padding: 1.8rem 2rem;
+      margin-bottom: 0.75rem;
+      border: 2px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .q-card:focus-within {
+      border-color: var(--primary);
+    }
+
+    .q-card.has-error {
+      border-color: #e74c3c;
+    }
+
+    .q-label {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 0.2rem;
+      line-height: 1.6;
+    }
+
+    .q-label .q-num {
+      color: var(--primary);
+      margin-right: 0.3rem;
+    }
+
+    .q-label .required {
+      color: #e74c3c;
+      margin-left: 0.2rem;
+    }
+
+    .q-hint {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      margin-bottom: 0.8rem;
+      line-height: 1.6;
+    }
+
+    .q-sub-desc {
+      font-size: 0.78rem;
+      color: #999;
+      margin-top: -0.3rem;
+      margin-bottom: 0.8rem;
+      font-style: italic;
+    }
+
+    /* Input styles */
+    .q-input {
+      width: 100%;
+      border: none;
+      border-bottom: 2px solid #e0e0e0;
+      padding: 0.6rem 0.2rem;
+      font-size: 0.9rem;
+      font-family: inherit;
+      color: var(--text-dark);
+      background: transparent;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .q-input:focus {
+      border-bottom-color: var(--primary);
+    }
+
+    .q-input::placeholder {
+      color: #bbb;
+    }
+
+    .q-textarea {
+      width: 100%;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 0.8rem 1rem;
+      font-size: 0.9rem;
+      font-family: inherit;
+      color: var(--text-dark);
+      resize: vertical;
+      min-height: 80px;
+      transition: border-color 0.2s;
+      outline: none;
+      line-height: 1.7;
+    }
+
+    .q-textarea:focus {
+      border-color: var(--primary);
+    }
+
+    .q-textarea::placeholder {
+      color: #bbb;
+    }
+
+    /* Radio & Checkbox */
+    .q-options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .q-option {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      padding: 0.5rem 0.8rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.15s;
+      line-height: 1.5;
+    }
+
+    .q-option:hover {
+      background: #f8f9fa;
+    }
+
+    .q-option input[type="radio"],
+    .q-option input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      min-width: 20px;
+      border: 2px solid #ccc;
+      background: var(--white);
+      cursor: pointer;
+      transition: all 0.15s;
+      margin-top: 1px;
+    }
+
+    .q-option input[type="radio"] {
+      border-radius: 50%;
+    }
+
+    .q-option input[type="checkbox"] {
+      border-radius: 4px;
+    }
+
+    .q-option input[type="radio"]:checked {
+      border-color: var(--primary);
+      background: var(--white);
+      box-shadow: inset 0 0 0 4px var(--primary);
+    }
+
+    .q-option input[type="checkbox"]:checked {
+      border-color: var(--primary);
+      background: var(--primary);
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2.5-2.5a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 14px;
+    }
+
+    .q-option-text {
+      font-size: 0.88rem;
+      color: var(--text-dark);
+    }
+
+    .q-option-desc {
+      display: block;
+      font-size: 0.78rem;
+      color: #999;
+      margin-top: 0.1rem;
+    }
+
+    /* Other input in option */
+    .q-option-other-wrap {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .q-option-other-wrap span {
+      font-size: 0.88rem;
+      color: var(--text-dark);
+      white-space: nowrap;
+    }
+
+    .q-option-other-wrap input {
+      flex: 1;
+      border: none;
+      border-bottom: 1px solid #ddd;
+      padding: 0.3rem 0.2rem;
+      font-size: 0.88rem;
+      font-family: inherit;
+      outline: none;
+      background: transparent;
+      color: var(--text-dark);
+    }
+
+    .q-option-other-wrap input:focus {
+      border-bottom-color: var(--primary);
+    }
+
+    /* Keyword inputs */
+    .q-keyword-row {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .q-keyword-row .q-input {
+      flex: 1;
+      min-width: 120px;
+    }
+
+    /* Rank select */
+    .q-rank-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .q-rank-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.5rem 0.8rem;
+      background: #f8f9fa;
+      border-radius: 8px;
+    }
+
+    .q-rank-num {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      min-width: 20px;
+    }
+
+    .q-rank-item select {
+      flex: 1;
+      border: 2px solid #e0e0e0;
+      border-radius: 6px;
+      padding: 0.5rem 0.8rem;
+      font-size: 0.88rem;
+      font-family: inherit;
+      color: var(--text-dark);
+      background: var(--white);
+      cursor: pointer;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .q-rank-item select:focus {
+      border-color: var(--primary);
+    }
+
+    /* Submit area */
+    .survey-submit-wrap {
+      text-align: center;
+      padding: 1.5rem 0 2rem;
+    }
+
+    .survey-submit-btn {
+      display: inline-block;
+      padding: 0.9rem 3.5rem;
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: 'GmarketSans', sans-serif;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 2px 8px rgba(58,158,74,0.3);
+    }
+
+    .survey-submit-btn:hover {
+      background: #2e8b3e;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(58,158,74,0.4);
+    }
+
+    .survey-submit-btn:active {
+      transform: scale(0.97);
+    }
+
+    .survey-submit-btn:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+      box-shadow: none;
+      transform: none;
+    }
+
+    /* Result modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .modal-overlay.show {
+      display: flex;
+    }
+
+    .modal-box {
+      background: var(--white);
+      border-radius: 16px;
+      max-width: 560px;
+      width: 100%;
+      max-height: 80vh;
+      overflow-y: auto;
+      padding: 2rem;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    }
+
+    .modal-box h2 {
+      font-size: 1.2rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .modal-result {
+      font-size: 0.85rem;
+      line-height: 1.8;
+      white-space: pre-wrap;
+      background: #f8f9fa;
+      border-radius: 8px;
+      padding: 1.2rem;
+      border: 1px solid #e0e0e0;
+      max-height: 50vh;
+      overflow-y: auto;
+      word-break: break-word;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 0.8rem;
+      margin-top: 1.2rem;
+      justify-content: flex-end;
+    }
+
+    .modal-btn {
+      padding: 0.6rem 1.5rem;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.15s;
+      border: none;
+    }
+
+    .modal-btn-copy {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .modal-btn-copy:hover { background: #2e8b3e; }
+
+    .modal-btn-close {
+      background: #e0e0e0;
+      color: var(--text-dark);
+    }
+
+    .modal-btn-close:hover { background: #ccc; }
+
+    .copy-toast {
+      display: none;
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--text-dark);
+      color: var(--white);
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      z-index: 3000;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    }
+
+    .copy-toast.show {
+      display: block;
+      animation: fadeInUp 0.3s ease;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+      to { opacity: 1; transform: translateX(-50%) translateY(0); }
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--text-dark);
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+    }
+
+    .footer a { color: var(--primary-light); text-decoration: none; }
+    .footer p + p { margin-top: 0.5rem; font-size: 0.8rem; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .navbar { padding: 0 0.6rem; }
+      .nav-inner { height: auto; flex-wrap: wrap; padding: 0.4rem 0; }
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0.15rem 0 0;
+        gap: 0;
+        width: 100%;
+      }
+      .nav-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.45rem 0.5rem;
+        font-size: 0.7rem;
+        white-space: nowrap;
+      }
+      .nav-links a::after { display: none; }
+
+      .survey-wrap {
+        padding: 80px 0.5rem 2rem;
+      }
+
+      .survey-header-body,
+      .survey-part-body {
+        padding: 1.5rem 1.2rem 1.2rem;
+      }
+
+      .q-card {
+        padding: 1.3rem 1.2rem;
+      }
+
+      .survey-header-body h1 {
+        font-size: 1.3rem;
+      }
+
+      .q-keyword-row {
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+
+      .modal-box {
+        padding: 1.5rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    @media print {
+      .navbar, .skip-link, .survey-submit-wrap, .modal-overlay { display: none !important; }
+      body { background: #fff; }
+      .survey-wrap { padding-top: 1rem; }
+      .q-card, .survey-header, .survey-part { box-shadow: none; border: 1px solid #ddd; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#survey-form" class="skip-link">본문 바로가기</a>
+
+  <!-- Navigation -->
+  <header>
+  <nav class="navbar" aria-label="메인 내비게이션">
+    <div class="nav-inner">
+      <ul class="nav-links">
+        <li><a href="index.html">홈</a></li>
+        <li><a href="about.html">소개</a></li>
+        <li><a href="activities.html">2025년 활동</a></li>
+        <li><a href="plan.html">2026년 계획</a></li>
+        <li><a href="poster.html">홍보 포스터</a></li>
+        <li><a href="recruitment.html">6기 부원 모집</a></li>
+        <li><a href="contact.html">문의</a></li>
+      </ul>
+    </div>
+  </nav>
+  </header>
+
+  <main>
+  <div class="survey-wrap" id="survey-form">
+    <form id="surveyForm" novalidate>
+
+      <!-- Header Card -->
+      <div class="survey-header">
+        <div class="survey-header-bar"></div>
+        <div class="survey-header-body">
+          <img src="images/logo.png" alt="SYNODIA 로고" class="survey-header-logo" width="48" height="48">
+          <h1>SYNODIA 2026<br>부원 성향 및 진로 파악 설문</h1>
+          <p class="survey-desc">올해 활동을 여러분에게 맞춤 설계하기 위한 조사입니다.<br>고1 때와 달라진 점이 있다면 현재 기준으로 답변해 주세요.<br>솔직하게 작성할수록 더 좋은 활동을 만들 수 있습니다.</p>
+          <p class="survey-required-note">* 표시는 필수 질문입니다.</p>
+        </div>
+      </div>
+
+      <!-- ==================== Part 1 ==================== -->
+      <div class="survey-part">
+        <div class="survey-part-bar"></div>
+        <div class="survey-part-body">
+          <h2>Part 1. 진로 및 관심 분야</h2>
+        </div>
+      </div>
+
+      <!-- Q1 -->
+      <div class="q-card">
+        <p class="q-label"><span class="q-num">1.</span>현재 가장 관심 있는 진로 분야를 모두 선택해 주세요.<span class="required">*</span></p>
+        <p class="q-hint">복수 선택 가능</p>
+        <div class="q-options">
+          <label class="q-option"><input type="checkbox" name="q1" value="국제관계/외교"><span class="q-option-text">국제관계/외교</span></label>
+          <label class="q-option"><input type="checkbox" name="q1" value="언론/미디어"><span class="q-option-text">언론/미디어</span></label>
+          <label class="q-option"><input type="checkbox" name="q1" value="경제/경영"><span class="q-option-text">경제/경영</span></label>
+          <label class="q-option"><input type="checkbox" name="q1" value="법학"><span class="q-option-text">법학</span></label>
+          <label class="q-option"><input type="checkbox" name="q1" value="교육"><span class="q-option-text">교육</span></label>
+          <label class="q-option"><input type="checkbox" name="q1" value="공학/IT"><span class="q-option-text">공학/IT</span></label>
+          <label class="q-option"><input type="checkbox" name="q1" value="의료/보건"><span class="q-option-text">의료/보건</span></label>
+          <label class="q-option"><input type="checkbox" name="q1" value="사회학"><span class="q-option-text">사회학</span></label>
+          <label class="q-option"><input type="checkbox" name="q1" value="환경/지속가능성"><span class="q-option-text">환경/지속가능성</span></label>
+          <label class="q-option"><input type="checkbox" name="q1" value="문화/예술"><span class="q-option-text">문화/예술</span></label>
+          <label class="q-option">
+            <input type="checkbox" name="q1" value="기타">
+            <div class="q-option-other-wrap"><span>기타:</span><input type="text" name="q1_other" placeholder="직접 입력"></div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="q-card">
+        <p class="q-label"><span class="q-num">2.</span>고1 때와 비교하여 희망 진로가 달라졌나요?<span class="required">*</span></p>
+        <div class="q-options">
+          <label class="q-option"><input type="radio" name="q2" value="크게 바뀌었다"><span class="q-option-text">크게 바뀌었다</span></label>
+          <label class="q-option"><input type="radio" name="q2" value="방향은 비슷하지만 구체화되었다"><span class="q-option-text">방향은 비슷하지만 구체화되었다</span></label>
+          <label class="q-option"><input type="radio" name="q2" value="거의 그대로다"><span class="q-option-text">거의 그대로다</span></label>
+          <label class="q-option"><input type="radio" name="q2" value="아직 정하지 못했다"><span class="q-option-text">아직 정하지 못했다</span></label>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="q-card">
+        <p class="q-label"><span class="q-num">3.</span>달라졌거나 구체화되었다면, 어떤 계기가 있었나요?</p>
+        <p class="q-hint">수업, 독서, 개인 경험 등 자유롭게 적어 주세요.</p>
+        <textarea class="q-textarea" name="q3" rows="3" placeholder="예: 작년에 읽은 국제법 관련 도서가 계기가 되었습니다."></textarea>
+      </div>
+
+      <!-- Q4 -->
+      <div class="q-card">
+        <p class="q-label"><span class="q-num">4.</span>올해 관심 있는 국제 이슈 키워드를 3개 적어 주세요.<span class="required">*</span></p>
+        <p class="q-hint">예: AI 규제, 기후 난민, 미중 반도체 갈등, 우크라이나 전쟁, 글로벌 식량 위기, K-콘텐츠 수출 등</p>
+        <div class="q-keyword-row">
+          <input type="text" class="q-input" name="q4_1" placeholder="키워드 1">
+          <input type="text" class="q-input" name="q4_2" placeholder="키워드 2">
+          <input type="text" class="q-input" name="q4_3" placeholder="키워드 3">
+        </div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="q-card">
+        <p class="q-label"><span class="q-num">5.</span>특별히 관심 있는 국가 또는 지역이 있나요?</p>
+        <p class="q-hint">예: 미국, 유럽, 동남아시아, 중동 등</p>
+        <input type="text" class="q-input" name="q5" placeholder="자유롭게 적어 주세요.">
+      </div>
+
+      <!-- ==================== Part 2 ==================== -->
+      <div class="survey-part">
+        <div class="survey-part-bar"></div>
+        <div class="survey-part-body">
+          <h2>Part 2. 본인의 성향과 역량</h2>
+        </div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="q-card">
+        <p class="q-label"><span class="q-num">6.</span>본인의 성격/활동 성향에 가장 가까운 것을 골라 주세요.<span class="required">*</span></p>
+        <p class="q-hint">복수 선택 가능</p>
+        <div class="q-options">
+          <label class="q-option"><input type="checkbox" name="q6" value="적극적으로 의견을 말하는 편"><span class="q-option-text">적극적으로 의견을 말하는 편</span></label>
+          <label class="q-option"><input type="checkbox" name="q6" value="경청하고 정리하는 편"><span class="q-option-text">경청하고 정리하는 편</span></label>
+          <label class="q-option"><input type="checkbox" name="q6" value="깊이 조사·분석하는 것을 좋아함"><span class="q-option-text">깊이 조사·분석하는 것을 좋아함</span></label>
+          <label class="q-option"><input type="checkbox" name="q6" value="글쓰기를 좋아함"><span class="q-option-text">글쓰기를 좋아함</span></label>
+          <label class="q-option"><input type="checkbox" name="q6" value="발표·프레젠테이션에 자신 있음"><span class="q-option-text">발표·프레젠테이션에 자신 있음</span></label>
+          <label class="q-option"><input type="checkbox" name="q6" value="시각 자료(디자인·영상) 제작에 관심 있음"><span class="q-option-text">시각 자료(디자인·영상) 제작에 관심 있음</span></label>
+          <label class="q-option"><input type="checkbox" name="q6" value="팀을 이끌기보다 맡은 역할에 집중하는 편"><span class="q-option-text">팀을 이끌기보다 맡은 역할에 집중하는 편</span></label>
+        </div>
+      </div>
+
+      <!-- Q7 -->
+      <div class="q-card">
+        <p class="q-label"><span class="q-num">7.</span>본인의 영어 읽기 수준은 어느 정도라고 생각하나요?<span class="required">*</span></p>
+        <div class="q-options">
+          <label class="q-option"><input type="radio" name="q7" value="상"><span class="q-option-text">상 — 영자 신문을 무리 없이 읽을 수 있다</span></label>
+          <label class="q-option"><input type="radio" name="q7" value="중상"><span class="q-option-text">중상 — 사전 도움이 가끔 필요하다</span></label>
+          <label class="q-option"><input type="radio" name="q7" value="중"><span class="q-option-text">중 — 사전이 필요하지만 도전할 수 있다</span></label>
+          <label class="q-option"><input type="radio" name="q7" value="초급"><span class="q-option-text">초급 — 기초부터 같이 하고 싶다</span></label>
+        </div>
+      </div>
+
+      <!-- Q8 -->
+      <div class="q-card">
+        <p class="q-label"><span class="q-num">8.</span>평소 뉴스를 접하는 경로는?<span class="required">*</span></p>
+        <p class="q-hint">복수 선택 가능</p>
+        <div class="q-options">
+          <label class="q-option"><input type="checkbox" name="q8" value="포털 사이트"><span class="q-option-text">포털 사이트</span></label>
+          <label class="q-option"><input type="checkbox" name="q8" value="SNS(인스타/유튜브 등)"><span class="q-option-text">SNS (인스타/유튜브 등)</span></label>
+          <label class="q-option"><input type="checkbox" name="q8" value="TV 뉴스"><span class="q-option-text">TV 뉴스</span></label>
+          <label class="q-option"><input type="checkbox" name="q8" value="해외 영어 매체"><span class="q-option-text">해외 영어 매체</span></label>
+          <label class="q-option"><input type="checkbox" name="q8" value="신문/잡지"><span class="q-option-text">신문/잡지</span></label>
+          <label class="q-option"><input type="checkbox" name="q8" value="거의 안 봄"><span class="q-option-text">거의 안 봄</span></label>
+        </div>
+      </div>
+
+      <!-- Q9 -->
+      <div class="q-card">
+        <p class="q-label"><span class="q-num">9.</span>영어 원문을 읽을 때 이해가 안 되는 부분은 어디서 도움을 받나요?<span class="required">*</span></p>
+        <p class="q-hint">복수 선택 가능</p>
+        <div class="q-options">
+          <label class="q-option"><input type="checkbox" name="q9" value="번역기(파파고·구글 번역 등)"><span class="q-option-text">번역기 (파파고·구글 번역 등)</span></label>
+          <label class="q-option"><input type="checkbox" name="q9" value="AI 챗봇(ChatGPT 등)"><span class="q-option-text">AI 챗봇 (ChatGPT 등)</span></label>
+          <label class="q-option"><input type="checkbox" name="q9" value="영어사전(네이버 사전 등)"><span class="q-option-text">영어사전 (네이버 사전 등)</span></label>
+          <label class="q-option"><input type="checkbox" name="q9" value="선생님·친구에게 질문"><span class="q-option-text">선생님·친구에게 질문</span></label>
+          <label class="q-option"><input type="checkbox" name="q9" value="유튜브·해설 영상"><span class="q-option-text">유튜브·해설 영상</span></label>
+          <label class="q-option"><input type="checkbox" name="q9" value="그냥 넘기는 편"><span class="q-option-text">그냥 넘기는 편</span></label>
+          <label class="q-option">
+            <input type="checkbox" name="q9" value="기타">
+            <div class="q-option-other-wrap"><span>기타:</span><input type="text" name="q9_other" placeholder="직접 입력"></div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Q10 -->
+      <div class="q-card">
+        <p class="q-label"><span class="q-num">10.</span>본인이 자신 있는 역량을 모두 골라 주세요.<span class="required">*</span></p>
+        <p class="q-hint">복수 선택 가능</p>
+        <div class="q-options">
+          <label class="q-option">
+            <input type="checkbox" name="q10" value="비판적 사고·분석">
+            <span class="q-option-text">비판적 사고·분석<span class="q-option-desc">주장의 근거를 따져보고, 다른 관점에서 반론을 제기할 수 있다</span></span>
+          </label>
+          <label class="q-option">
+            <input type="checkbox" name="q10" value="글쓰기·보고서 작성">
+            <span class="q-option-text">글쓰기·보고서 작성<span class="q-option-desc">조사한 내용을 논리적인 글로 정리하는 것에 자신 있다</span></span>
+          </label>
+          <label class="q-option">
+            <input type="checkbox" name="q10" value="발표·토론">
+            <span class="q-option-text">발표·토론<span class="q-option-desc">사람들 앞에서 자기 의견을 말하거나 상대 의견에 반박하는 것에 자신 있다</span></span>
+          </label>
+          <label class="q-option">
+            <input type="checkbox" name="q10" value="영어 독해">
+            <span class="q-option-text">영어 독해<span class="q-option-desc">영어 기사나 원서를 읽고 핵심 내용을 파악할 수 있다</span></span>
+          </label>
+          <label class="q-option">
+            <input type="checkbox" name="q10" value="자료 조사·검색">
+            <span class="q-option-text">자료 조사·검색<span class="q-option-desc">필요한 정보를 빠르고 정확하게 찾아내는 것에 자신 있다</span></span>
+          </label>
+          <label class="q-option">
+            <input type="checkbox" name="q10" value="협업·소통">
+            <span class="q-option-text">협업·소통<span class="q-option-desc">팀원들과 의견을 조율하고 역할을 나누어 함께 진행하는 것에 자신 있다</span></span>
+          </label>
+          <label class="q-option">
+            <input type="checkbox" name="q10" value="시각 자료 제작">
+            <span class="q-option-text">시각 자료 제작<span class="q-option-desc">PPT, 포스터, 인포그래픽, 영상 등을 만드는 것에 자신 있다</span></span>
+          </label>
+          <label class="q-option">
+            <input type="checkbox" name="q10" value="기타">
+            <div class="q-option-other-wrap"><span>기타:</span><input type="text" name="q10_other" placeholder="직접 입력"></div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Q11 -->
+      <div class="q-card">
+        <p class="q-label"><span class="q-num">11.</span>올해 동아리를 통해 키우고 싶은 역량은?<span class="required">*</span></p>
+        <p class="q-hint">복수 선택 가능</p>
+        <div class="q-options">
+          <label class="q-option">
+            <input type="checkbox" name="q11" value="비판적 사고·분석">
+            <span class="q-option-text">비판적 사고·분석<span class="q-option-desc">주장의 근거를 따져보고, 다른 관점에서 반론을 제기할 수 있다</span></span>
+          </label>
+          <label class="q-option">
+            <input type="checkbox" name="q11" value="글쓰기·보고서 작성">
+            <span class="q-option-text">글쓰기·보고서 작성<span class="q-option-desc">조사한 내용을 논리적인 글로 정리하는 것에 자신 있다</span></span>
+          </label>
+          <label class="q-option">
+            <input type="checkbox" name="q11" value="발표·토론">
+            <span class="q-option-text">발표·토론<span class="q-option-desc">사람들 앞에서 자기 의견을 말하거나 상대 의견에 반박하는 것에 자신 있다</span></span>
+          </label>
+          <label class="q-option">
+            <input type="checkbox" name="q11" value="영어 독해">
+            <span class="q-option-text">영어 독해<span class="q-option-desc">영어 기사나 원서를 읽고 핵심 내용을 파악할 수 있다</span></span>
+          </label>
+          <label class="q-option">
+            <input type="checkbox" name="q11" value="자료 조사·검색">
+            <span class="q-option-text">자료 조사·검색<span class="q-option-desc">필요한 정보를 빠르고 정확하게 찾아내는 것에 자신 있다</span></span>
+          </label>
+          <label class="q-option">
+            <input type="checkbox" name="q11" value="협업·소통">
+            <span class="q-option-text">협업·소통<span class="q-option-desc">팀원들과 의견을 조율하고 역할을 나누어 함께 진행하는 것에 자신 있다</span></span>
+          </label>
+          <label class="q-option">
+            <input type="checkbox" name="q11" value="시각 자료 제작">
+            <span class="q-option-text">시각 자료 제작<span class="q-option-desc">PPT, 포스터, 인포그래픽, 영상 등을 만드는 것에 자신 있다</span></span>
+          </label>
+          <label class="q-option">
+            <input type="checkbox" name="q11" value="기타">
+            <div class="q-option-other-wrap"><span>기타:</span><input type="text" name="q11_other" placeholder="직접 입력"></div>
+          </label>
+        </div>
+      </div>
+
+      <!-- ==================== Part 3 ==================== -->
+      <div class="survey-part">
+        <div class="survey-part-bar"></div>
+        <div class="survey-part-body">
+          <h2>Part 3. 글로벌 미디어 비교 분석 &amp; 독서 토론</h2>
+          <p>3월 ~ 5월</p>
+        </div>
+      </div>
+
+      <!-- Q12 -->
+      <div class="q-card">
+        <p class="q-label"><span class="q-num">12.</span>미디어 비교 분석에서 가장 다루고 싶은 뉴스 주제 분야를 순서대로 3개 골라 주세요.<span class="required">*</span></p>
+        <p class="q-hint">1순위가 가장 다루고 싶은 분야입니다.</p>
+        <div class="q-rank-list">
+          <div class="q-rank-item">
+            <span class="q-rank-num">1순위</span>
+            <select name="q12_1">
+              <option value="">선택하세요</option>
+              <option value="정치/외교">정치/외교</option>
+              <option value="경제/무역">경제/무역</option>
+              <option value="사회/인권">사회/인권</option>
+              <option value="환경/기후">환경/기후</option>
+              <option value="과학/기술">과학/기술</option>
+              <option value="문화/스포츠">문화/스포츠</option>
+              <option value="분쟁/안보">분쟁/안보</option>
+            </select>
+          </div>
+          <div class="q-rank-item">
+            <span class="q-rank-num">2순위</span>
+            <select name="q12_2">
+              <option value="">선택하세요</option>
+              <option value="정치/외교">정치/외교</option>
+              <option value="경제/무역">경제/무역</option>
+              <option value="사회/인권">사회/인권</option>
+              <option value="환경/기후">환경/기후</option>
+              <option value="과학/기술">과학/기술</option>
+              <option value="문화/스포츠">문화/스포츠</option>
+              <option value="분쟁/안보">분쟁/안보</option>
+            </select>
+          </div>
+          <div class="q-rank-item">
+            <span class="q-rank-num">3순위</span>
+            <select name="q12_3">
+              <option value="">선택하세요</option>
+              <option value="정치/외교">정치/외교</option>
+              <option value="경제/무역">경제/무역</option>
+              <option value="사회/인권">사회/인권</option>
+              <option value="환경/기후">환경/기후</option>
+              <option value="과학/기술">과학/기술</option>
+              <option value="문화/스포츠">문화/스포츠</option>
+              <option value="분쟁/안보">분쟁/안보</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q13 -->
+      <div class="q-card">
+        <p class="q-label"><span class="q-num">13.</span>독서 토론에서 읽고 싶은 도서 유형은?<span class="required">*</span></p>
+        <p class="q-hint">복수 선택 가능</p>
+        <div class="q-options">
+          <label class="q-option"><input type="checkbox" name="q13" value="영어 원서"><span class="q-option-text">영어 원서</span></label>
+          <label class="q-option"><input type="checkbox" name="q13" value="번역 시사 해설서"><span class="q-option-text">번역 시사 해설서</span></label>
+          <label class="q-option"><input type="checkbox" name="q13" value="학술적 도서"><span class="q-option-text">학술적 도서</span></label>
+          <label class="q-option"><input type="checkbox" name="q13" value="에세이·르포"><span class="q-option-text">에세이·르포</span></label>
+          <label class="q-option">
+            <input type="checkbox" name="q13" value="기타">
+            <div class="q-option-other-wrap"><span>기타:</span><input type="text" name="q13_other" placeholder="직접 입력"></div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Q14 -->
+      <div class="q-card">
+        <p class="q-label"><span class="q-num">14.</span>추천 도서나 다루고 싶은 구체적 주제가 있다면 적어 주세요.</p>
+        <p class="q-hint">예: '총, 균, 쇠' — 문명 발전의 불평등 원인이 궁금합니다 / 영어 원서로 된 기후변화 관련 도서에 도전해 보고 싶습니다 / 특정 책은 없지만 국제 무역 분쟁에 관한 책을 읽어보고 싶습니다</p>
+        <textarea class="q-textarea" name="q14" rows="3" placeholder="자유롭게 적어 주세요."></textarea>
+      </div>
+
+      <!-- ==================== Part 4 ==================== -->
+      <div class="survey-part">
+        <div class="survey-part-bar"></div>
+        <div class="survey-part-body">
+          <h2>Part 4. 글로벌 리딩 &amp; 개인 탐구 프로젝트</h2>
+          <p>6월 ~ 7월</p>
+        </div>
+      </div>
+
+      <!-- Q15 -->
+      <div class="q-card">
+        <p class="q-label"><span class="q-num">15.</span>영어 기사 읽기 시 희망하는 난이도는?<span class="required">*</span></p>
+        <div class="q-options">
+          <label class="q-option"><input type="radio" name="q15" value="도전적인 심화 기사"><span class="q-option-text">도전적인 심화 기사</span></label>
+          <label class="q-option"><input type="radio" name="q15" value="적당한 수준"><span class="q-option-text">적당한 수준</span></label>
+          <label class="q-option"><input type="radio" name="q15" value="쉬운 기사부터 시작"><span class="q-option-text">쉬운 기사부터 시작</span></label>
+          <label class="q-option"><input type="radio" name="q15" value="주제가 더 중요 (난이도 무관)"><span class="q-option-text">주제가 더 중요 (난이도 무관)</span></label>
+        </div>
+      </div>
+
+      <!-- Q16 -->
+      <div class="q-card">
+        <p class="q-label"><span class="q-num">16.</span>개인 탐구 프로젝트에서 다루고 싶은 주제 또는 질문이 있나요?<span class="required">*</span></p>
+        <textarea class="q-textarea" name="q16" rows="3" placeholder="아직 없다면 '없음'이라 적어 주세요."></textarea>
+      </div>
+
+      <!-- Q17 -->
+      <div class="q-card">
+        <p class="q-label"><span class="q-num">17.</span>탐구 결과물로 만들어 보고 싶은 형태는?<span class="required">*</span></p>
+        <p class="q-hint">복수 선택 가능</p>
+        <div class="q-options">
+          <label class="q-option"><input type="checkbox" name="q17" value="보고서/소논문"><span class="q-option-text">보고서/소논문</span></label>
+          <label class="q-option"><input type="checkbox" name="q17" value="인포그래픽"><span class="q-option-text">인포그래픽</span></label>
+          <label class="q-option"><input type="checkbox" name="q17" value="프레젠테이션"><span class="q-option-text">프레젠테이션</span></label>
+          <label class="q-option"><input type="checkbox" name="q17" value="영상 제작"><span class="q-option-text">영상 제작</span></label>
+          <label class="q-option"><input type="checkbox" name="q17" value="팟캐스트/오디오"><span class="q-option-text">팟캐스트/오디오</span></label>
+          <label class="q-option">
+            <input type="checkbox" name="q17" value="기타">
+            <div class="q-option-other-wrap"><span>기타:</span><input type="text" name="q17_other" placeholder="직접 입력"></div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Q18 -->
+      <div class="q-card">
+        <p class="q-label"><span class="q-num">18.</span>개인 탐구를 진행할 때 가장 어려울 것 같은 부분은?<span class="required">*</span></p>
+        <p class="q-hint">복수 선택 가능</p>
+        <div class="q-options">
+          <label class="q-option"><input type="checkbox" name="q18" value="주제 선정"><span class="q-option-text">주제 선정</span></label>
+          <label class="q-option"><input type="checkbox" name="q18" value="자료 검색·분석"><span class="q-option-text">자료 검색·분석</span></label>
+          <label class="q-option"><input type="checkbox" name="q18" value="영어 자료 해석"><span class="q-option-text">영어 자료 해석</span></label>
+          <label class="q-option"><input type="checkbox" name="q18" value="보고서 작성"><span class="q-option-text">보고서 작성</span></label>
+          <label class="q-option"><input type="checkbox" name="q18" value="발표 준비"><span class="q-option-text">발표 준비</span></label>
+          <label class="q-option"><input type="checkbox" name="q18" value="시간 관리"><span class="q-option-text">시간 관리</span></label>
+        </div>
+      </div>
+
+      <!-- ==================== Part 5 ==================== -->
+      <div class="survey-part">
+        <div class="survey-part-bar"></div>
+        <div class="survey-part-body">
+          <h2>Part 5. 다국적 보도 시뮬레이션</h2>
+          <p>9월 ~ 10월</p>
+        </div>
+      </div>
+
+      <!-- Q19 -->
+      <div class="q-card">
+        <p class="q-label"><span class="q-num">19.</span>시뮬레이션에서 맡아보고 싶은 역할을 순서대로 골라 주세요.<span class="required">*</span></p>
+        <p class="q-hint">1순위가 가장 하고 싶은 역할입니다.</p>
+        <div class="q-rank-list">
+          <div class="q-rank-item">
+            <span class="q-rank-num">1순위</span>
+            <select name="q19_1">
+              <option value="">선택하세요</option>
+              <option value="기자 (기사 작성)">기자 (기사 작성)</option>
+              <option value="앵커 (뉴스 브리핑)">앵커 (뉴스 브리핑)</option>
+              <option value="편집자 (검수·편집)">편집자 (검수·편집)</option>
+              <option value="촬영/그래픽 (시각 자료)">촬영/그래픽 (시각 자료)</option>
+              <option value="리서처 (배경 조사)">리서처 (배경 조사)</option>
+            </select>
+          </div>
+          <div class="q-rank-item">
+            <span class="q-rank-num">2순위</span>
+            <select name="q19_2">
+              <option value="">선택하세요</option>
+              <option value="기자 (기사 작성)">기자 (기사 작성)</option>
+              <option value="앵커 (뉴스 브리핑)">앵커 (뉴스 브리핑)</option>
+              <option value="편집자 (검수·편집)">편집자 (검수·편집)</option>
+              <option value="촬영/그래픽 (시각 자료)">촬영/그래픽 (시각 자료)</option>
+              <option value="리서처 (배경 조사)">리서처 (배경 조사)</option>
+            </select>
+          </div>
+          <div class="q-rank-item">
+            <span class="q-rank-num">3순위</span>
+            <select name="q19_3">
+              <option value="">선택하세요</option>
+              <option value="기자 (기사 작성)">기자 (기사 작성)</option>
+              <option value="앵커 (뉴스 브리핑)">앵커 (뉴스 브리핑)</option>
+              <option value="편집자 (검수·편집)">편집자 (검수·편집)</option>
+              <option value="촬영/그래픽 (시각 자료)">촬영/그래픽 (시각 자료)</option>
+              <option value="리서처 (배경 조사)">리서처 (배경 조사)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q20 -->
+      <div class="q-card">
+        <p class="q-label"><span class="q-num">20.</span>대변하고 싶은 국가 또는 매체가 있나요?</p>
+        <p class="q-hint">예: 미국 CNN, 카타르 알자지라, 일본 NHK, 영국 BBC, 중국 CGTN, 프랑스 르몽드 등. 평소 관심 있는 나라나 진로와 연결되는 지역의 매체를 고르면 됩니다.</p>
+        <input type="text" class="q-input" name="q20" placeholder="자유롭게 적어 주세요.">
+      </div>
+
+      <!-- Q21 -->
+      <div class="q-card">
+        <p class="q-label"><span class="q-num">21.</span>시뮬레이션 의제로 다뤘으면 하는 국제 이슈가 있다면 적어 주세요.</p>
+        <p class="q-hint">나라마다 입장이 갈리는 이슈일수록 좋습니다. 예: AI 군사 무기 규제, 기후변화 대응 책임 분담, 글로벌 난민 수용 정책 등</p>
+        <textarea class="q-textarea" name="q21" rows="2" placeholder="자유롭게 적어 주세요."></textarea>
+      </div>
+
+      <!-- ==================== Part 6 ==================== -->
+      <div class="survey-part">
+        <div class="survey-part-bar"></div>
+        <div class="survey-part-body">
+          <h2>Part 6. 심화 탐구 학술제</h2>
+          <p>11월 ~ 12월</p>
+        </div>
+      </div>
+
+      <!-- Q22 -->
+      <div class="q-card">
+        <p class="q-label"><span class="q-num">22.</span>발표 경험이 있나요?<span class="required">*</span></p>
+        <p class="q-hint">수업·대회·동아리 등 모두 포함</p>
+        <div class="q-options">
+          <label class="q-option"><input type="radio" name="q22" value="여러 번 있다"><span class="q-option-text">여러 번 있다</span></label>
+          <label class="q-option"><input type="radio" name="q22" value="한두 번 있다"><span class="q-option-text">한두 번 있다</span></label>
+          <label class="q-option"><input type="radio" name="q22" value="거의 없다"><span class="q-option-text">거의 없다</span></label>
+        </div>
+      </div>
+
+      <!-- Q23 -->
+      <div class="q-card">
+        <p class="q-label"><span class="q-num">23.</span>학술제 팀 구성 시 선호하는 방식은?<span class="required">*</span></p>
+        <div class="q-options">
+          <label class="q-option"><input type="radio" name="q23" value="같은 진로 분야끼리"><span class="q-option-text">같은 진로 분야끼리</span></label>
+          <label class="q-option"><input type="radio" name="q23" value="다양한 분야 섞어서"><span class="q-option-text">다양한 분야 섞어서</span></label>
+          <label class="q-option"><input type="radio" name="q23" value="상관없음"><span class="q-option-text">상관없음</span></label>
+        </div>
+      </div>
+
+      <!-- Q24 -->
+      <div class="q-card">
+        <p class="q-label"><span class="q-num">24.</span>학술제에서 본인이 맡고 싶은 역할은?<span class="required">*</span></p>
+        <p class="q-hint">복수 선택 가능</p>
+        <div class="q-options">
+          <label class="q-option"><input type="checkbox" name="q24" value="연구 설계·분석"><span class="q-option-text">연구 설계·분석</span></label>
+          <label class="q-option"><input type="checkbox" name="q24" value="글쓰기·보고서"><span class="q-option-text">글쓰기·보고서</span></label>
+          <label class="q-option"><input type="checkbox" name="q24" value="발표"><span class="q-option-text">발표</span></label>
+          <label class="q-option"><input type="checkbox" name="q24" value="시각 자료 디자인"><span class="q-option-text">시각 자료 디자인</span></label>
+          <label class="q-option"><input type="checkbox" name="q24" value="질의응답 대응"><span class="q-option-text">질의응답 대응</span></label>
+        </div>
+      </div>
+
+      <!-- ==================== Part 7 ==================== -->
+      <div class="survey-part">
+        <div class="survey-part-bar"></div>
+        <div class="survey-part-body">
+          <h2>Part 7. 활동 운영 희망 사항</h2>
+        </div>
+      </div>
+
+      <!-- Q25 -->
+      <div class="q-card">
+        <p class="q-label"><span class="q-num">25.</span>선호하는 활동 방식은?<span class="required">*</span></p>
+        <div class="q-options">
+          <label class="q-option"><input type="radio" name="q25" value="토론 중심"><span class="q-option-text">토론 중심</span></label>
+          <label class="q-option"><input type="radio" name="q25" value="조사·발표 중심"><span class="q-option-text">조사·발표 중심</span></label>
+          <label class="q-option"><input type="radio" name="q25" value="프로젝트(결과물) 중심"><span class="q-option-text">프로젝트(결과물) 중심</span></label>
+          <label class="q-option"><input type="radio" name="q25" value="골고루"><span class="q-option-text">골고루</span></label>
+        </div>
+      </div>
+
+      <!-- Q26 -->
+      <div class="q-card">
+        <p class="q-label"><span class="q-num">26.</span>팀 활동과 개인 활동 비율 선호는?<span class="required">*</span></p>
+        <div class="q-options">
+          <label class="q-option"><input type="radio" name="q26" value="팀 위주 (7:3)"><span class="q-option-text">팀 위주 (7:3)</span></label>
+          <label class="q-option"><input type="radio" name="q26" value="반반 (5:5)"><span class="q-option-text">반반 (5:5)</span></label>
+          <label class="q-option"><input type="radio" name="q26" value="개인 위주 (3:7)"><span class="q-option-text">개인 위주 (3:7)</span></label>
+        </div>
+      </div>
+
+      <!-- Q27 -->
+      <div class="q-card">
+        <p class="q-label"><span class="q-num">27.</span>동아리 활동을 생활기록부(세특)에 연결하고 싶은 과목이 있나요?</p>
+        <p class="q-hint">예: 영어 — 영어 기사 분석 활동을 연결하고 싶습니다 / 사회·문화 — 국제 사회 불평등 관련 탐구를 연결하고 싶습니다 / 정치와 법, 통합과학 등</p>
+        <textarea class="q-textarea" name="q27" rows="2" placeholder="과목명과 연결하고 싶은 내용을 적어 주세요."></textarea>
+      </div>
+
+      <!-- Q28 -->
+      <div class="q-card">
+        <p class="q-label"><span class="q-num">28.</span>올해 동아리 활동에서 가장 기대하는 것과 걱정되는 것을 하나씩 적어 주세요.<span class="required">*</span></p>
+        <p class="q-hint">예: 기대 — 다국적 보도 시뮬레이션이 재미있을 것 같습니다 / 걱정 — 학업과 동아리 활동 병행이 걱정됩니다</p>
+        <p class="q-sub-desc" style="margin-top:0.8rem; margin-bottom:0.3rem; font-style:normal; color:var(--primary); font-weight:600;">기대하는 것</p>
+        <textarea class="q-textarea" name="q28_hope" rows="2" placeholder="가장 기대하는 것을 적어 주세요."></textarea>
+        <p class="q-sub-desc" style="margin-top:0.8rem; margin-bottom:0.3rem; font-style:normal; color:#e67e22; font-weight:600;">걱정되는 것</p>
+        <textarea class="q-textarea" name="q28_worry" rows="2" placeholder="걱정되는 것을 적어 주세요."></textarea>
+      </div>
+
+      <!-- Q29 -->
+      <div class="q-card">
+        <p class="q-label"><span class="q-num">29.</span>기타 건의 사항이나 하고 싶은 말이 있다면 자유롭게 적어 주세요.</p>
+        <p class="q-hint">예: 활동 자료를 미리 공유해 주시면 좋겠습니다 / 외부 강연이나 대학생 멘토링도 해보고 싶습니다</p>
+        <textarea class="q-textarea" name="q29" rows="3" placeholder="자유롭게 적어 주세요."></textarea>
+      </div>
+
+      <!-- Submit -->
+      <div class="survey-submit-wrap">
+        <button type="submit" class="survey-submit-btn">제출하기</button>
+      </div>
+
+    </form>
+  </div>
+  </main>
+
+  <!-- Result Modal -->
+  <div class="modal-overlay" id="resultModal">
+    <div class="modal-box">
+      <h2>응답이 정리되었습니다</h2>
+      <p style="font-size:0.82rem; color:var(--text-light); margin-bottom:1rem;">아래 내용을 복사하여 부장에게 전달해 주세요.</p>
+      <div class="modal-result" id="resultText"></div>
+      <div class="modal-actions">
+        <button class="modal-btn modal-btn-close" id="modalClose">닫기</button>
+        <button class="modal-btn modal-btn-copy" id="modalCopy">복사하기</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="copy-toast" id="copyToast">복사되었습니다!</div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 SYNODIA 국제학부. All Rights Reserved.</p>
+    <p>본 홈페이지에 게시된 발표 자료 및 콘텐츠의 저작권은 SYNODIA 국제학부에 있으며, 무단 복제·배포를 금합니다.</p>
+  </footer>
+
+  <script>
+    // Navbar scroll
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+      window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 50);
+      }, { passive: true });
+    }
+
+    // Collect form data
+    const form = document.getElementById('surveyForm');
+    const modal = document.getElementById('resultModal');
+    const resultText = document.getElementById('resultText');
+
+    const questions = {
+      q1: '1. 관심 진로 분야',
+      q2: '2. 진로 변화 여부',
+      q3: '3. 진로 변화 계기',
+      q4: '4. 국제 이슈 키워드',
+      q5: '5. 관심 국가/지역',
+      q6: '6. 성격/활동 성향',
+      q7: '7. 영어 읽기 수준',
+      q8: '8. 뉴스 접촉 경로',
+      q9: '9. 영어 원문 도움 경로',
+      q10: '10. 자신 있는 역량',
+      q11: '11. 키우고 싶은 역량',
+      q12: '12. 뉴스 주제 순위',
+      q13: '13. 독서 토론 도서 유형',
+      q14: '14. 추천 도서/주제',
+      q15: '15. 영어 기사 난이도',
+      q16: '16. 탐구 프로젝트 주제',
+      q17: '17. 탐구 결과물 형태',
+      q18: '18. 탐구 시 어려운 부분',
+      q19: '19. 시뮬레이션 역할 순위',
+      q20: '20. 희망 국가/매체',
+      q21: '21. 시뮬레이션 의제',
+      q22: '22. 발표 경험',
+      q23: '23. 학술제 팀 구성 선호',
+      q24: '24. 학술제 희망 역할',
+      q25: '25. 선호 활동 방식',
+      q26: '26. 팀/개인 비율 선호',
+      q27: '27. 세특 연계 과목',
+      q28: '28. 기대/걱정',
+      q29: '29. 기타 건의 사항'
+    };
+
+    // Required fields
+    const requiredChecks = ['q1','q6','q8','q9','q10','q11','q13','q17','q18','q24'];
+    const requiredRadios = ['q2','q7','q15','q22','q23','q25','q26'];
+    const requiredTexts = ['q4_1','q16','q28_hope','q28_worry'];
+    const requiredSelects = ['q12_1','q19_1'];
+
+    function getChecked(name) {
+      const vals = [];
+      form.querySelectorAll('input[name="' + name + '"]:checked').forEach(el => {
+        if (el.value === '기타') {
+          const otherInput = form.querySelector('input[name="' + name + '_other"]');
+          const otherVal = otherInput ? otherInput.value.trim() : '';
+          vals.push(otherVal ? '기타: ' + otherVal : '기타');
+        } else {
+          vals.push(el.value);
+        }
+      });
+      return vals.join(', ');
+    }
+
+    function getRadio(name) {
+      const el = form.querySelector('input[name="' + name + '"]:checked');
+      return el ? el.value : '';
+    }
+
+    function getVal(name) {
+      const el = form.querySelector('[name="' + name + '"]');
+      return el ? el.value.trim() : '';
+    }
+
+    function validate() {
+      let firstError = null;
+
+      // Clear errors
+      form.querySelectorAll('.q-card').forEach(c => c.classList.remove('has-error'));
+
+      function markError(name) {
+        const el = form.querySelector('[name="' + name + '"]');
+        if (el) {
+          const card = el.closest('.q-card');
+          if (card) {
+            card.classList.add('has-error');
+            if (!firstError) firstError = card;
+          }
+        }
+      }
+
+      requiredChecks.forEach(name => {
+        if (!getChecked(name)) markError(name);
+      });
+
+      requiredRadios.forEach(name => {
+        if (!getRadio(name)) markError(name);
+      });
+
+      requiredTexts.forEach(name => {
+        if (!getVal(name)) markError(name);
+      });
+
+      requiredSelects.forEach(name => {
+        if (!getVal(name)) markError(name);
+      });
+
+      if (firstError) {
+        firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return false;
+      }
+      return true;
+    }
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      if (!validate()) return;
+
+      const lines = [];
+      lines.push('=== SYNODIA 2026 부원 설문 응답 ===');
+      lines.push('제출 일시: ' + new Date().toLocaleString('ko-KR'));
+      lines.push('');
+
+      lines.push('--- Part 1. 진로 및 관심 분야 ---');
+      lines.push(questions.q1 + ': ' + getChecked('q1'));
+      lines.push(questions.q2 + ': ' + getRadio('q2'));
+      lines.push(questions.q3 + ': ' + (getVal('q3') || '(미작성)'));
+      const kw = [getVal('q4_1'), getVal('q4_2'), getVal('q4_3')].filter(Boolean).join(', ');
+      lines.push(questions.q4 + ': ' + (kw || '(미작성)'));
+      lines.push(questions.q5 + ': ' + (getVal('q5') || '(미작성)'));
+
+      lines.push('');
+      lines.push('--- Part 2. 본인의 성향과 역량 ---');
+      lines.push(questions.q6 + ': ' + getChecked('q6'));
+      lines.push(questions.q7 + ': ' + getRadio('q7'));
+      lines.push(questions.q8 + ': ' + getChecked('q8'));
+      lines.push(questions.q9 + ': ' + getChecked('q9'));
+      lines.push(questions.q10 + ': ' + getChecked('q10'));
+      lines.push(questions.q11 + ': ' + getChecked('q11'));
+
+      lines.push('');
+      lines.push('--- Part 3. 글로벌 미디어 비교 분석 & 독서 토론 ---');
+      const r12 = [getVal('q12_1'), getVal('q12_2'), getVal('q12_3')].filter(Boolean).join(' > ');
+      lines.push(questions.q12 + ': ' + (r12 || '(미작성)'));
+      lines.push(questions.q13 + ': ' + getChecked('q13'));
+      lines.push(questions.q14 + ': ' + (getVal('q14') || '(미작성)'));
+
+      lines.push('');
+      lines.push('--- Part 4. 글로벌 리딩 & 개인 탐구 프로젝트 ---');
+      lines.push(questions.q15 + ': ' + getRadio('q15'));
+      lines.push(questions.q16 + ': ' + (getVal('q16') || '(미작성)'));
+      lines.push(questions.q17 + ': ' + getChecked('q17'));
+      lines.push(questions.q18 + ': ' + getChecked('q18'));
+
+      lines.push('');
+      lines.push('--- Part 5. 다국적 보도 시뮬레이션 ---');
+      const r19 = [getVal('q19_1'), getVal('q19_2'), getVal('q19_3')].filter(Boolean).join(' > ');
+      lines.push(questions.q19 + ': ' + (r19 || '(미작성)'));
+      lines.push(questions.q20 + ': ' + (getVal('q20') || '(미작성)'));
+      lines.push(questions.q21 + ': ' + (getVal('q21') || '(미작성)'));
+
+      lines.push('');
+      lines.push('--- Part 6. 심화 탐구 학술제 ---');
+      lines.push(questions.q22 + ': ' + getRadio('q22'));
+      lines.push(questions.q23 + ': ' + getRadio('q23'));
+      lines.push(questions.q24 + ': ' + getChecked('q24'));
+
+      lines.push('');
+      lines.push('--- Part 7. 활동 운영 희망 사항 ---');
+      lines.push(questions.q25 + ': ' + getRadio('q25'));
+      lines.push(questions.q26 + ': ' + getRadio('q26'));
+      lines.push(questions.q27 + ': ' + (getVal('q27') || '(미작성)'));
+      lines.push(questions.q28 + ': 기대 — ' + (getVal('q28_hope') || '(미작성)') + ' / 걱정 — ' + (getVal('q28_worry') || '(미작성)'));
+      lines.push(questions.q29 + ': ' + (getVal('q29') || '(미작성)'));
+
+      resultText.textContent = lines.join('\n');
+      modal.classList.add('show');
+    });
+
+    // Modal close
+    document.getElementById('modalClose').addEventListener('click', () => {
+      modal.classList.remove('show');
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) modal.classList.remove('show');
+    });
+
+    // Copy
+    document.getElementById('modalCopy').addEventListener('click', () => {
+      const text = resultText.textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        const toast = document.getElementById('copyToast');
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2000);
+      });
+    });
+  </script>
+</body>
+</html>
