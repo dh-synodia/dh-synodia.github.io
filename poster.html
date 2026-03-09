@@ -685,7 +685,7 @@
       margin-bottom: 0.3rem;
     }
 
-    /* Poster Preview (blurred) */
+    /* Poster Preview */
     .poster-preview {
       position: relative;
       max-width: 480px;
@@ -694,49 +694,141 @@
       border-radius: 20px;
       overflow: hidden;
       box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    .poster-blur-img {
+    .poster-preview:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 70px rgba(0,0,0,0.25);
+    }
+
+    .poster-preview img {
       display: block;
       width: 100%;
       height: auto;
-      filter: blur(18px) grayscale(100%);
-      transform: scale(1.05);
-      -webkit-user-select: none;
-      user-select: none;
+    }
+
+    .poster-preview .poster-zoom-hint {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      background: rgba(0, 0, 0, 0.5);
+      color: var(--white);
+      font-size: 0.78rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      opacity: 0;
+      transition: opacity 0.3s;
       pointer-events: none;
     }
 
-    .poster-overlay {
-      position: absolute;
+    .poster-preview:hover .poster-zoom-hint {
+      opacity: 1;
+    }
+
+    /* Lightbox Modal */
+    .poster-lightbox {
+      display: none;
+      position: fixed;
       inset: 0;
+      z-index: 2000;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      cursor: zoom-out;
+      animation: lbFadeIn 0.25s ease;
+    }
+
+    .poster-lightbox.active {
+      display: flex;
+    }
+
+    @keyframes lbFadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .poster-lightbox img {
+      max-width: 100%;
+      max-height: 92vh;
+      border-radius: 12px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+      object-fit: contain;
+      cursor: default;
+    }
+
+    .poster-lightbox-close {
+      position: absolute;
+      top: 1rem;
+      right: 1.2rem;
+      background: rgba(255,255,255,0.15);
+      border: none;
+      color: #fff;
+      font-size: 1.5rem;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(0, 0, 0, 0.15);
+      transition: background 0.2s;
+      line-height: 1;
     }
 
-    .poster-overlay-text {
+    .poster-lightbox-close:hover {
+      background: rgba(255,255,255,0.3);
+    }
+
+    /* Poster CTA Box */
+    .poster-cta-box {
+      max-width: 480px;
+      margin: 2.5rem auto 0;
+      text-align: center;
+      padding: 2rem 1.5rem;
+      background: var(--bg-light);
+      border-radius: 16px;
+      border: 1.5px solid rgba(58, 158, 74, 0.15);
+    }
+
+    .poster-cta-msg {
       font-family: 'GmarketSans', 'Pretendard Variable', sans-serif;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       font-weight: 700;
-      color: var(--white);
-      background: rgba(0, 0, 0, 0.45);
-      padding: 0.8rem 1.8rem;
-      border-radius: 12px;
-      letter-spacing: 1px;
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
+      color: var(--text-dark);
+      line-height: 1.6;
+      margin-bottom: 0.4rem;
     }
 
-    @media (max-width: 768px) {
-      .poster-blur-img {
-        filter: blur(14px) grayscale(100%);
-      }
-      .poster-overlay-text {
-        font-size: 0.9rem;
-        padding: 0.6rem 1.2rem;
-      }
+    .poster-cta-sub {
+      font-size: 0.92rem;
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+    }
+
+    .poster-cta-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #0ba360, #3cba92);
+      color: var(--white);
+      font-family: 'GmarketSans', 'Pretendard Variable', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding: 0.75rem 2rem;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 16px rgba(11, 163, 96, 0.25);
+    }
+
+    .poster-cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(11, 163, 96, 0.35);
     }
 
     /* Skip Link */
@@ -915,12 +1007,15 @@
         <div class="divider"></div>
       </div>
       <div class="poster-gallery fade-in">
-        <div class="poster-preview">
-          <img src="images/Synodia recruit.png/Synodia recruit_1.png" alt="SYNODIA 6기 부원 모집 홍보 포스터 (미리보기)" class="poster-blur-img" width="3306" height="4677" loading="lazy">
-          <div class="poster-overlay">
-            <p class="poster-overlay-text">포스터 전체 공개 준비 중입니다<br><span style="font-size:0.85em;font-weight:500;opacity:0.9;">3월 9일(월) 공개 예정</span></p>
-          </div>
+        <div class="poster-preview" onclick="document.getElementById('posterLightbox').classList.add('active')" role="button" tabindex="0" aria-label="포스터 크게 보기">
+          <img src="images/poster/synodia poster.png" alt="SYNODIA 6기 부원 모집 홍보 포스터" loading="lazy">
+          <span class="poster-zoom-hint">클릭하여 크게 보기</span>
         </div>
+      </div>
+      <div class="poster-cta-box fade-in">
+        <p class="poster-cta-msg">시노디아와 함께 세상을 향한 다리를 놓아보세요.</p>
+        <p class="poster-cta-sub">6기 부원 모집이 진행 중입니다.</p>
+        <a href="recruitment.html" class="poster-cta-btn">6기 모집 안내</a>
       </div>
     </div>
   </section>
@@ -931,6 +1026,12 @@
     <p>&copy; 2026 SYNODIA 국제학부. All Rights Reserved.</p>
     <p>본 홈페이지에 게시된 발표 자료 및 콘텐츠의 저작권은 SYNODIA 국제학부에 있으며, 무단 복제·배포를 금합니다.</p>
   </footer>
+
+  <!-- Lightbox -->
+  <div class="poster-lightbox" id="posterLightbox" role="dialog" aria-label="포스터 확대 보기">
+    <button class="poster-lightbox-close" aria-label="닫기">&times;</button>
+    <img src="images/poster/synodia poster.png" alt="SYNODIA 6기 부원 모집 홍보 포스터 (확대)">
+  </div>
 
   <script>
     // Navbar scroll effect
@@ -952,6 +1053,26 @@
     }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Lightbox
+    const lightbox = document.getElementById('posterLightbox');
+    const closeLb = () => lightbox.classList.remove('active');
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLb();
+    });
+    lightbox.querySelector('.poster-lightbox-close').addEventListener('click', closeLb);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLb();
+    });
+
+    // Keyboard support for poster preview
+    document.querySelector('.poster-preview').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        lightbox.classList.add('active');
+      }
+    });
   </script>
 </body>
 </html>
