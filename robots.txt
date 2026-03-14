@@ -1,4 +1,15 @@
 User-agent: *
 Allow: /
+Disallow: /survey.html
+
+# Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Naver
+User-agent: Yeti
+Allow: /
+Crawl-delay: 1
 
 Sitemap: https://dh-synodia.github.io/sitemap.xml
